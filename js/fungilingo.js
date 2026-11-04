@@ -18,10 +18,15 @@
 
     // ---------- Progresso local ----------
     function load() {
-        try { return Object.assign({ xp: 0, learned: [], streak: 0, lastDay: null, name: '' }, JSON.parse(localStorage.getItem(STORE) || '{}')); }
-        catch (e) { return { xp: 0, learned: [], streak: 0, lastDay: null, name: '' }; }
+        try { return Object.assign({ xp: 0, learned: [], streak: 0, lastDay: null, name: '', token: '' }, JSON.parse(localStorage.getItem(STORE) || '{}')); }
+        catch (e) { return { xp: 0, learned: [], streak: 0, lastDay: null, name: '', token: '' }; }
     }
     let P = load();
+    // chave secreta que reserva o apelido para este navegador
+    if (!/^[a-f0-9]{32}$/.test(P.token || '')) {
+        const a = new Uint8Array(16); (window.crypto || window.msCrypto).getRandomValues(a);
+        P.token = [...a].map(x => x.toString(16).padStart(2, '0')).join('');
+    }
     const save = () => { try { localStorage.setItem(STORE, JSON.stringify(P)); } catch (e) { } };
     const today = () => new Date().toLocaleDateString('sv-SE'); // AAAA-MM-DD local
 
@@ -114,15 +119,28 @@
 
     function show(id) { ['#fl-quiz-start', '#fl-quiz-play', '#fl-quiz-end'].forEach(s => { $(s).hidden = (s !== id); }); }
 
+    const NAME_RE = /^[\p{L}\p{N} ._\-]{2,20}$/u;
     async function start() {
-        const btn = $('#fl-start'), err = $('#fl-start-error');
-        btn.disabled = true; err.hidden = true;
+        const btn = $('#fl-start'), err = $('#fl-start-error'), input = $('#fl-name');
+        const name = input.value.trim().replace(/\s+/g, ' ');
+        err.hidden = true; input.removeAttribute('aria-invalid');
+        if (!NAME_RE.test(name)) {
+            show('#fl-quiz-start'); input.setAttribute('aria-invalid', 'true'); input.focus();
+            err.textContent = 'Escolha um apelido de 2 a 20 caracteres (letras, números, espaço, ponto, hífen ou _).'; err.hidden = false;
+            return;
+        }
+        btn.disabled = true;
         try {
-            round = await api('start');
+            round = await api('start', { name, token: P.token });
+            P.name = name; save();
+            $('#fl-player-name').textContent = name;
             idx = 0; score = 0; correctCount = 0;
             $('#fl-score').textContent = '0';
             show('#fl-quiz-play'); renderQuestion();
-        } catch (e) { err.textContent = e.message; err.hidden = false; }
+        } catch (e) {
+            show('#fl-quiz-start'); err.textContent = e.message; err.hidden = false;
+            if (/apelido/i.test(e.message)) { input.setAttribute('aria-invalid', 'true'); input.focus(); input.select(); }
+        }
         finally { btn.disabled = false; }
     }
 
@@ -191,31 +209,28 @@
         const pct = correctCount / round.total;
         $('#fl-end-icon').textContent = pct >= .9 ? '🏆' : pct >= .6 ? '🍄' : '🌱';
         $('#fl-end-title').textContent = pct >= .9 ? 'Excelente desempenho, micologista!' : pct >= .6 ? 'Muito bom resultado!' : 'Continue praticando!';
-        $('#fl-submit-form').hidden = false; $('#fl-rank-msg').hidden = true; $('#fl-submit-error').hidden = true;
-        $('#fl-name').value = P.name || '';
+        const msg = $('#fl-rank-msg'), err = $('#fl-submit-error');
+        msg.textContent = 'Registrando no ranking…'; msg.hidden = false; err.hidden = true;
         show('#fl-quiz-end');
         addXP(Math.round(score / 10), 'rodada concluída');
+        submitScore();
     }
 
-    $('#fl-submit-form').addEventListener('submit', async e => {
-        e.preventDefault();
-        const name = $('#fl-name').value.trim(), err = $('#fl-submit-error'), btn = $('button', e.target);
-        btn.disabled = true; err.hidden = true;
+    // A pontuação entra no ranking automaticamente com o apelido escolhido no início
+    async function submitScore() {
+        const msg = $('#fl-rank-msg'), err = $('#fl-submit-error');
         try {
-            const r = await api('submit', { sid: round.sid, name });
-            P.name = name; save();
-            $('#fl-submit-form').hidden = true;
-            const msg = $('#fl-rank-msg');
+            const r = await api('submit', { sid: round.sid });
             msg.textContent = r.isBest
-                ? `🎉 Você está em ${r.rank}º lugar no ranking geral (de ${r.players} ${r.players === 1 ? 'jogador' : 'jogadores'})!`
-                : `Pontuação registrada. Seu recorde (${r.best} pts) segue em ${r.rank}º lugar.`;
-            msg.hidden = false;
-        } catch (ex) { err.textContent = ex.message; err.hidden = false; }
-        finally { btn.disabled = false; }
-    });
+                ? `🎉 ${P.name}, você está em ${r.rank}º lugar no ranking geral (de ${r.players} ${r.players === 1 ? 'jogador' : 'jogadores'})!`
+                : `Pontuação registrada, ${P.name}. Seu recorde (${r.best} pts) segue em ${r.rank}º lugar.`;
+        } catch (ex) { msg.hidden = true; err.textContent = 'Não foi possível registrar no ranking: ' + ex.message; err.hidden = false; }
+    }
 
-    $('#fl-start').addEventListener('click', start);
+    $('#fl-start-form').addEventListener('submit', e => { e.preventDefault(); start(); });
     $('#fl-again').addEventListener('click', start);
+    $('#fl-name').value = P.name || '';
+    save();
     $('#fl-next').addEventListener('click', next);
     document.addEventListener('keydown', e => {
         if ($('#fl-quiz-play').hidden || e.target.tagName === 'INPUT') return;

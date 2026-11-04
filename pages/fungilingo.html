@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="../css/animations.css?v=20261104b">
     <link rel="stylesheet" href="../css/styles.css?v=20261104b">
     <link rel="stylesheet" href="../css/modern-ux.css?v=20261104b">
-    <link rel="stylesheet" href="../css/fungilingo.css?v=20261104g">
+    <link rel="stylesheet" href="../css/fungilingo.css?v=20261104h">
     <script src="../js/components.js?v=20261104g"></script>
     <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"DefinedTermSet","name":"Fungilingo — Glossário de Micologia","url":"https://www.labiofun.com.br/pages/fungilingo.html","inLanguage":"pt-BR","publisher":{"@type":"ResearchOrganization","name":"Laboratório de Biofísica de Fungos","url":"https://www.labiofun.com.br"}}
@@ -1058,7 +1058,14 @@
                             <li><i class="fas fa-bolt"></i> até <strong>+50</strong> de bônus por rapidez</li>
                             <li><i class="fas fa-trophy"></i> entre no <strong>ranking</strong> com seu apelido</li>
                         </ul>
-                        <button class="fl-btn" id="fl-start"><i class="fas fa-play"></i> Começar</button>
+                        <form id="fl-start-form" class="fl-submit" novalidate>
+                            <label for="fl-name">Seu apelido no ranking</label>
+                            <div>
+                                <input id="fl-name" maxlength="20" minlength="2" required placeholder="Ex.: Hifa Veloz" autocomplete="nickname">
+                                <button class="fl-btn" id="fl-start" type="submit"><i class="fas fa-play"></i> Começar</button>
+                            </div>
+                            <small>2 a 20 caracteres. O apelido fica reservado para você neste navegador e aparece publicamente no ranking — não use nome completo nem e-mail.</small>
+                        </form>
                         <p class="fl-error" id="fl-start-error" hidden></p>
                     </div>
 
@@ -1067,6 +1074,7 @@
                             <div class="fl-progress"><div id="fl-progress-fill"></div></div>
                             <span class="fl-score"><i class="fas fa-bolt"></i> <span id="fl-score">0</span></span>
                         </div>
+                        <p class="fl-player"><i class="fas fa-user"></i> <span id="fl-player-name"></span></p>
                         <p class="fl-qmeta"><span id="fl-qnum">1/10</span> · <span id="fl-qtype"></span></p>
                         <h3 class="fl-question" id="fl-question"></h3>
                         <div class="fl-options" id="fl-options"></div>
@@ -1085,15 +1093,7 @@
                         <div class="fl-big-icon" id="fl-end-icon">🍄</div>
                         <h3 id="fl-end-title">Rodada concluída!</h3>
                         <p class="fl-end-score"><strong id="fl-end-score">0</strong> pontos · <span id="fl-end-correct">0</span>/10 acertos</p>
-                        <form id="fl-submit-form" class="fl-submit">
-                            <label for="fl-name">Seu apelido no ranking</label>
-                            <div>
-                                <input id="fl-name" maxlength="20" minlength="2" required placeholder="Ex.: Hifa Veloz" autocomplete="nickname">
-                                <button class="fl-btn" type="submit"><i class="fas fa-trophy"></i> Enviar</button>
-                            </div>
-                            <small>Aparece publicamente no ranking. Não use seu nome completo nem e-mail.</small>
-                        </form>
-                        <p class="fl-rank-msg" id="fl-rank-msg" hidden></p>
+                        <p class="fl-rank-msg" id="fl-rank-msg">Registrando no ranking…</p>
                         <p class="fl-error" id="fl-submit-error" hidden></p>
                         <div class="fl-end-actions">
                             <button class="fl-btn fl-btn-ghost" id="fl-again"><i class="fas fa-rotate-right"></i> Jogar de novo</button>
@@ -1137,7 +1137,7 @@
     <script src="../js/language-switcher.js?v=20261104b" defer></script>
     <script src="../js/bell.js?v=20261104e" defer></script>
     <script src="../js/main.js?v=20261104b"></script>
-    <script src="../js/fungilingo.js?v=20261104g" defer></script>
+    <script src="../js/fungilingo.js?v=20261104h" defer></script>
 </body>
 
 </html>

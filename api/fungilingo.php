@@ -2,9 +2,9 @@
 /**
  * Fungilingo API: quiz com pontuação calculada no servidor e ranking.
  *
- *   GET  ?action=start                         : nova rodada (10 perguntas, sem gabarito)
+ *   POST ?action=start   {name, token}         : nova rodada (10 perguntas, sem gabarito) para o apelido
  *   POST ?action=answer  {sid, i, choice}       : corrige a pergunta i
- *   POST ?action=submit  {sid, name}            : grava a pontuação no ranking
+ *   POST ?action=submit  {sid}                  : grava a pontuação da rodada no ranking
  *   GET  ?action=leaderboard&period=all|week    : lista os 20 primeiros colocados
  *
  * Dados gravados em api/fungilingo-data/ (acesso direto bloqueado por .htaccess).
@@ -34,6 +34,8 @@ function out($data, int $code = 200): void { http_response_code($code); echo jso
 function fail(string $msg, int $code = 400): void { out(['ok' => false, 'error' => $msg], $code); }
 function body(): array { $b = json_decode(file_get_contents('php://input') ?: '[]', true); return is_array($b) ? $b : []; }
 function valid_sid($s): bool { return is_string($s) && preg_match('/^[a-f0-9]{32}$/', $s) === 1; }
+function clean_name($n): string { return trim(preg_replace('/\s+/u', ' ', (string)$n)); }
+function valid_name(string $n): bool { return preg_match('/^[\p{L}\p{N} ._\-]{2,20}$/u', $n) === 1; }
 
 /** Lê-modifica-grava um JSON com trava exclusiva. */
 function with_json(string $file, callable $fn) {
@@ -120,6 +122,19 @@ $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
 switch ($action) {
 
 case 'start':
+    if ($method !== 'POST') fail('Use POST', 405);
+    $b = body();
+    $name = clean_name($b['name'] ?? ''); $token = $b['token'] ?? '';
+    if (!valid_name($name)) fail('Apelido: 2 a 20 letras, números, espaço, ponto, hífen ou _');
+    if (!valid_sid($token)) fail('Identificação inválida. Recarregue a página.');
+    // Apelido pertence a quem o registrou primeiro (chave secreta guardada no navegador)
+    $owner = with_json("$DATA/players.json", function ($pl) use ($name, $token) {
+        $k = mb_strtolower($name); $h = hash('sha256', $token);
+        if (isset($pl[$k]) && !hash_equals($pl[$k]['h'], $h)) return [$pl, false];
+        $pl[$k] = ['name' => $name, 'h' => $h, 'ts' => $pl[$k]['ts'] ?? time()];
+        return [$pl, true];
+    });
+    if (!$owner) fail('Este apelido já pertence a outro jogador. Escolha outro.', 409);
     cleanup_sessions($SESS);
     $ip = client_ip_hash(); $hour = (string)intdiv(time(), 3600);
     $allowed = with_json("$DATA/ratelimit.json", function ($d) use ($ip, $hour) {
@@ -133,7 +148,7 @@ case 'start':
     $round = build_round();
     $now = microtime(true);
     file_put_contents("$SESS/$sid.json", json_encode([
-        'created' => time(), 'last' => $now, 'round' => $round, 'answers' => [], 'score' => 0, 'submitted' => false,
+        'created' => time(), 'last' => $now, 'round' => $round, 'answers' => [], 'score' => 0, 'submitted' => false, 'name' => $name,
     ], JSON_UNESCAPED_UNICODE), LOCK_EX);
     out(['ok' => true, 'sid' => $sid, 'total' => count($round),
          'questions' => array_map(fn($q) => ['q' => $q['q'], 'o' => $q['o'], 'tipo' => $q['tipo']], $round)]);
@@ -166,19 +181,17 @@ case 'answer':
 case 'submit':
     if ($method !== 'POST') fail('Use POST', 405);
     $b = body(); $sid = $b['sid'] ?? '';
-    $name = trim(preg_replace('/\s+/u', ' ', (string)($b['name'] ?? '')));
     if (!valid_sid($sid)) fail('Dados inválidos');
     if (!file_exists("$SESS/$sid.json")) fail('Rodada não encontrada ou expirada', 404);
-    if (!preg_match('/^[\p{L}\p{N} ._\-]{2,20}$/u', $name)) fail('Apelido: 2 a 20 letras, números, espaço, ponto, hífen ou _');
     $entry = with_json("$SESS/$sid.json", function ($s) {
-        if (!$s || ($s['submitted'] ?? false)) return [$s, null];
+        if (!$s || ($s['submitted'] ?? false) || empty($s['name'])) return [$s, null];
         if (count($s['answers']) < count($s['round'])) return [$s, null];
         $s['submitted'] = true;
-        return [$s, ['score' => $s['score'], 'correct' => count(array_filter($s['answers'], fn($a) => $a['ok'])),
+        return [$s, ['name' => $s['name'], 'score' => $s['score'], 'correct' => count(array_filter($s['answers'], fn($a) => $a['ok'])),
                      'total' => count($s['round']), 'secs' => round(array_sum(array_column($s['answers'], 'secs')), 1)]];
     });
     if (!$entry) fail('Rodada incompleta ou já enviada', 409);
-    $entry += ['name' => $name, 'ts' => time(), 'id' => substr($sid, 0, 8)];
+    $entry += ['ts' => time(), 'id' => substr($sid, 0, 8)];
     $rank = with_json("$DATA/leaderboard.json", function ($lb) use ($entry) {
         $lb[] = $entry;
         usort($lb, fn($a, $b) => [$b['score'], $a['secs'], $a['ts']] <=> [$a['score'], $b['secs'], $b['ts']]);
