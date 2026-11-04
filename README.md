@@ -15,3 +15,10 @@ npm run prerender
 
 O script grava o conteúdo no `index.html` entre os marcadores `<!--prerender:...-->`.
 Publique o `index.html` atualizado junto com os demais arquivos.
+
+## Fungilingo (glossário + quiz)
+
+- Termos: `data/fungilingo-glossary.json` → depois rode `node tools/build-fungilingo.js`
+- Perguntas sobre os artigos: `api/fungilingo-questions.php`
+- Ranking e sessões ficam em `api/fungilingo-data/` (criado automaticamente; não versionado).
+  Precisa de PHP (Hostinger já tem) e permissão de escrita nessa pasta.
