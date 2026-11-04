@@ -1,5 +1,5 @@
 /**
- * Fungilingo — glossário (filtro/busca), progresso local (XP, nível, dias seguidos)
+ * Fungilingo: glossário (filtro e busca), progresso local (XP, nível, dias seguidos)
  * e quiz com pontuação e ranking calculados no servidor (api/fungilingo.php).
  */
 (function () {
@@ -13,6 +13,8 @@
     const $ = (s, r = document) => r.querySelector(s);
     const $$ = (s, r = document) => [...r.querySelectorAll(s)];
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const fmt = s => esc(s).replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    const plain = s => String(s).replace(/\*/g, '');
 
     // ---------- Progresso local ----------
     function load() {
@@ -126,7 +128,7 @@
 
     function reportLink(question) {
         const s = encodeURIComponent('Fungilingo: erro no quiz');
-        const m = encodeURIComponent(`Pergunta: ${question.q}\nOpções: ${question.o.join(' | ')}\nO erro que encontrei: `);
+        const m = encodeURIComponent(`Pergunta: ${plain(question.q)}\nOpções: ${question.o.map(plain).join(' | ')}\nO erro que encontrei: `);
         return `contact.html?assunto=${s}&mensagem=${m}`;
     }
 
@@ -134,14 +136,14 @@
         const q = round.questions[idx]; answered = false;
         $('#fl-qnum').textContent = `${idx + 1}/${round.total}`;
         $('#fl-qtype').textContent = q.tipo;
-        $('#fl-question').textContent = q.q;
+        $('#fl-question').innerHTML = fmt(q.q);
         $('#fl-progress-fill').style.width = (idx / round.total * 100) + '%';
         $('#fl-feedback').hidden = true;
         const box = $('#fl-options'); box.innerHTML = '';
         q.o.forEach((opt, i) => {
             const b = document.createElement('button');
             b.type = 'button'; b.className = 'fl-option';
-            b.innerHTML = `<kbd>${i + 1}</kbd><span>${esc(opt)}</span>`;
+            b.innerHTML = `<kbd>${i + 1}</kbd><span>${fmt(opt)}</span>`;
             b.addEventListener('click', () => answer(i));
             box.appendChild(b);
         });
@@ -160,9 +162,9 @@
             const fb = $('#fl-feedback');
             fb.className = 'fl-feedback ' + (r.correct ? 'ok' : 'no');
             $('.fl-feedback-head i', fb).className = 'fas ' + (r.correct ? 'fa-circle-check' : 'fa-circle-xmark');
-            $('#fl-feedback-title').textContent = r.correct ? 'Correto!' : 'Não foi dessa vez';
+            $('#fl-feedback-title').textContent = r.correct ? 'Resposta correta!' : 'Resposta incorreta';
             $('#fl-feedback-pts').textContent = r.correct ? `+${r.points}${r.bonus ? ` (bônus ${r.bonus})` : ''}` : '';
-            $('#fl-feedback-text').textContent = r.explanation;
+            $('#fl-feedback-text').innerHTML = fmt(r.explanation);
             const ref = $('#fl-feedback-ref'); ref.hidden = !r.ref; if (r.ref) ref.href = r.ref;
             $('#fl-feedback-report').href = reportLink(round.questions[idx]);
             $('#fl-next').innerHTML = r.done ? 'Ver resultado <i class="fas fa-flag-checkered"></i>' : 'Continuar <i class="fas fa-arrow-right"></i>';
@@ -188,7 +190,7 @@
         $('#fl-end-correct').parentNode.lastChild.textContent = `/${round.total} acertos`;
         const pct = correctCount / round.total;
         $('#fl-end-icon').textContent = pct >= .9 ? '🏆' : pct >= .6 ? '🍄' : '🌱';
-        $('#fl-end-title').textContent = pct >= .9 ? 'Incrível, micologista!' : pct >= .6 ? 'Muito bem!' : 'Continue praticando!';
+        $('#fl-end-title').textContent = pct >= .9 ? 'Excelente desempenho, micologista!' : pct >= .6 ? 'Muito bom resultado!' : 'Continue praticando!';
         $('#fl-submit-form').hidden = false; $('#fl-rank-msg').hidden = true; $('#fl-submit-error').hidden = true;
         $('#fl-name').value = P.name || '';
         show('#fl-quiz-end');

@@ -1,11 +1,11 @@
 <?php
 /**
- * Fungilingo API — quiz com pontuação calculada no servidor e ranking.
+ * Fungilingo API: quiz com pontuação calculada no servidor e ranking.
  *
- *   GET  ?action=start                         → nova rodada (10 perguntas, sem gabarito)
- *   POST ?action=answer  {sid, i, choice}       → corrige a pergunta i
- *   POST ?action=submit  {sid, name}            → grava a pontuação no ranking
- *   GET  ?action=leaderboard&period=all|week    → top 20
+ *   GET  ?action=start                         : nova rodada (10 perguntas, sem gabarito)
+ *   POST ?action=answer  {sid, i, choice}       : corrige a pergunta i
+ *   POST ?action=submit  {sid, name}            : grava a pontuação no ranking
+ *   GET  ?action=leaderboard&period=all|week    : lista os 20 primeiros colocados
  *
  * Dados gravados em api/fungilingo-data/ (acesso direto bloqueado por .htaccess).
  */
@@ -69,7 +69,7 @@ function build_round(): array {
     $articles = array_values(array_filter($bank, fn($q) => $q['src'] === 'artigo'));
     $gloss = array_values(array_filter($bank, fn($q) => $q['src'] === 'glossario'));
     shuffle($articles); shuffle($gloss);
-    $picked = array_merge(array_slice($articles, 0, 4), array_slice($gloss, 0, QUESTIONS_PER_ROUND - 4));
+    $picked = array_merge(array_slice($articles, 0, 5), array_slice($gloss, 0, QUESTIONS_PER_ROUND - 5));
     shuffle($picked);
 
     $round = [];
@@ -78,14 +78,15 @@ function build_round(): array {
             $opts = $q['o']; $correct = $opts[$q['a']];
             shuffle($opts);
             $round[] = ['q' => $q['q'], 'o' => $opts, 'a' => array_search($correct, $opts, true),
-                        'e' => $q['e'], 'ref' => $q['doi'] ? 'https://doi.org/' . $q['doi'] : null, 'tipo' => 'Artigo do Labiofun'];
+                        'e' => $q['e'], 'ref' => !empty($q['doi']) ? 'https://doi.org/' . $q['doi'] : null,
+                        'tipo' => !empty($q['doi']) ? 'Artigo do Labiofun' : 'Micologia'];
         } else {
             $pool = $q['same']; shuffle($pool);
             $dist = array_slice($pool, 0, 3);
             if (count($dist) < 3) { $o = $q['others']; shuffle($o); $dist = array_merge($dist, array_slice($o, 0, 3 - count($dist))); }
             $opts = array_merge([$q['t']], $dist); shuffle($opts);
             $round[] = ['q' => 'Qual termo corresponde a esta definição? “' . $q['d'] . '”', 'o' => $opts,
-                        'a' => array_search($q['t'], $opts, true), 'e' => $q['t'] . ' — ' . $q['d'], 'ref' => null, 'tipo' => 'Glossário · ' . $q['c']];
+                        'a' => array_search($q['t'], $opts, true), 'e' => $q['t'] . ': ' . $q['d'], 'ref' => null, 'tipo' => 'Glossário · ' . $q['c']];
         }
     }
     return $round;
