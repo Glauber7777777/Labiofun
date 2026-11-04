@@ -108,5 +108,20 @@ window.alumniData = [
     "name": "Juliana Godoy",
     "image": "images/Juliana_Godoy.webp",
     "initials": "JG"
+  },
+  {
+    "name": "Juliana Britto",
+    "image": "images/Juliana.webp",
+    "initials": "JB"
+  },
+  {
+    "name": "Isabela Silveira",
+    "image": "images/Bela.webp",
+    "initials": "IS"
+  },
+  {
+    "name": "Matheus Schmitt Müller",
+    "image": "images/Matheus.webp",
+    "initials": "MM"
   }
 ];

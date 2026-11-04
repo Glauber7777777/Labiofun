@@ -86,27 +86,6 @@ window.currentTeam = [
     "category": "Pós-doutores"
   },
   {
-    "name": "Juliana Britto",
-    "image": "images/Juliana.webp",
-    "roleKey": "role.phd",
-    "roleDefault": "Doutoranda - M. Sc.",
-    "bioKey": "member.juliana.bio",
-    "bioDefault": "Bióloga, seu foco são os estudos sobre mecanismos de virulência, resistência antimicrobiana e impacto ecossistêmico, com foco na compreensão dos processos biológicos que influenciam a patogenicidade microbiana e suas consequências ambientais em ecossistemas de manguezais.",
-    "links": [
-      {
-        "url": "http://lattes.cnpq.br/0156560802723111",
-        "icon": "fas fa-file-lines",
-        "title": "Currículo Lattes"
-      },
-      {
-        "url": "https://orcid.org/0000-0002-0986-1072",
-        "icon": "fab fa-orcid",
-        "title": "ORCID"
-      }
-    ],
-    "category": "Doutorandos"
-  },
-  {
     "name": "Mariana Brito Barbieri",
     "image": "images/Mariana.webp",
     "roleKey": "role.masters",
@@ -173,21 +152,6 @@ window.currentTeam = [
     "category": "Iniciação Científica"
   },
   {
-    "name": "Isabela Silveira",
-    "image": "images/Bela.webp",
-    "roleKey": "role.undergrad",
-    "roleDefault": "Iniciação Científica",
-    "bioDefault": "Aluna do curso de Conservação e Restauração da Escola de Belas Artes da UFRJ, dedica-se ao estudo de métodos químicos e físicos minimamente invasivos e não destrutivos para controle de biodeterioração fúngica em acervos culturais.",
-    "links": [
-      {
-        "url": "#",
-        "icon": "fas fa-file-lines",
-        "title": "Currículo Lattes"
-      }
-    ],
-    "category": "Iniciação Científica"
-  },
-  {
     "name": "Igor de Avellar Guimarães",
     "image": "images/Igor.webp",
     "roleKey": "role.undergrad",
@@ -196,21 +160,6 @@ window.currentTeam = [
     "links": [
       {
         "url": "http://lattes.cnpq.br/9823397099971684",
-        "icon": "fas fa-file-lines",
-        "title": "Currículo Lattes"
-      }
-    ],
-    "category": "Iniciação Científica"
-  },
-  {
-    "name": "Matheus Schmitt Müller",
-    "image": "images/Matheus.webp",
-    "roleKey": "role.undergrad",
-    "roleDefault": "Iniciação Científica",
-    "bioDefault": "Bacharelando em Biotecnologia (UFRJ), Estuda mecanismos de virulência, resistência antimicrobiana e impacto ecossistêmico de leveduras, com foco na compreensão dos processos biológicos que influenciam a patogenicidade desses microrganismos e suas consequências ambientais em ecossistemas de manguezais.",
-    "links": [
-      {
-        "url": "http://lattes.cnpq.br/4690771575216169",
         "icon": "fas fa-file-lines",
         "title": "Currículo Lattes"
       }

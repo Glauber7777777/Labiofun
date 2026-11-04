@@ -417,7 +417,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (item.type === 'video') {
                 thumb.innerHTML = `<video src="${item.url}" muted preload="metadata"></video><div class="dock-thumb-overlay"></div>`;
             } else {
-                thumb.innerHTML = `<img src="${item.url}" alt="${item.title}"><div class="dock-thumb-overlay"></div>`;
+                thumb.innerHTML = `<img src="${item.url}" alt="${item.title}" loading="lazy" decoding="async"><div class="dock-thumb-overlay"></div>`;
             }
 
             thumb.addEventListener('click', (e) => {

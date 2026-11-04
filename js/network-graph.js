@@ -119,10 +119,10 @@ class CollaborationNetwork {
             },
             "Juliana Britto": {
                 role: {
-                    "pt-BR": "Doutoranda",
-                    "en": "Ph.D. Student",
-                    "es-ES": "Estudiante de Doctorado",
-                    "fr-FR": "Doctorante"
+                    "pt-BR": "Ex-membro (Alumni)",
+                    "en": "Former member (Alumni)",
+                    "es-ES": "Ex miembro (Alumni)",
+                    "fr-FR": "Ancienne membre (Alumni)"
                 },
                 institution: "UFRJ",
                 bio: {
