@@ -1,0 +1,10 @@
+{
+  "name": "labiofun-site",
+  "private": true,
+  "scripts": {
+    "prerender": "node tools/prerender.js"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}

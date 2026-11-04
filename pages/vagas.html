@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vagas — Labiofun | Laboratório de Biofísica de Fungos</title>
+    <meta name="description"
+        content="Oportunidades de pesquisa no Labiofun — IC, Mestrado, Doutorado e Pós-doutorado em Biofísica de Fungos na UFRJ.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/modern-ux.css">
+    <script src="../js/components.js"></script>
+    <style>
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+            font-size: var(--font-size-sm);
+            opacity: .75;
+        }
+
+        .breadcrumb a {
+            color: var(--white);
+        }
+
+        /* Benefits */
+        .benefits-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xl);
+            justify-content: center;
+        }
+
+        .benefit-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            flex: 1 1 220px;
+            max-width: 260px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--light-gray);
+            transition: transform var(--transition-base), box-shadow var(--transition-base);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .benefit-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-primary);
+            color: var(--white);
+            font-size: var(--font-size-2xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+        }
+
+        .benefit-card h3 {
+            font-size: var(--font-size-base);
+            color: var(--primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .benefit-card p {
+            font-size: var(--font-size-sm);
+            color: var(--dark-gray);
+            line-height: var(--line-height-relaxed);
+        }
+
+        /* Position cards */
+        .position-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--light-gray);
+            margin-bottom: var(--space-xl);
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow var(--transition-base);
+        }
+
+        .position-card:hover {
+            box-shadow: var(--shadow-xl);
+        }
+
+        .position-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+        }
+
+        .position-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: var(--primary-light-bg);
+            color: var(--primary);
+            font-size: var(--font-size-xs);
+            font-weight: var(--font-weight-semibold);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-full);
+            margin-bottom: var(--space-md);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        .position-badge.open {
+            background: #d4f5e3;
+            color: #1a6b3c;
+        }
+
+        .position-badge.review {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .position-card h3 {
+            color: var(--dark);
+            font-size: var(--font-size-2xl);
+            margin-bottom: var(--space-sm);
+        }
+
+        .position-card .subtitle {
+            color: var(--gray);
+            font-size: var(--font-size-base);
+            margin-bottom: var(--space-lg);
+        }
+
+        .req-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-xl);
+        }
+
+        .req-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-sm);
+            font-size: var(--font-size-sm);
+            color: var(--dark-gray);
+        }
+
+        .req-list li i {
+            color: var(--accent);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .apply-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            background: var(--gradient-primary);
+            color: var(--white);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-full);
+            font-weight: var(--font-weight-semibold);
+            font-size: var(--font-size-sm);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .apply-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            color: var(--white);
+        }
+
+        /* Process steps */
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-xl);
+            justify-content: center;
+            counter-reset: step;
+        }
+
+        .step {
+            flex: 1 1 200px;
+            max-width: 240px;
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-full);
+            background: var(--gradient-primary);
+            color: var(--white);
+            font-size: var(--font-size-2xl);
+            font-weight: var(--font-weight-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-md);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .step h3 {
+            font-size: var(--font-size-base);
+            color: var(--primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .step p {
+            font-size: var(--font-size-sm);
+            color: var(--dark-gray);
+            line-height: var(--line-height-relaxed);
+        }
+
+        /* Info box */
+        .info-box {
+            background: var(--primary-light-bg);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+            padding: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+
+        .info-box p {
+            color: var(--dark-gray);
+            font-size: var(--font-size-sm);
+            line-height: var(--line-height-relaxed);
+            margin: 0;
+        }
+
+        .info-box strong {
+            color: var(--primary);
+        }
+
+        /* Alt section */
+        .section-alt {
+            background: var(--light);
+        }
+
+        /* Back button */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--white);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            opacity: .8;
+            transition: opacity var(--transition-fast);
+        }
+
+        .back-link:hover {
+            opacity: 1;
+            color: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h2 {
+                font-size: var(--font-size-3xl);
+            }
+
+            .page-hero p {
+                font-size: var(--font-size-base);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+    <!-- Header -->
+    <labiofun-header></labiofun-header>
+
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="hero" style="padding-top: calc(var(--space-2xl) + 60px);">
+            <div class="container hero-content">
+                <div class="breadcrumb" style="position:relative; z-index:2; justify-content:center; display:flex; gap:0.5rem; margin-bottom:1rem; color:white; opacity:0.8;">
+                    <a href="../index.html" data-i18n="nav.home" style="color:white;"><i class="fas fa-home"></i> Início</a>
+                    <i class="fas fa-chevron-right" style="font-size:.6rem; margin-top:5px;"></i>
+                    <span data-i18n="nav.jobs">Vagas & Oportunidades</span>
+                </div>
+                <h2 class="scroll-animate" data-i18n="jobs.hero.title"><i class="fas fa-briefcase" style="margin-right:.5rem"></i>Junte-se à Nossa Equipe</h2>
+                <p class="scroll-animate delay-200" data-i18n="jobs.hero.subtitle">Buscamos talentos apaixonados por ciência para integrar nossos projetos de pesquisa em biofísica de fungos.</p>
+            </div>
+        </section>
+
+        <!-- Por que o Labiofun -->
+        <section class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="vagas.why.title">Por que pesquisar no Labiofun?</h2>
+                    <p data-i18n="vagas.why.desc">Ambiente inspirador, tecnologia de ponta e ciência translacional</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card scroll-animate">
+                        <div class="benefit-icon"><i class="fas fa-flask"></i></div>
+                        <h3 data-i18n="vagas.reason1.title">Ciência de Impacto</h3>
+                        <p data-i18n="vagas.reason1.desc">Desenvolvemos pesquisas publicadas nas melhores revistas científicas internacionais.</p>
+                    </div>
+                    <div class="benefit-card scroll-animate delay-100">
+                        <div class="benefit-icon"><i class="fas fa-microscope"></i></div>
+                        <h3 data-i18n="vagas.reason2.title">Tecnologia de Ponta</h3>
+                        <p data-i18n="vagas.reason2.desc">Infraestrutura completa com microscopia eletrônica e equipamentos avançados de biofísica.</p>
+                    </div>
+                    <div class="benefit-card scroll-animate delay-200">
+                        <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 data-i18n="vagas.reason3.title">Formação de Excelência</h3>
+                        <p data-i18n="vagas.reason3.desc">Orientação qualificada, ambiente colaborativo e conexões com instituições internacionais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vagas abertas -->
+        <section class="section-alt" id="positions">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="vagas.open.title">Vagas Abertas</h2>
+                    <p data-i18n="vagas.open.desc">Junte-se à nossa equipe</p>
+                </div>
+
+                <!-- No vacancies placeholder card -->
+                <div class="no-vacancies-card scroll-animate">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-inbox"></i>
+                    </div>
+                    <h3 data-i18n="vagas.none.title">Não há processos seletivos abertos no momento</h3>
+                    <p class="subtitle" data-i18n="vagas.none.subtitle">Mas estamos sempre em busca de talentos!</p>
+                    <p class="description">
+                        <span data-i18n="vagas.none.desc">Se você tem interesse em realizar Iniciação Científica, Mestrado, Doutorado ou Pós-doutorado em nosso laboratório, encorajamos candidaturas espontâneas. Envie seu CV Lattes e uma breve carta de motivação para</span>
+                        <strong><a href="mailto:labiofun@labiofun.com.br"
+                                style="color: var(--primary); text-decoration: underline; font-weight: 600;">labiofun@labiofun.com.br</a></strong>.
+                    </p>
+                    <div class="note" data-i18n="vagas.none.note">
+                        Analisamos todas as manifestações de interesse para futuras oportunidades!
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Como se candidatar -->
+        <section class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="vagas.how.title">Como se candidatar</h2>
+                    <p data-i18n="vagas.how.desc">Processo simples e transparente</p>
+                </div>
+                <div class="process-steps">
+                    <div class="step scroll-animate">
+                        <div class="step-number">1</div>
+                        <h3 data-i18n="vagas.step1.title">Escolha a vaga</h3>
+                        <p data-i18n="vagas.step1.desc">Leia o descritivo do projeto e verifique se seu perfil atende aos requisitos.</p>
+                    </div>
+                    <div class="step scroll-animate delay-100">
+                        <div class="step-number">2</div>
+                        <h3 data-i18n="vagas.step2.title">Prepare os documentos</h3>
+                        <p data-i18n="vagas.step2.desc">Currículo atualizado (Lattes ou CV) e carta de motivação de 1 página explicando seu interesse.</p>
+                    </div>
+                    <div class="step scroll-animate delay-200">
+                        <div class="step-number">3</div>
+                        <h3 data-i18n="vagas.step3.title">Envie por e-mail</h3>
+                        <p><span data-i18n="vagas.step3.desc">Envie com o assunto indicado no botão de cada vaga.</span> <a href="mailto:labiofun@labiofun.com.br">labiofun@labiofun.com.br</a></p>
+                    </div>
+                    <div class="step scroll-animate delay-300">
+                        <div class="step-number">4</div>
+                        <h3 data-i18n="vagas.step4.title">Entrevista</h3>
+                        <p data-i18n="vagas.step4.desc">Candidatos pré-selecionados serão convidados para uma entrevista (presencial ou remota).</p>
+                    </div>
+                    <div class="step scroll-animate delay-400">
+                        <div class="step-number">5</div>
+                        <h3 data-i18n="vagas.step5.title">Bem-vindo(a)!</h3>
+                        <p data-i18n="vagas.step5.desc">Resposta em até 15 dias úteis. Candidatos aprovados recebem orientações de integração ao lab.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <labiofun-footer></labiofun-footer>
+
+    <button id="scroll-top" class="scroll-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Shared Scripts -->
+    <!-- Data Files -->
+    <script src="../data/seminarios.js" defer></script>
+    <script src="../data/team.js" defer></script>
+    <script src="../data/alumni.js" defer></script>
+    <script src="../data/publications.js" defer></script>
+    <script src="../data/books.js" defer></script>
+    <script src="../data/collaborators.js" defer></script>
+    <script src="../js/translations.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/bell.js" defer></script>
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

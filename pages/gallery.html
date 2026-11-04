@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria — Labiofun | Laboratório de Biofísica de Fungos</title>
+    <meta name="description" content="Galeria de imagens e vídeos do Labiofun - MEV, MET e Pinça Óptica.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/modern-ux.css">
+    <script src="../js/components.js"></script>
+    <style>
+        /* =========================================
+           PAGE HERO
+           ========================================= */
+        .breadcrumb { display: flex; align-items: center; justify-content: center; gap: var(--space-sm); margin-bottom: var(--space-xl); font-size: var(--font-size-sm); opacity: .75; }
+        .breadcrumb a { color: var(--white); }
+
+        /* =========================================
+           BENTO GRID
+           ========================================= */
+        .bento-section {
+            padding: var(--space-3xl) 0;
+            background: var(--light);
+        }
+
+        .bento-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        #bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 60px;
+            gap: 12px;
+        }
+
+        /* Span classes */
+        .col-span-1 { grid-column: span 1; }
+        .col-span-2 { grid-column: span 2; }
+        .row-span-3 { grid-row: span 3; }
+        .row-span-4 { grid-row: span 4; }
+
+        /* Bento Cell */
+        .bento-cell {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            animation: bentoFadeIn 0.5s ease both;
+        }
+
+        @keyframes bentoFadeIn {
+            from { opacity: 0; transform: translateY(40px) scale(0.92); }
+            to   { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .bento-cell:hover {
+            transform: scale(1.02);
+            transition: transform 0.25s ease;
+        }
+
+        .bento-bg-blur {
+            position: absolute;
+            inset: -5%;
+            width: 110%;
+            height: 110%;
+            background-size: cover;
+            background-position: center;
+            filter: blur(15px) brightness(0.7);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bento-media {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .bento-cell:hover .bento-media {
+            transform: scale(1.05);
+        }
+
+        /* Overlay */
+        .bento-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 12px;
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+
+        .bento-cell:hover .bento-overlay {
+            opacity: 1;
+        }
+
+        .bento-overlay::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.35) 50%, transparent);
+            pointer-events: none;
+        }
+
+        .bento-info {
+            position: relative;
+            z-index: 2;
+        }
+
+        .bento-info h3 {
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .bento-info p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.75rem;
+            margin: 4px 0 0;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .bento-play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .bento-cell:hover .bento-play-icon {
+            opacity: 1;
+        }
+
+        /* =========================================
+           MODAL
+           ========================================= */
+        .gallery-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 10000;
+            background: rgba(0,0,0,0.05);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-main-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .modal-media-container {
+            position: relative;
+            width: 100%;
+            max-height: 70vh;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.1);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .modal-media {
+            width: 100%;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+            background: rgba(0,0,0,0.15);
+        }
+
+        .modal-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+        }
+
+        .modal-caption h3 {
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .modal-caption p {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.875rem;
+            margin: 4px 0 0;
+        }
+
+        /* Close Button */
+        .modal-close-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 100;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(200,200,200,0.8);
+            backdrop-filter: blur(6px);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .modal-close-btn:hover {
+            transform: scale(1.1);
+            background: rgba(200,200,200,1);
+        }
+
+        /* =========================================
+           DOCK (Thumbnails)
+           ========================================= */
+        .modal-dock {
+            position: fixed;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10001;
+            background: rgba(56, 189, 248, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(96, 165, 250, 0.3);
+            border-radius: 12px;
+            padding: 8px 12px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            display: none;
+            max-width: 90vw;
+            overflow-x: auto;
+        }
+
+        .gallery-modal-overlay.active .modal-dock {
+            display: block;
+        }
+
+        .modal-dock-items {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+
+        .dock-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+            flex-shrink: 0;
+            border: 2px solid transparent;
+            transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform: translateY(0) rotate(var(--rotate, 0deg));
+            background: #000;
+        }
+
+        .dock-thumb img,
+        .dock-thumb video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            display: block;
+        }
+
+        .dock-thumb-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.1), rgba(255,255,255,0.2));
+            pointer-events: none;
+        }
+
+        .dock-thumb:hover {
+            transform: scale(1.3) rotate(0deg) translateY(-10px);
+            z-index: 20;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+        }
+
+        .dock-thumb.active {
+            transform: scale(1.2) rotate(0deg) translateY(-8px);
+            z-index: 30;
+            box-shadow: 0 0 0 2px rgba(255,255,255,0.7), 0 4px 16px rgba(0,0,0,0.5);
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 1024px) {
+            #bento-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .page-hero h2 { font-size: var(--font-size-3xl); }
+            .page-hero p  { font-size: var(--font-size-base); }
+
+            #bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 50px;
+                gap: 8px;
+            }
+
+            .col-span-2 { grid-column: span 2; }
+
+            .dock-thumb {
+                width: 30px;
+                height: 30px;
+            }
+
+            .modal-media {
+                max-height: 60vh;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #bento-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-auto-rows: 45px;
+            }
+
+            .bento-info h3 { font-size: 0.75rem; }
+            .bento-info p { font-size: 0.625rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+    <!-- Header -->
+    <labiofun-header></labiofun-header>
+
+    <main id="main-content">
+        <section class="hero" style="padding-top: calc(var(--space-2xl) + 60px);">
+            <div class="container hero-content">
+                <div class="breadcrumb" style="position:relative; z-index:2; justify-content:center; display:flex; gap:0.5rem; margin-bottom:1rem; color:white; opacity:0.8;">
+                    <a href="../index.html" data-i18n="nav.home" style="color:white;"><i class="fas fa-home"></i> Início</a>
+                    <i class="fas fa-chevron-right" style="font-size:.6rem; margin-top:5px;"></i>
+                    <span data-i18n="nav.gallery">Galeria Científica</span>
+                </div>
+                <h2 class="scroll-animate" data-i18n="gallery.title"><i class="fas fa-camera" style="margin-right:.5rem"></i>O Laboratório em Ação</h2>
+                <p class="scroll-animate delay-200" data-i18n="gallery.subtitle">Explorando o mundo fúngico através de tecnologias de ponta</p>
+            </div>
+        </section>
+
+        <!-- Bento Gallery Section -->
+        <section class="bento-section">
+            <div class="bento-container">
+                <div id="bento-grid">
+                    <!-- Grid items injected by gallery.js -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Gallery Modal -->
+    <div class="gallery-modal-overlay" id="gallery-modal">
+        <button class="modal-close-btn" id="modal-close-btn" aria-label="Fechar">
+            <i class="fas fa-times"></i>
+        </button>
+
+        <div class="modal-main-area">
+            <div class="modal-media-container">
+                <!-- Media content injected by JS -->
+            </div>
+            <div class="modal-caption"></div>
+        </div>
+
+        <div class="modal-dock">
+            <div class="modal-dock-items">
+                <!-- Dock thumbnails injected by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <labiofun-footer></labiofun-footer>
+
+    <button id="scroll-top" class="scroll-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Data Files -->
+    <script src="../data/seminarios.js" defer></script>
+    <script src="../data/team.js" defer></script>
+    <script src="../data/alumni.js" defer></script>
+    <script src="../data/publications.js" defer></script>
+    <script src="../data/books.js" defer></script>
+    <script src="../data/collaborators.js" defer></script>
+    <script src="../js/translations.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/bell.js" defer></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/gallery.js"></script>
+</body>
+</html>

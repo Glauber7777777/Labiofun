@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /analytics-template.html
+Disallow: /pages/enviar-email.php
+
+Sitemap: https://www.labiofun.com.br/sitemap.xml
