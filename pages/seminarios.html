@@ -828,6 +828,7 @@
 
     <!-- Data Files -->
     <script src="../data/seminarios.js?v=20261104b" defer></script>
+    <script src="../js/seminars-sheet.js?v=20261104e" defer></script>
     <script src="../data/team.js?v=20261104b" defer></script>
     <script src="../data/alumni.js?v=20261104b" defer></script>
     <script src="../data/publications.js?v=20261104b" defer></script>
@@ -835,7 +836,7 @@
     <script src="../data/collaborators.js?v=20261104b" defer></script>
     <script src="../js/translations.js?v=20261104d" defer></script>
     <script src="../js/language-switcher.js?v=20261104b" defer></script>
-    <script src="../js/bell.js?v=20261104b" defer></script>
+    <script src="../js/bell.js?v=20261104e" defer></script>
     <script src="../js/main.js?v=20261104b"></script>
 
     <!-- Seminars Data -->
@@ -1013,7 +1014,7 @@
                         `;
                     } else {
                         // ---- Regular / Exam seminars ----
-                        const titleText = getTxt(item.titleKey);
+                        const titleText = item.title || getTxt(item.titleKey); // título da planilha, se houver
                         const typeText = getTxt('seminars.type.' + (item.titleKey.split('.').pop()));
                         const statusText = getTxt('seminars.status.' + item.status);
 
@@ -1073,8 +1074,8 @@
                 renderSeminars();
             });
 
-            // Initial Draw
-            renderSeminars();
+            // Initial Draw (aguarda planilha, se configurada)
+            (window.seminarsReady || Promise.resolve()).then(renderSeminars);
         });
     </script>
 </body>

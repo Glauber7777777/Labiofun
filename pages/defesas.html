@@ -87,6 +87,7 @@
 
     <!-- Data Files -->
     <script src="../data/seminarios.js?v=20261104b" defer></script>
+    <script src="../js/seminars-sheet.js?v=20261104e" defer></script>
     <script src="../data/team.js?v=20261104b" defer></script>
     <script src="../data/alumni.js?v=20261104b" defer></script>
     <script src="../data/publications.js?v=20261104b" defer></script>
@@ -94,11 +95,11 @@
     <script src="../data/collaborators.js?v=20261104b" defer></script>
     <script src="../js/translations.js?v=20261104d" defer></script>
     <script src="../js/language-switcher.js?v=20261104b" defer></script>
-    <script src="../js/bell.js?v=20261104b" defer></script>
+    <script src="../js/bell.js?v=20261104e" defer></script>
     <script src="../js/main.js?v=20261104b"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => (window.seminarsReady || Promise.resolve()).then(() => {
             const contentArea = document.getElementById('defense-content-area');
             const baseDate = new Date(); // Current date
 
@@ -248,7 +249,7 @@
                 contentArea.innerHTML = `<div style="color:red; padding:20px; background:white;">Error: ${err.message}<br>${err.stack}</div>`;
                 console.error(err);
             }
-        });
+        }));
     </script>
 </body>
 </html>

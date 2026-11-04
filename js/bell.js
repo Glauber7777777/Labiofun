@@ -71,6 +71,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.body.appendChild(bellContainer);
 
+    // Aguarda seminários (planilha, se configurada) antes de montar as notificações
+    (window.seminarsReady || Promise.resolve()).then(() => {
     // Fetch and populate notifications
     let notifications = [];
 
@@ -192,5 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!bellContainer.contains(e.target) && dialog.classList.contains('open')) {
             dialog.classList.remove('open');
         }
+    });
     });
 });
