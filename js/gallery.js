@@ -8,7 +8,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Equipe em evento científico",
         desc: "Integrantes do laboratório e colaboradores reunidos durante congresso",
-        url: "../Gallery/IMG_0116.webp",
+        url: "../Gallery/IMG_0116.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -16,7 +16,7 @@ const galleryMediaItems = [
         type: "video",
         title: "Célula fúngica em 3D",
         desc: "Reconstrução tridimensional por microscopia confocal de fluorescência",
-        url: "../Gallery/gallery-video-2.mp4",
+        url: "../Gallery/gallery-video-2.mp4?v=2",
         span: "col-span-2 row-span-4"
     },
     {
@@ -24,7 +24,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Encontro do grupo",
         desc: "Pesquisadores e colaboradores reunidos após evento acadêmico",
-        url: "../Gallery/IMG_1091.webp",
+        url: "../Gallery/IMG_1091.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -32,7 +32,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Apresentação científica",
         desc: "Discussão de resultados sobre superfície celular fúngica",
-        url: "../Gallery/IMG_1181.webp",
+        url: "../Gallery/IMG_1181.webp?v=2",
         span: "col-span-2 row-span-3"
     },
     {
@@ -40,7 +40,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Sessão de pôsteres",
         desc: "Apresentação de trabalho em pôster em congresso",
-        url: "../Gallery/IMG_1189.webp",
+        url: "../Gallery/IMG_1189.webp?v=2",
         span: "col-span-1 row-span-4"
     },
     {
@@ -48,7 +48,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Celebração acadêmica",
         desc: "Integrantes e convidados reunidos após apresentação acadêmica",
-        url: "../Gallery/IMG_1323.webp",
+        url: "../Gallery/IMG_1323.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -56,7 +56,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Após a apresentação",
         desc: "Registro ao final de apresentação acadêmica",
-        url: "../Gallery/IMG_1327.webp",
+        url: "../Gallery/IMG_1327.webp?v=2",
         span: "col-span-2 row-span-4"
     },
     {
@@ -64,7 +64,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Seminário do laboratório",
         desc: "Apresentação de resultados de pesquisa ao grupo",
-        url: "../Gallery/IMG_1413.webp",
+        url: "../Gallery/IMG_1413.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -72,7 +72,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Banca com participação remota",
         desc: "Banca reunida com membro participando por videoconferência",
-        url: "../Gallery/IMG_1618.webp",
+        url: "../Gallery/IMG_1618.webp?v=2",
         span: "col-span-2 row-span-3"
     },
     {
@@ -80,7 +80,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Equipe no auditório",
         desc: "Integrantes do laboratório reunidos após sessão acadêmica",
-        url: "../Gallery/IMG_1620.webp",
+        url: "../Gallery/IMG_1620.webp?v=2",
         span: "col-span-1 row-span-4"
     },
     {
@@ -88,7 +88,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Congresso científico",
         desc: "Participação em congresso da área",
-        url: "../Gallery/IMG_1976.webp",
+        url: "../Gallery/IMG_1976.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -96,7 +96,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Palestra em congresso",
         desc: "Apresentação oral em auditório",
-        url: "../Gallery/IMG_1977.webp",
+        url: "../Gallery/IMG_1977.webp?v=2",
         span: "col-span-2 row-span-4"
     },
     {
@@ -104,7 +104,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Passeio pelo Rio",
         desc: "Integrantes e colaboradores em encontro pelo centro da cidade",
-        url: "../Gallery/IMG_2006.webp",
+        url: "../Gallery/IMG_2006.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -112,7 +112,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Halloween no laboratório",
         desc: "Confraternização à fantasia",
-        url: "../Gallery/IMG_2077.webp",
+        url: "../Gallery/IMG_2077.webp?v=2",
         span: "col-span-2 row-span-3"
     },
     {
@@ -120,7 +120,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Halloween no laboratório",
         desc: "Confraternização à fantasia",
-        url: "../Gallery/IMG_2080.webp",
+        url: "../Gallery/IMG_2080.webp?v=2",
         span: "col-span-1 row-span-4"
     },
     {
@@ -128,7 +128,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Halloween no laboratório",
         desc: "Confraternização à fantasia",
-        url: "../Gallery/IMG_2091.webp",
+        url: "../Gallery/IMG_2091.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -136,7 +136,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Halloween no laboratório",
         desc: "Fantasias e descontração entre integrantes do grupo",
-        url: "../Gallery/IMG_2102.webp",
+        url: "../Gallery/IMG_2102.webp?v=2",
         span: "col-span-2 row-span-4"
     },
     {
@@ -144,7 +144,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Equipe descontraída",
         desc: "Selfie dos integrantes no laboratório",
-        url: "../Gallery/IMG_2282.webp",
+        url: "../Gallery/IMG_2282.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -152,7 +152,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Formatura",
         desc: "Celebração de formatura com o Pão de Açúcar ao fundo",
-        url: "../Gallery/IMG_3005.webp",
+        url: "../Gallery/IMG_3005.webp?v=2",
         span: "col-span-2 row-span-3"
     },
     {
@@ -160,7 +160,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Formatura",
         desc: "Orientadores e colegas celebram a conquista",
-        url: "../Gallery/IMG_3044.webp",
+        url: "../Gallery/IMG_3044.webp?v=2",
         span: "col-span-1 row-span-4"
     },
     {
@@ -168,7 +168,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Torcida no laboratório",
         desc: "Equipe vestida de verde e amarelo para torcer pelo Brasil",
-        url: "../Gallery/IMG_3050.webp",
+        url: "../Gallery/IMG_3050.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -176,7 +176,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Torcida no laboratório",
         desc: "Verde e amarelo entre as bancadas",
-        url: "../Gallery/IMG_3053.webp",
+        url: "../Gallery/IMG_3053.webp?v=2",
         span: "col-span-2 row-span-4"
     },
     {
@@ -184,7 +184,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Formatura",
         desc: "Registro da formatura na Urca",
-        url: "../Gallery/IMG_3059.webp",
+        url: "../Gallery/IMG_3059.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -192,7 +192,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Encontro de pesquisadoras",
         desc: "Registro durante evento científico",
-        url: "../Gallery/IMG_3765.webp",
+        url: "../Gallery/IMG_3765.webp?v=2",
         span: "col-span-2 row-span-3"
     },
     {
@@ -200,7 +200,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Confraternização",
         desc: "Comemoração entre integrantes do grupo",
-        url: "../Gallery/IMG_3843.webp",
+        url: "../Gallery/IMG_3843.webp?v=2",
         span: "col-span-1 row-span-4"
     },
     {
@@ -208,7 +208,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Cryptococcus neoformans: Methods and Protocols",
         desc: "Livro da série Springer Protocols (Humana Press)",
-        url: "../Gallery/IMG_4922.webp",
+        url: "../Gallery/IMG_4922.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -216,7 +216,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Microscopia e análise de imagens",
         desc: "Aquisição de dados em sistema de microscopia",
-        url: "../Gallery/IMG_5507.webp",
+        url: "../Gallery/IMG_5507.webp?v=2",
         span: "col-span-2 row-span-4"
     },
     {
@@ -224,7 +224,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Seminário: curvas de sobrevivência",
         desc: "Apresentação de resultados em modelo murino",
-        url: "../Gallery/IMG_7132.webp",
+        url: "../Gallery/IMG_7132.webp?v=2",
         span: "col-span-1 row-span-3"
     },
     {
@@ -232,7 +232,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Mesa de evento acadêmico",
         desc: "Mesa de trabalhos em auditório",
-        url: "../Gallery/IMG_7239.webp",
+        url: "../Gallery/IMG_7239.webp?v=2",
         span: "col-span-2 row-span-3"
     },
     {
@@ -240,7 +240,7 @@ const galleryMediaItems = [
         type: "image",
         title: "IV Encuentro ACEBRA",
         desc: "Participação no encontro da Associação de Científicos Españoles en Brasil — Rio de Janeiro, 2026",
-        url: "../Gallery/IMG_8422.webp",
+        url: "../Gallery/IMG_8422.webp?v=2",
         span: "col-span-1 row-span-4"
     },
     {
@@ -248,7 +248,7 @@ const galleryMediaItems = [
         type: "image",
         title: "IV Encuentro ACEBRA",
         desc: "Estratégias de cooperação Brasil–Espanha em ciência — 22 e 23 de junho de 2026",
-        url: "../Gallery/IMG_8430.webp",
+        url: "../Gallery/IMG_8430.webp?v=2",
         span: "col-span-2 row-span-4"
     },
     {
@@ -256,7 +256,7 @@ const galleryMediaItems = [
         type: "image",
         title: "Equipe no laboratório",
         desc: "Integrantes do Labiofun reunidos no laboratório",
-        url: "../Gallery/IMG_0940.webp",
+        url: "../Gallery/IMG_0940.webp?v=2",
         span: "col-span-1 row-span-3"
     }
 ];
