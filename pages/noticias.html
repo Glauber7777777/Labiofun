@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/variables.css?v=20261104b">
     <link rel="stylesheet" href="../css/animations.css?v=20261104b">
     <link rel="stylesheet" href="../css/styles.css?v=20261104b">
+    <link rel="stylesheet" href="../css/modern-ux.css?v=20261104b">
     <style>
         .page-hero { background: var(--gradient-primary); color: var(--white); padding: var(--space-lg) 0 var(--space-md); text-align: center; position: relative; overflow: hidden; }
         .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%, rgba(255,255,255,.08) 0%, transparent 70%); }
@@ -66,28 +67,13 @@
             .event-item { flex-direction: column; }
         }
     </style>
+    <script src="../js/components.js?v=20261104b"></script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
     <div class="scroll-progress-bar" id="scroll-progress"></div>
 
-    <header role="banner">
-        <div class="container">
-            <div class="header-top">
-                <div class="logo-container"><img src="../images/ufrj.webp" alt="Logo UFRJ" class="logo-img" loading="eager"></div>
-                <div class="header-title"><h1><strong>Laboratório de Biofísica de Fungos</strong></h1></div>
-                <div class="logo-container"><img src="../images/logo-pequeno.webp" alt="Logo Labiofun" class="logo-img" loading="eager"></div>
-                <!-- Language Switcher -->
-                <div class="language-switcher" role="navigation" aria-label="Seletor de idioma">
-                    <button class="lang-btn active" data-lang="pt-BR" aria-label="Português" title="Português">🇧🇷</button>
-                    <button class="lang-btn" data-lang="en" aria-label="English" title="English">🇺🇸</button>
-                    <button class="lang-btn" data-lang="es-ES" aria-label="Español" title="Español">🇪🇸</button>
-                    <button class="lang-btn" data-lang="fr-FR" aria-label="Français" title="Français">🇫🇷</button>
-                </div>
-            </div>
-
-        </div>
-    </header>
+    <labiofun-header></labiofun-header>
 
     <main id="main-content">
         <section class="page-hero">

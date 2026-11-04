@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="../css/variables.css?v=20261104b">
     <link rel="stylesheet" href="../css/animations.css?v=20261104b">
     <link rel="stylesheet" href="../css/styles.css?v=20261104b">
+    <link rel="stylesheet" href="../css/modern-ux.css?v=20261104b">
     <link rel="stylesheet" href="../css/dark-mode.css?v=20261104b">
     <link rel="stylesheet" href="../css/cookie-banner.css?v=20261104b">
     <link rel="stylesheet" href="../css/global-search.css?v=20261104b">
-    <link rel="stylesheet" href="../css/print.css?v=20261104b">
+    <link rel="stylesheet" href="../css/print.css?v=20261104b" media="print">
     <link rel="icon" href="../favicon-32x32.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -136,57 +137,26 @@
             color: #155724;
             border: 1px solid #c3e6cb;
         }
+        @media (max-width: 768px) {
+            .contact-page { padding: var(--space-xl) 0; }
+            .contact-page .container { padding-left: 16px; padding-right: 16px; }
+            .contact-container { padding: var(--space-lg); border-radius: var(--radius-lg); }
+            .contact-email { padding: var(--space-lg) var(--space-md); }
+            .contact-email h2 { font-size: var(--font-size-2xl); }
+            .email-link { font-size: var(--font-size-base); padding: var(--space-sm) var(--space-md); max-width: 100%; font-size: var(--font-size-sm); }
+            .privacy-notice { padding: var(--space-md); }
+            .privacy-notice h3 { font-size: var(--font-size-lg); }
+        }
         .alert-danger {
             background-color: #f8d7da;
             color: #721c24;
             border: 1px solid #f5c6cb;
         }
     </style>
+    <script src="../js/components.js?v=20261104b"></script>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-top">
-                <div class="logo-container">
-                    <img src="../images/ufrj.webp" alt="Logo UFRJ" class="logo-img" loading="eager">
-                </div>
-                <div class="header-title">
-                    <h1><strong>Laboratório de Biofísica de Fungos</strong></h1>
-                </div>
-                <div class="logo-container">
-                    <img src="../images/logo-pequeno.webp" alt="Logo Labiofun" class="logo-img" loading="eager">
-                </div>
-                <!-- Language Switcher -->
-                <div class="language-switcher" role="navigation" aria-label="Seletor de idioma">
-                    <button class="lang-btn active" data-lang="pt-BR" aria-label="Português" title="Português">🇧🇷</button>
-                    <button class="lang-btn" data-lang="en" aria-label="English" title="English">🇺🇸</button>
-                    <button class="lang-btn" data-lang="es-ES" aria-label="Español" title="Español">🇪🇸</button>
-                    <button class="lang-btn" data-lang="fr-FR" aria-label="Français" title="Français">🇫🇷</button>
-                    <a href="../index.html" class="lang-btn" title="Voltar ao início" style="text-decoration: none; font-size: 1rem;">
-                        <i class="fas fa-arrow-left"></i>
-                    </a>
-                </div>
-        <div class="header-bottom">
-                <nav aria-label="Navegação principal" role="navigation">
-                    <ul role="menubar">
-                        <li role="none"><a href="../index.html#about" data-i18n="nav.home" role="menuitem"><i class="fas fa-home"></i>Início</a></li>
-                        <li role="none"><a href="../index.html#mission" data-i18n="nav.mission" role="menuitem"><i class="fas fa-id-badge"></i>Missão</a></li>
-                        <li role="none"><a href="../index.html#research" data-i18n="nav.research" role="menuitem"><i class="fas fa-flask"></i>Pesquisas</a></li>
-                        <li role="none"><a href="../index.html#techniques" data-i18n="nav.techniques" role="menuitem"><i class="fas fa-tools"></i>Técnicas</a></li>
-                        <li role="none"><a href="gallery.html" data-i18n="nav.gallery" role="menuitem"><i class="fas fa-camera"></i>Galeria</a></li>
-                        <li role="none"><a href="../index.html#team" data-i18n="nav.team" role="menuitem"><i class="fas fa-users"></i>Equipe</a></li>
-                        <li role="none"><a href="../index.html#publications-page" data-i18n="nav.publications" role="menuitem"><i class="fas fa-book"></i>Publicações</a></li>
-                        <li role="none"><a href="defesas.html" data-i18n="nav.defences" role="menuitem"><i class="fas fa-graduation-cap"></i>Defesas</a></li>
-                        <li role="none"><a href="vagas.html" data-i18n="nav.jobs" role="menuitem"><i class="fas fa-briefcase"></i>Vagas</a></li>
-                        <li role="none"><a href="../index.html#sponsors" data-i18n="nav.sponsors" role="menuitem"><i class="fas fa-handshake"></i>Patrocínio</a></li>
-                        <li role="none"><a href="../index.html#location" data-i18n="nav.location" role="menuitem"><i class="fas fa-location-dot"></i>Localização</a></li>
-                        <li role="none"><a href="../index.html#contact" data-i18n="nav.contact" role="menuitem"><i class="fas fa-comments"></i>Contato</a></li>
-                        <li role="none"><a href="trademark.html" data-i18n="nav.trademark" role="menuitem"><i class="fa-solid fa-wand-magic-sparkles"></i>Identidade Visual</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <labiofun-header></labiofun-header>
 
     <main>
         <section class="contact-page">
