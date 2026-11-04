@@ -6,11 +6,11 @@
     <title>Galeria — Labiofun | Laboratório de Biofísica de Fungos</title>
     <meta name="description" content="Galeria de imagens e vídeos do Labiofun - MEV, MET e Pinça Óptica.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/variables.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/modern-ux.css">
-    <script src="../js/components.js"></script>
+    <link rel="stylesheet" href="../css/variables.css?v=20261104b">
+    <link rel="stylesheet" href="../css/animations.css?v=20261104b">
+    <link rel="stylesheet" href="../css/styles.css?v=20261104b">
+    <link rel="stylesheet" href="../css/modern-ux.css?v=20261104b">
+    <script src="../js/components.js?v=20261104b"></script>
     <style>
         /* =========================================
            PAGE HERO
@@ -194,7 +194,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 16px;
+            padding: 16px 16px 110px; /* espaço para as miniaturas */
             width: 100%;
             max-width: 900px;
         }
@@ -219,12 +219,14 @@
         }
 
         .modal-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 16px;
-            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            /* legenda abaixo da imagem, acima das miniaturas */
+            width: 100%;
+            max-width: 900px;
+            margin-top: 12px;
+            padding: 12px 16px;
+            text-align: center;
+            background: rgba(0,0,0,0.55);
+            border-radius: 10px;
         }
 
         .modal-caption h3 {
@@ -366,8 +368,12 @@
             }
 
             .modal-media {
-                max-height: 60vh;
+                max-height: 55vh;
             }
+            .modal-media-container { max-height: 55vh; }
+            .modal-main-area { padding-bottom: 80px; }
+            .modal-caption h3 { font-size: 1.05rem; }
+            .modal-caption p { font-size: 0.8rem; }
         }
 
         @media (max-width: 480px) {
@@ -437,16 +443,16 @@
     <button id="scroll-top" class="scroll-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
 
     <!-- Data Files -->
-    <script src="../data/seminarios.js" defer></script>
-    <script src="../data/team.js" defer></script>
-    <script src="../data/alumni.js" defer></script>
-    <script src="../data/publications.js" defer></script>
-    <script src="../data/books.js" defer></script>
-    <script src="../data/collaborators.js" defer></script>
-    <script src="../js/translations.js" defer></script>
-    <script src="../js/language-switcher.js" defer></script>
-    <script src="../js/bell.js" defer></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/gallery.js"></script>
+    <script src="../data/seminarios.js?v=20261104b" defer></script>
+    <script src="../data/team.js?v=20261104b" defer></script>
+    <script src="../data/alumni.js?v=20261104b" defer></script>
+    <script src="../data/publications.js?v=20261104b" defer></script>
+    <script src="../data/books.js?v=20261104b" defer></script>
+    <script src="../data/collaborators.js?v=20261104b" defer></script>
+    <script src="../js/translations.js?v=20261104b" defer></script>
+    <script src="../js/language-switcher.js?v=20261104b" defer></script>
+    <script src="../js/bell.js?v=20261104b" defer></script>
+    <script src="../js/main.js?v=20261104b"></script>
+    <script src="../js/gallery.js?v=20261104b"></script>
 </body>
 </html>
