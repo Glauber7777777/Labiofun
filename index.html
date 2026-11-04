@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Laboratório de Biofísica de Fungos - Pesquisa translacional em micologia">
+    <meta name="keywords"
+        content="micologia, fungos, biofísica, UFRJ, pesquisa, virulência, criptococose, resistência antimicrobiana, One Health">
+    <meta name="author" content="Laboratório de Biofísica de Fungos - UFRJ">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.labiofun.com.br/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.labiofun.com.br/">
+    <meta property="og:title" content="Labiofun - Laboratório de Biofísica de Fungos">
+    <meta property="og:description" content="Pesquisa translacional em micologia: da superfície fúngica à clínica">
+    <meta property="og:image" content="https://www.labiofun.com.br/images/Background.webp">
+    <meta property="og:site_name" content="Labiofun">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://www.labiofun.com.br/">
+    <meta name="twitter:title" content="Labiofun - Laboratório de Biofísica de Fungos">
+    <meta name="twitter:description" content="Pesquisa translacional em micologia: da superfície fúngica à clínica">
+    <meta name="twitter:image" content="https://www.labiofun.com.br/images/Background.webp">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <title data-i18n="site.title">Laboratório de Biofísica de Fungos</title>
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Font Awesome (deve ser a primeira stylesheet) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="css/variables.css" as="style">
+    <link rel="preload" href="css/styles.css" as="style">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/network.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <script type='text/javascript' src='https://embed.altmetric.com/assets/embed.js'></script>
+
+
+
+
+
+    <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "Laboratório de Biofísica de Fungos",
+    "alternateName": "Labiofun",
+    "url": "https://www.labiofun.com.br",
+    "logo": "https://www.labiofun.com.br/images/Logo-pequeno.webp",
+    "description": "Laboratório de pesquisa translacional em micologia, especializado em biofísica de fungos, virulência e resistência antimicrobiana",
+    "foundingDate": "2020-09-23",
+    "founder": {
+      "@type": "Person",
+      "name": "Susana Frases",
+      "jobTitle": "Professora - Ph.D"
+    },
+    "parentOrganization": {
+      "@type": "EducationalOrganization",
+      "name": "Universidade Federal do Rio de Janeiro",
+      "alternateName": "UFRJ"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "BR",
+      "addressRegion": "RJ",
+      "addressLocality": "Rio de Janeiro"
+    },
+    "sameAs": [
+      "https://www.instagram.com/labiofun/",
+      "https://www.youtube.com/@labiofun"
+    ]
+  }
+  </script>
+
+    <!-- SEO Internacional e Modern UX -->
+    <link rel="alternate" hreflang="pt-BR" href="?lang=pt-BR" />
+    <link rel="alternate" hreflang="en" href="?lang=en" />
+    <link rel="alternate" hreflang="es" href="?lang=es-ES" />
+    <link rel="alternate" hreflang="fr" href="?lang=fr-FR" />
+    <link rel="stylesheet" href="css/modern-ux.css">
+    
+    <!-- Web Components -->
+    <script src="js/components.js"></script>
+</head>
+
+<body id="home">
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar" id="scroll-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100"
+        aria-valuenow="0"></div>
+
+    <!-- Header -->
+    <labiofun-header></labiofun-header>
+
+    <!-- Zoom Parallax Hero Section -->
+    <style>
+        .zoom-parallax-container {
+            padding: 12px 12px 0 12px;
+            background: var(--white);
+        }
+        
+        .zoom-parallax-hero {
+            position: relative;
+            height: 150vh; /* Extra height to allow scrolling */
+        }
+
+        .zoom-sticky-image {
+            position: sticky;
+            top: 12px;
+            height: calc(100vh - 24px);
+            border-radius: 24px;
+            overflow: hidden;
+            transform-origin: center center;
+            will-change: transform;
+            z-index: 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .zoom-sticky-image::after {
+            content: '';
+            position: absolute;
+            inset: -15%;
+            background: url('images/Background.jpg') center/cover no-repeat;
+            animation: backgroundZoomMove 35s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .zoom-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45); /* Clareado de 0.7 para 0.45 */
+            will-change: opacity;
+            z-index: 1;
+        }
+
+        .zoom-text-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            will-change: transform, opacity, filter;
+            z-index: 2;
+            padding: 0 2rem;
+            transform-origin: center center;
+        }
+
+        .zoom-text-content h2 {
+            font-size: var(--font-size-6xl);
+            margin-bottom: var(--space-xs);
+            font-weight: var(--font-weight-black);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+        }
+
+        .title-highlight {
+            color: var(--primary) !important;
+            margin-bottom: var(--space-md) !important;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .zoom-text-content p {
+            font-size: var(--font-size-xl);
+            opacity: 0.95;
+            line-height: var(--line-height-relaxed);
+            max-width: 900px;
+        }
+
+        @media (max-width: 768px) {
+            .zoom-text-content h2 { font-size: var(--font-size-4xl); }
+            .zoom-text-content p { font-size: var(--font-size-lg); }
+        }
+    </style>
+
+    <div class="zoom-parallax-container">
+        <section class="zoom-parallax-hero" id="zoom-hero">
+            <div class="zoom-sticky-image" id="zoom-sticky-img">
+                <div class="zoom-overlay" id="zoom-overlay"></div>
+                <div class="zoom-text-content" id="zoom-text">
+                    <h2 data-i18n="hero.title1" style="color: white;">Pesquisa Translacional em</h2>
+                    <h2 data-i18n="hero.title2" class="title-highlight">Biofísica de Fungos</h2>
+                    <p data-i18n="hero.description">Da superfície fúngica à clínica: nossos
+                        estudos integram abordagens estruturais, físico-químicas e moleculares para elucidar a virulência, o
+                        impacto ambiental e os processos de interação com o hospedeiro, contribuindo para o desenvolvimento de
+                        estratégias diagnósticas mais sensíveis e terapias mais eficazes.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroSection = document.getElementById('zoom-hero');
+            const stickyImg = document.getElementById('zoom-sticky-img');
+            const overlay = document.getElementById('zoom-overlay');
+            const textContent = document.getElementById('zoom-text');
+
+            if (!heroSection || !stickyImg || !overlay || !textContent) return;
+
+            window.addEventListener('scroll', () => {
+                const rect = heroSection.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+                
+                // For Hero, progress starts at 0 when page is loaded
+                // Ends at 1 when bottom of hero reaches bottom of viewport
+                const totalScroll = heroSection.offsetHeight - windowHeight;
+                const currentScroll = -rect.top;
+                
+                let progress = 0;
+                if (currentScroll <= 0) {
+                    progress = 0;
+                } else if (currentScroll >= totalScroll) {
+                    progress = 1;
+                } else {
+                    progress = currentScroll / totalScroll;
+                }
+
+                // Image scales down more dramatically: 1 -> 0.8
+                const scale = 1 - (0.2 * progress);
+                stickyImg.style.transform = `scale(${scale})`;
+
+                // Overlay opacity fades: 1 -> 0 (gets brighter)
+                overlay.style.opacity = 1 - progress;
+
+                // Text moves up with Parallax (0 -> -350px) and scales down slightly
+                const y = progress * -350;
+                const textScale = 1 - (0.1 * progress);
+                
+                // Text fades out earlier and blurs
+                const textOpacity = 1 - (progress * 1.5);
+                const blur = progress * 10;
+                
+                textContent.style.transform = `translateY(${y}px) scale(${textScale})`;
+                textContent.style.opacity = textOpacity < 0 ? 0 : textOpacity;
+                textContent.style.filter = `blur(${blur}px)`;
+            }, { passive: true });
+        });
+    </script>
+
+    <!-- Impact Counter Section -->
+    <section class="impact-counter" aria-label="Números do laboratório">
+        <div class="container">
+            <div class="counter-grid">
+                <div class="counter-item scroll-animate">
+                    <div class="counter-icon"><i class="fas fa-book-open"></i></div>
+                    <span class="counter-number" data-target="168" data-suffix="+">0</span>
+                    <p class="counter-label" data-i18n="counter.publications">Publicações Científicas</p>
+                </div>
+                <div class="counter-item scroll-animate delay-100">
+                    <div class="counter-icon"><i class="fas fa-flask"></i></div>
+                    <span class="counter-number" data-target="8" data-suffix="">0</span>
+                    <p class="counter-label" data-i18n="counter.research">Linhas de Pesquisa</p>
+                </div>
+                <div class="counter-item scroll-animate delay-200">
+                    <div class="counter-icon"><i class="fas fa-users"></i></div>
+                    <span class="counter-number" data-target="12" data-suffix="+">0</span>
+                    <p class="counter-label" data-i18n="counter.team">Pesquisadores Ativos</p>
+                </div>
+                <div class="counter-item scroll-animate delay-300">
+                    <div class="counter-icon"><i class="fas fa-handshake"></i></div>
+                    <span class="counter-number" data-target="10" data-suffix="+">0</span>
+                    <p class="counter-label" data-i18n="counter.collaborators">Colaboradores</p>
+                </div>
+                <div class="counter-item scroll-animate delay-400">
+                    <div class="counter-icon"><i class="fas fa-calendar-days"></i></div>
+                    <span class="counter-number" data-target="2020" data-suffix="" data-prefix="">0</span>
+                    <p class="counter-label" data-i18n="counter.founded">Fundado em</p>
+                </div>
+                <!-- 6th counter: live citations from OpenAlex -->
+                <div class="counter-item scroll-animate delay-500 scholar-loading" id="counter-item-citations">
+                    <div class="counter-icon"><i class="fas fa-quote-right"></i></div>
+                    <span class="counter-number" id="counter-citations" data-target="0" data-suffix="+">···</span>
+                    <p class="counter-label" data-i18n="counter.citations">Citações Totais</p>
+                </div>
+            </div>
+
+            <!-- Scholar Metrics Bar — populated by scholar-api.js -->
+            <div class="scholar-metrics-bar" id="scholar-metrics-bar" aria-label="Métricas acadêmicas">
+                <span class="scholar-metric">
+                    <i class="fas fa-chart-line"></i>
+                    H-index: <strong id="scholar-h-index">—</strong>
+                </span>
+                <span class="scholar-divider">·</span>
+                <span class="scholar-metric">
+                    <i class="fas fa-list-ol"></i>
+                    i10-index: <strong id="scholar-i10">—</strong>
+                </span>
+                <span class="scholar-divider">·</span>
+                <span class="scholar-source">
+                    <i class="fas fa-database"></i>
+                    Fonte: <a href="https://openalex.org" target="_blank" rel="noopener noreferrer"
+                        title="OpenAlex — Open Academic Graph">OpenAlex</a>
+                    <span class="scholar-live-badge">LIVE</span>
+                </span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="about.title">Sobre o Labiofun</h2>
+                <p data-i18n="about.subtitle">Conheça nosso laboratório</p>
+            </div>
+            <div class="about-content scroll-animate">
+                <p style="text-align: justify;" data-i18n="about.p1">Inaugurado em 23 de setembro de 2020
+                    pela Prof<sup>a</sup>.
+                    Dr<sup>a</sup>. Susana Frasés, o Laboratório de Biofísica de Fungos (Labiofun) dedica-se a pesquisas
+                    multidisciplinares e inovadoras na área de micologia.</p>
+                <br>
+                <p style="text-align: justify;" data-i18n-html="about.p2">Nosso propósito central é
+                    aprofundar o conhecimento e
+                    responder a uma pergunta desafiadora: <strong> o que faz um fungo ser um patógeno?</strong>
+                </p>
+                <br>
+                <p style="text-align: justify;" data-i18n-html="about.p3">Adotamos o paradigma Saúde Única
+                    <i>(One Health)</i>, integrando dados e saberes da saúde ambiental, da medicina humana e veterinária
+                    para
+                    compreender de forma holística como os fungos interagem com diferentes nichos e hospedeiros — e como
+                    essas
+                    interações são influenciadas pelas mudanças climáticas e pela ação humana.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="mission.title">Nossa Missão</h2>
+                <p data-i18n="mission.subtitle">Propósito de existir e pesquisar</p>
+            </div>
+            <div class="about-content scroll-animate">
+                <p style="text-align: justify;" data-i18n="mission.description">&nbsp; &nbsp;Desenvolver conhecimento
+                    translacional em micologia que conecte biologia de superfícies, mecanismos de virulência e dinâmica
+                    ecológica, oferecendo soluções para desafios atuais em saúde humana, animal e ambiental.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Lines -->
+    <section id="research" class="research-lines">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="research.title">Linhas de Pesquisa</h2>
+                <p data-i18n="research.subtitle">Nossas principais áreas de investigação científica</p>
+            </div>
+            <div class="cards-container">
+                <div class="card scroll-animate hover-lift">
+                    <div class="card-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-i18n="research.line1.title">Ultraestrutura e superfícies fúngicas</h3>
+                        <p data-i18n="research.line1.desc">Estudamos a morfologia e propriedades físico-químicas das
+                            camadas externas dos fungos e sua relação com adesão, colonização e evasão imune.</p>
+                    </div>
+                </div>
+
+                <div class="card scroll-animate hover-lift delay-100">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-i18n="research.line2.title">Modelos Físico-Teóricos</h3>
+                        <p data-i18n="research.line2.desc">Desenvolvemos métodos e modelos físico-teóricos que
+                            relacionem composição, estrutura e atividade biológica de fungos.</p>
+                    </div>
+                </div>
+
+                <div class="card scroll-animate hover-lift delay-200">
+                    <div class="card-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-i18n="research.line3.title">Mecanobiologia</h3>
+                        <p data-i18n="research.line3.desc">Estudamos a superfície de fungos patogênicos e suas
+                            implicações na interação parasito-hospedeiro.</p>
+                    </div>
+                </div>
+
+                <div class="card scroll-animate hover-lift delay-300">
+                    <div class="card-icon">
+                        <i class="fas fa-biohazard"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-i18n="research.line4.title">Mecanismos de virulência</h3>
+                        <p data-i18n="research.line4.desc">Investigamos como fungos se adaptam a variações de
+                            temperatura, estresse ambiental e novos nichos ecológicos, incluindo mudanças morfológicas
+                            associadas à patogenicidade.</p>
+                    </div>
+                </div>
+
+                <div class="card scroll-animate hover-lift delay-400">
+                    <div class="card-icon">
+                        <i class="fas fa-file-prescription"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-i18n="research.line5.title">Resistência antimicrobiana</h3>
+                        <p data-i18n="research.line5.desc">Monitoramos e caracterizamos mecanismos de resistência
+                            emergentes, como resposta a pressões ambientais e exposição a antifúngicos, com foco em
+                            isolados multirresistentes.</p>
+                    </div>
+                </div>
+
+                <div class="card scroll-animate hover-lift delay-500">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-i18n="research.line6.title">Impacto ecossistêmico e mudanças climáticas</h3>
+                        <p data-i18n="research.line6.desc">Avaliamos como o aquecimento global e as alterações
+                            ambientais modificam a distribuição, dispersão e emergência de fungos patogênicos em novos
+                            habitats.</p>
+                    </div>
+                </div>
+
+                <div class="card scroll-animate hover-lift delay-600">
+                    <div class="card-icon">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-i18n="research.line7.title">Prospecção de compostos bioativos</h3>
+                        <p data-i18n="research.line7.desc">Triamos e caracterizamos novos agentes antifúngicos com
+                            potencial contra isolados resistentes, além do desenvolvimento de estratégias terapêuticas
+                            alternativas e combinadas.</p>
+                    </div>
+                </div>
+
+                <div class="card scroll-animate hover-lift delay-700">
+                    <div class="card-icon">
+                        <i class="fas fa-earth-americas"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 data-i18n="research.line8.title">Divulgação científica e gestão do conhecimento</h3>
+                        <p data-i18n="research.line8.desc">Democratizamos o conhecimento científico: traduzimos
+                            evidências complexas em uma linguagem clara e acessível. Dessa forma, conectamos a academia
+                            aos profissionais de saúde e à sociedade, promovendo a interação necessária para decisões
+                            conscientes e embasadas na Ciência.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Techniques -->
+    <section id="techniques" class="techniques">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="techniques.title">Metodologias alinhadas às nossas linhas de pesquisas</h2>
+                <p data-i18n="techniques.subtitle">Principais abordagens metodológicas utilizadas em nossas pesquisas
+                </p>
+            </div>
+            <div class="techniques-grid">
+                <div class="technique scroll-animate hover-lift">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <h3 data-i18n="tech.1.title">Ensaios de estresse metabólico</h3>
+                    <p data-i18n="tech.1.desc">Testes que avaliam a resposta fúngica a condições adversas (variações de
+                        pH, estresse oxidativo, restrição de nutrientes, temperatura), permitindo identificar
+                        vulnerabilidades para o desenvolvimento de antifúngicos.</p>
+                </div>
+
+                <div class="technique scroll-animate hover-lift delay-100">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3 data-i18n="tech.2.title">Espalhamento Dinâmico de Luz (DLS)</h3>
+                    <p data-i18n="tech.2.desc">Avaliação do "tamanho" hidrodinâmico, polidispersão e agregação de
+                        partículas/fenótipos superficiais, usada para detectar alterações em resposta a variações
+                        ambientais (pH, estresse oxidativo, nutrientes).</p>
+                </div>
+
+                <div class="technique scroll-animate hover-lift delay-200">
+                    <i class="fas fa-atom"></i>
+                    <h3 data-i18n="tech.3.title">Mecânica celular - μreologia (Ativa e Passiva)</h3>
+                    <p data-i18n="tech.3.desc">Ensaios para avaliar as propriedades viscoelásticas de polissacarídeos
+                        capsulares e secretados, avaliar a resposta a tensões mecânicas e mapear alterações mecânicas
+                        vinculadas à interação hospedeiro–patógeno.</p>
+                </div>
+
+                <div class="technique scroll-animate hover-lift delay-300">
+                    <i class="fas fa-plug"></i>
+                    <h3 data-i18n="tech.4.title">Microscopia eletrônica</h3>
+                    <p data-i18n="tech.4.desc">Análise da morfologia e ultraestrutura fúngica (SEM/TEM).</p>
+                </div>
+
+                <div class="technique scroll-animate hover-lift delay-400">
+                    <i class="fas fa-microscope"></i>
+                    <h3 data-i18n="tech.5.title">Microscopia óptica</h3>
+                    <p data-i18n="tech.5.desc">Base para identificação morfológica, análise de ciclos de vida,
+                        colorações diferenciais e observação em tempo real de interações fungo–hospedeiro.</p>
+                </div>
+
+                <div class="technique scroll-animate hover-lift delay-500">
+                    <i class="fas fa-crosshairs"></i>
+                    <h3 data-i18n="tech.6.title">Pinças Ópticas</h3>
+                    <p data-i18n="tech.6.desc">Mensuração de forças na faixa de picoNewtons (pN), manipulação de células
+                        fúngicas individuais e estudo de interações mecânicas entre células e superfícies.</p>
+                </div>
+
+                <div class="technique scroll-animate hover-lift delay-600">
+                    <i class="fas fa-bolt"></i>
+                    <h3 data-i18n="tech.7.title">Potencial Zeta</h3>
+                    <p data-i18n="tech.7.desc">Mensuração de carga superficial e estabilidade coloidal, essencial para
+                        caracterizar propriedades eletrostáticas que influenciam adesão e interações celulares.</p>
+                </div>
+
+                <div class="technique scroll-animate hover-lift delay-700">
+                    <i class="fas fa-magnifying-glass"></i>
+                    <h3 data-i18n="tech.8.title">Triagem e caracterização de compostos bioativos</h3>
+                    <p data-i18n="tech.8.desc">Screening de candidatos antifúngicos, testes de sensibilidade (incluindo
+                        contra isolados multirresistentes) e desenvolvimento de estratégias terapêuticas alternativas ou
+                        em combinação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Team & Collaborators -->
+    <section id="team" class="team-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="team.title">Equipe & Colaboradores</h2>
+                <p data-i18n="team.subtitle">Conheça nossos pesquisadores e parceiros científicos</p>
+            </div>
+
+            <div class="tabs" role="tablist" aria-label="Categorias de equipe">
+                <button class="tab-btn active" data-tab="current-team" role="tab" aria-selected="true"
+                    aria-controls="current-team" data-i18n="team.tab.current">Equipe
+                    Atual</button>
+                <button class="tab-btn" data-tab="collaborators" role="tab" aria-selected="false"
+                    aria-controls="collaborators" data-i18n="team.tab.collaborators">Colaboradores</button>
+                <button class="tab-btn" data-tab="alumni" role="tab" aria-selected="false" aria-controls="alumni"
+                    data-i18n="team.tab.alumni">Alumni</button>
+            </div>
+
+            <!-- Current Team -->
+            <div id="current-team" class="tab-content active" role="tabpanel" aria-labelledby="current-team">
+                <div class="team-container">
+                    <!-- A equipe atual será carregada dinamicamente via team-data.js -->
+                </div>
+            </div>
+
+            <!-- Collaborators -->
+            <div id="collaborators" class="tab-content">
+                <div class="collaborators-controls">
+                    <input type="text" class="search-box" id="searchInput" placeholder="Buscar colaborador...">
+                    <button class="sort-button" onclick="sortCollaborators()">
+                        <i class="fas fa-arrow-down-a-z"></i> Ordenar Alfabeticamente
+                    </button>
+                </div>
+                <div class="team-container" id="teamContainer">
+                    <!-- Os colaboradores serão carregados via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Alumni -->
+            <div id="alumni" class="tab-content">
+                <div class="alumni-grid">
+                    <!-- Os alumni serão carregados dinamicamente via team-data.js -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Publications -->
+    <section id="publications-page" class="publications-page">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="publications.title">Publicações</h2>
+                <p data-i18n="publications.subtitle">Produção científica do laboratório</p>
+            </div>
+
+            <!-- Publication Type Tabs -->
+            <div class="tabs" role="tablist" aria-label="Tipos de publicação">
+                <button class="tab-btn active" data-pub-type="articles" role="tab" aria-selected="true"
+                    aria-controls="articles-content" data-i18n="publications.tab.articles">Artigos</button>
+                <button class="tab-btn" data-pub-type="books" role="tab" aria-selected="false"
+                    aria-controls="books-content" data-i18n="publications.tab.books">Livros & Capítulos</button>
+                <button class="tab-btn" data-pub-type="network" role="tab" aria-selected="false"
+                    aria-controls="network-content" data-i18n="publications.tab.network">Rede de Colaboração</button>
+            </div>
+
+            <!-- Articles Tab Content -->
+            <div id="articles-content" class="pub-tab-content active">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Buscar por título, autor ou palavra-chave..."
+                        data-i18n-placeholder="publications.search.placeholder">
+                    <i class="fas fa-magnifying-glass"></i>
+                </div>
+
+                <div class="year-filter" id="year-filter-container">
+                    <!-- Year buttons will be dynamically generated -->
+                </div>
+
+                <div class="publications-container">
+                    <!-- Publications will be dynamically inserted -->
+                </div>
+            </div>
+
+            <!-- Books & Chapters Tab Content -->
+            <div id="books-content" class="pub-tab-content">
+                <div class="search-container">
+                    <input type="text" id="books-search-input"
+                        placeholder="Buscar por título, autor ou palavra-chave...">
+                    <i class="fas fa-magnifying-glass"></i>
+                </div>
+
+                <div class="year-filter" id="books-year-filter-container">
+                    <!-- Year buttons will be dynamically generated -->
+                </div>
+
+                <div class="books-container">
+                    <!-- Books will be dynamically inserted -->
+                </div>
+            </div>
+
+            <!-- Co-Authorship & Collaboration Network Tab Content -->
+            <div id="network-content" class="pub-tab-content">
+                <p class="network-desc" data-i18n="network.desc">Explore a rede de coautoria do laboratório. Cada nó representa um pesquisador (tamanho proporcional ao número de publicações) e as linhas indicam colaborações diretas. Clique em um pesquisador para ver as publicações em conjunto e detalhes.</p>
+                
+                <!-- Filter Toolbar -->
+                <div class="network-filters-bar scroll-animate">
+                    <div class="network-search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="network-search-input" data-i18n-placeholder="network.search.placeholder" placeholder="Pesquisar por nome ou instituição...">
+                    </div>
+                    <div class="network-filter-tabs">
+                        <button class="network-filter-btn active" data-filter="all" data-i18n="network.filter.all">Todos</button>
+                        <button class="network-filter-btn" data-filter="internal" data-i18n="network.filter.internal">Membros do Lab</button>
+                        <button class="network-filter-btn" data-filter="external" data-i18n="network.filter.external">Colaboradores</button>
+                    </div>
+                </div>
+
+                <div class="network-container-wrapper">
+                    <div class="network-visualization" id="network-visualization">
+                        <canvas id="network-canvas"></canvas>
+                        <div class="network-tooltip" id="network-tooltip"></div>
+                        <div class="network-controls">
+                            <button id="network-zoom-in" data-i18n-title="network.zoom.in" title="Aumentar Zoom"><i class="fas fa-plus"></i></button>
+                            <button id="network-zoom-out" data-i18n-title="network.zoom.out" title="Diminuir Zoom"><i class="fas fa-minus"></i></button>
+                            <button id="network-reset" data-i18n-title="network.zoom.reset" title="Centralizar Rede"><i class="fas fa-arrows-to-eye"></i></button>
+                        </div>
+                        <div class="network-legend">
+                            <span class="legend-item"><span class="legend-dot central"></span>PI / Lab Head</span>
+                            <span class="legend-item"><span class="legend-dot internal"></span>Membros do Lab</span>
+                            <span class="legend-item"><span class="legend-dot external"></span>Colaboradores</span>
+                        </div>
+                    </div>
+                    <div class="network-details-panel" id="network-details-panel">
+                        <div class="panel-placeholder" id="panel-placeholder" data-i18n="network.panel.placeholder">
+                            Clique em um pesquisador na rede para ver detalhes e publicações conjuntos.
+                        </div>
+                        <div class="panel-content" id="panel-content" style="display: none;">
+                            <h4 id="panel-author-name">Nome do Pesquisador</h4>
+                            <p class="panel-institution" id="panel-author-institution">Instituição</p>
+                            <p class="panel-stats"><i class="fas fa-book"></i> <span id="panel-co-count">0</span> <span id="panel-co-count-label" data-i18n="network.co.count.label">publicações em conjunto</span></p>
+                            <div class="panel-publications-list" id="panel-pubs-list">
+                                <!-- Joint Publications will be populated dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citation Modal -->
+    <div id="citation-modal" class="citation-modal">
+        <div class="citation-modal-content">
+            <span class="citation-modal-close">&times;</span>
+            <h3>Citação</h3>
+            <div class="citation-tabs">
+                <button class="citation-tab active" data-format="abnt">ABNT</button>
+                <button class="citation-tab" data-format="apa">APA</button>
+                <button class="citation-tab" data-format="bibtex">BibTeX</button>
+            </div>
+            <div id="citation-text-abnt" class="citation-text active"></div>
+            <div id="citation-text-apa" class="citation-text"></div>
+            <div id="citation-text-bibtex" class="citation-text"></div>
+            <div class="citation-actions">
+                <button id="citation-copy" class="citation-btn citation-copy">Copiar</button>
+                <button id="citation-close" class="citation-btn citation-close">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Location -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="location.title">Localização</h2>
+                <p data-i18n="location.subtitle">Onde estamos</p>
+            </div>
+            <div class="location-content">
+                <div class="address">
+                    <h3><i class="fas fa-location-dot"></i> Endereço</h3>
+                    <p><strong>Laboratório de Biofísica de Fungos (Labiofun)</strong></p>
+                    <p>Avenida Carlos Chagas Filho, 373</p>
+                    <p>Bloco C1, Sala 37</p>
+                    <p>Cidade Universitária</p>
+                    <p>Rio de Janeiro, RJ</p>
+                    <p>CEP: 21941-902</p>
+                </div>
+                <div class="map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.954685957067!2d-43.23246692544184!3d-22.95702804144365!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bd5a8e4f9c1e9%3A0x4e10e1d3a8d74c3!2sAv.%20Carlos%20Chagas%20Filho%2C%20373%20-%20Cidade%20Universit%C3%A1ria%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2021941-902!5e0!3m2!1spt-BR!2sbr!4v1715439996682!5m2!1spt-BR!2sbr"
+                        width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Social Media -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="social.title">Conecte-se Conosco</h2>
+                <p data-i18n="social.subtitle">Acompanhe nossas atividades e publicações</p>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/labiofun?igsh=M2lwenZkMWkzNW5i" class="social-icon" target="_blank"
+                    rel="noopener noreferrer" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/company/laborat%C3%B3rio-de-biof%C3%ADsica-de-fungos/"
+                    class="social-icon" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="pages/contact.html" class="social-icon" aria-label="Formulário de Contato">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!--Patrocinadores -->
+    <section id="sponsors" class="sponsors-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 data-i18n="sponsors.title">Patrocinadores</h2>
+                <p data-i18n="sponsors.subtitle">Apoio institucional e financiamento</p>
+            </div>
+            <div class="sponsors-wrapper scroll-animate">
+                <div class="sponsor-logos">
+                    <!-- First Set -->
+                    <div class="sponsor-item">
+                        <img src="images/Logo_CAPES.webp" alt="CAPES" class="sponsor-logo">
+                    </div>
+                    <div class="sponsor-item">
+                        <a href="https://www.gov.br/cnpq/pt-br" target="_blank"><img src="images/Logo_CNPq.webp" alt="CNPq" class="sponsor-logo"></a>
+                    </div>
+                    <div class="sponsor-item">
+                        <a href="https://www.faperj.br"><img src="images/Logo_Faperj.webp" alt="FAPERJ" class="sponsor-logo"></a>
+                    </div>
+                    <div class="sponsor-item">
+                        <a href="https://cmm-failsafe.com"><img src="images/Logo_Failsafe.webp" alt="FAILSAFE" class="sponsor-logo"></a>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="images/Logo_redemico.webp" alt="Rede Micologia RJ" class="sponsor-logo">
+                    </div>
+                    <!-- Duplicated Set for Infinite Scroll -->
+                    <div class="sponsor-item">
+                        <img src="images/Logo_CAPES.webp" alt="CAPES" class="sponsor-logo" aria-hidden="true">
+                    </div>
+                    <div class="sponsor-item">
+                        <a href="https://www.gov.br/cnpq/pt-br" target="_blank" tabindex="-1"><img src="images/Logo_CNPq.webp" alt="CNPq" class="sponsor-logo" aria-hidden="true"></a>
+                    </div>
+                    <div class="sponsor-item">
+                        <a href="https://www.faperj.br" tabindex="-1"><img src="images/Logo_Faperj.webp" alt="FAPERJ" class="sponsor-logo" aria-hidden="true"></a>
+                    </div>
+                    <div class="sponsor-item">
+                        <a href="https://cmm-failsafe.com" tabindex="-1"><img src="images/Logo_Failsafe.webp" alt="FAILSAFE" class="sponsor-logo" aria-hidden="true"></a>
+                    </div>
+                    <div class="sponsor-item">
+                        <img src="images/Logo_redemico.webp" alt="Rede Micologia RJ" class="sponsor-logo" aria-hidden="true">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <labiofun-footer></labiofun-footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="scroll-top" aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- External Scripts -->
+    <!-- Data Files -->
+    <script src="data/seminarios.js" defer></script>
+    <script src="data/team.js" defer></script>
+    <script src="data/alumni.js" defer></script>
+    <script src="data/publications.js" defer></script>
+    <script src="data/books.js" defer></script>
+    <script src="data/collaborators.js" defer></script>
+    <script src="js/translations.js" defer></script>
+    <script src="js/language-switcher.js" defer></script>
+
+    <!-- Complete Data Files (deferred for non-blocking) -->
+    <script src="js/bell.js" defer></script>
+    <!-- Main JavaScript (deferred) -->
+    <script src="js/team-ui.js" defer></script>
+    <script src="js/main.js" defer></script>
+
+    <!-- Scholar API Integration (OpenAlex — live citation metrics) -->
+    <script src="js/scholar-api.js" defer></script>
+
+    <!-- Network Graph Integration (dynamic force-directed neural visualizer) -->
+    <script src="js/network-graph.js" defer></script>
+
+    <!-- Initialize Data -->
+    <script>
+        // Wait for deferred scripts to load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initialize publications with complete dataset (168+ publications from 2001-2026)
+            if (typeof initPublications === 'function' && typeof publications !== 'undefined') {
+                initPublications(publications);
+            }
+
+            // Initialize books and chapters
+            if (typeof initBooks === 'function' && typeof booksAndChapters !== 'undefined') {
+                initBooks(booksAndChapters);
+            }
+
+            // Initialize collaborators with complete dataset (10 collaborators)
+            if (typeof renderCollaborators === 'function' && typeof collaborators !== 'undefined' && collaborators.length > 0) {
+                renderCollaborators(collaborators, 'teamContainer');
+            }
+        });
+    </script>
+</body>
+
+</html>

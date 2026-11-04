@@ -1,0 +1,134 @@
+/**
+ * Print Styles for Labiofun Website
+ * Optimized for printing
+ */
+
+@media print {
+
+    /* Hide non-essential elements */
+    header,
+    footer,
+    .language-switcher,
+    .scroll-top,
+    nav,
+    .header-bottom,
+    .social-icons,
+    .pub-btn,
+    .cite-btn,
+    .year-btn,
+    #search-input,
+    #books-search-input,
+    .tabs,
+    button {
+        display: none !important;
+    }
+
+    /* Reset backgrounds and colors */
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Optimize typography */
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+        color: black;
+        background: white;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+        page-break-inside: avoid;
+        color: black;
+    }
+
+    h1 {
+        font-size: 18pt;
+    }
+
+    h2 {
+        font-size: 16pt;
+    }
+
+    h3 {
+        font-size: 14pt;
+    }
+
+    h4,
+    h5,
+    h6 {
+        font-size: 12pt;
+    }
+
+    /* Show URLs after links */
+    a[href]:after {
+        content: " (" attr(href) ")";
+        font-size: 90%;
+    }
+
+    /* Don't show URL for internal links */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    /* Page breaks */
+    .publication-item,
+    .team-member,
+    section {
+        page-break-inside: avoid;
+    }
+
+    section {
+        page-break-before: auto;
+        margin-bottom: 1cm;
+    }
+
+    /* Images */
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    /* Publications */
+    .publications-container {
+        width: 100%;
+    }
+
+    .publication-item {
+        border: 1px solid #ddd;
+        padding: 10pt;
+        margin-bottom: 10pt;
+    }
+
+    .year-header {
+        font-weight: bold;
+        margin-top: 15pt;
+        margin-bottom: 10pt;
+        border-bottom: 2px solid black;
+        padding-bottom: 5pt;
+    }
+
+    /* Team members */
+    .team-photo {
+        max-width: 3cm;
+        float: left;
+        margin-right: 1cm;
+    }
+
+    /* Remove animations */
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}

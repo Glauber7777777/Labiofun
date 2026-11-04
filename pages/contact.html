@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Labiofun</title>
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="stylesheet" href="../css/cookie-banner.css">
+    <link rel="stylesheet" href="../css/global-search.css">
+    <link rel="stylesheet" href="../css/print.css">
+    <link rel="icon" href="../images/Logo pequeno.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .contact-page {
+            min-height: 80vh;
+            padding: var(--space-3xl) 0;
+            background: var(--light);
+        }
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: var(--space-3xl);
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-xl);
+        }
+        .contact-email {
+            text-align: center;
+            padding: var(--space-2xl);
+            background: var(--primary-light-bg);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--space-2xl);
+        }
+        .contact-email h2 {
+            color: var(--primary);
+            margin-bottom: var(--space-md);
+        }
+        .email-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-md);
+            font-size: var(--font-size-2xl);
+            color: var(--primary);
+            text-decoration: none;
+            padding: var(--space-md) var(--space-xl);
+            background: var(--white);
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-md);
+            transition: all var(--transition-base);
+            margin-top: var(--space-md);
+        }
+        .email-link:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            color: var(--accent);
+        }
+        .privacy-notice {
+            margin-top: var(--space-2xl);
+            padding: var(--space-lg);
+            background: var(--accent-light-bg);
+            border-radius: var(--radius-md);
+            border-left: 4px solid var(--accent);
+        }
+        .privacy-notice h3 {
+            color: var(--primary);
+            margin-bottom: var(--space-sm);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            margin-top: var(--space-2xl);
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: var(--font-weight-semibold);
+            transition: all var(--transition-base);
+        }
+        .back-link:hover {
+            color: var(--accent);
+            transform: translateX(-4px);
+        }
+        .form-group {
+            margin-bottom: var(--space-lg);
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: var(--space-sm);
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+        .form-control {
+            width: 100%;
+            padding: var(--space-md);
+            border: 2px solid var(--light-gray);
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-base);
+            font-family: var(--font-body);
+            transition: all var(--transition-base);
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(42, 98, 61, 0.1);
+        }
+        .btn-submit {
+            width: 100%;
+            padding: var(--space-md);
+            background: var(--gradient-primary);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-md);
+            font-size: var(--font-size-lg);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+        .alert {
+            padding: var(--space-md);
+            border-radius: var(--radius-md);
+            margin-bottom: var(--space-lg);
+            display: none;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert-danger {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo-container">
+                    <img src="../images/ufrj.webp" alt="Logo UFRJ" class="logo-img" loading="eager">
+                </div>
+                <div class="header-title">
+                    <h1><strong>Laboratório de Biofísica de Fungos</strong></h1>
+                </div>
+                <div class="logo-container">
+                    <img src="../images/logo-pequeno.webp" alt="Logo Labiofun" class="logo-img" loading="eager">
+                </div>
+                <!-- Language Switcher -->
+                <div class="language-switcher" role="navigation" aria-label="Seletor de idioma">
+                    <button class="lang-btn active" data-lang="pt-BR" aria-label="Português" title="Português">🇧🇷</button>
+                    <button class="lang-btn" data-lang="en" aria-label="English" title="English">🇺🇸</button>
+                    <button class="lang-btn" data-lang="es-ES" aria-label="Español" title="Español">🇪🇸</button>
+                    <button class="lang-btn" data-lang="fr-FR" aria-label="Français" title="Français">🇫🇷</button>
+                    <a href="../index.html" class="lang-btn" title="Voltar ao início" style="text-decoration: none; font-size: 1rem;">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+                </div>
+        <div class="header-bottom">
+                <nav aria-label="Navegação principal" role="navigation">
+                    <ul role="menubar">
+                        <li role="none"><a href="../index.html#about" data-i18n="nav.home" role="menuitem"><i class="fas fa-home"></i>Início</a></li>
+                        <li role="none"><a href="../index.html#mission" data-i18n="nav.mission" role="menuitem"><i class="fas fa-id-badge"></i>Missão</a></li>
+                        <li role="none"><a href="../index.html#research" data-i18n="nav.research" role="menuitem"><i class="fas fa-flask"></i>Pesquisas</a></li>
+                        <li role="none"><a href="../index.html#techniques" data-i18n="nav.techniques" role="menuitem"><i class="fas fa-tools"></i>Técnicas</a></li>
+                        <li role="none"><a href="gallery.html" data-i18n="nav.gallery" role="menuitem"><i class="fas fa-camera"></i>Galeria</a></li>
+                        <li role="none"><a href="../index.html#team" data-i18n="nav.team" role="menuitem"><i class="fas fa-users"></i>Equipe</a></li>
+                        <li role="none"><a href="../index.html#publications-page" data-i18n="nav.publications" role="menuitem"><i class="fas fa-book"></i>Publicações</a></li>
+                        <li role="none"><a href="defesas.html" data-i18n="nav.defences" role="menuitem"><i class="fas fa-graduation-cap"></i>Defesas</a></li>
+                        <li role="none"><a href="vagas.html" data-i18n="nav.jobs" role="menuitem"><i class="fas fa-briefcase"></i>Vagas</a></li>
+                        <li role="none"><a href="../index.html#sponsors" data-i18n="nav.sponsors" role="menuitem"><i class="fas fa-handshake"></i>Patrocínio</a></li>
+                        <li role="none"><a href="../index.html#location" data-i18n="nav.location" role="menuitem"><i class="fas fa-location-dot"></i>Localização</a></li>
+                        <li role="none"><a href="../index.html#contact" data-i18n="nav.contact" role="menuitem"><i class="fas fa-comments"></i>Contato</a></li>
+                        <li role="none"><a href="trademark.html" data-i18n="nav.trademark" role="menuitem"><i class="fa-solid fa-wand-magic-sparkles"></i>Identidade Visual</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-page">
+            <div class="container">
+                <div class="contact-container">
+                    
+                    <div id="success-msg" class="alert alert-success">
+                        <strong><i class="fas fa-check-circle"></i> Sucesso!</strong> Sua mensagem foi enviada. Responderemos em breve.
+                    </div>
+                    <div id="error-msg" class="alert alert-danger">
+                        <strong><i class="fas fa-exclamation-triangle"></i> Erro!</strong> Não foi possível enviar a mensagem. Tente novamente.
+                    </div>
+
+                    <div class="contact-email">
+                        <h2><i class="fas fa-envelope"></i> Fale Conosco</h2>
+                        <p>Utilize o formulário abaixo para enviar uma mensagem diretamente para o email protegido.</p>
+                        
+                        <a href="mailto:labiofun@labiofun.com.br" class="email-link">
+                            <i class="fas fa-envelope"></i>
+                        labiofun@labiofun.com.br
+                    </a>
+                    </div>
+
+                    <form action="enviar-email.php" method="POST" id="contactForm">
+                        <!-- Proteção Anti-Spam (Honeypot) -->
+                        <div style="display:none;" aria-hidden="true">
+                            <label for="website">Website (deixe em branco se for humano)</label>
+                            <input type="text" name="website" id="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="name">Seu Nome</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="Digite seu nome completo" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Seu Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="exemplo@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Motivo do contato" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Sua Mensagem</label>
+                            <textarea id="message" name="message" rows="6" class="form-control" placeholder="Escreva sua mensagem aqui..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-submit">
+                            <i class="fas fa-paper-plane"></i> Enviar Mensagem
+                        </button>
+                    </form>
+
+                    <div class="privacy-notice">
+                        <h3><i class="fas fa-shield-alt"></i> Proteção de Privacidade:</h3>
+                        <p>Seu email não será armazenado em nosso sistema nem utilizado para spam. Utilizamos a infraestrutura segura da Hostinger para entrega.</p>
+                        <p style="margin-top: var(--space-md); font-size: var(--font-size-sm);">
+                            <strong>Lei nº 13.709, de 14 de agosto de 2018.</strong> Denominada "Lei Geral de Proteção de Dados Pessoais (LGPD)". Dispõe sobre o tratamento de dados pessoais, inclusive nos meios digitais, por pessoa natural ou por pessoa jurídica de direito público ou privado, com o objetivo de proteger os direitos fundamentais de liberdade e de privacidade e o livre desenvolvimento da personalidade da pessoa natural.
+                        </p>
+                    </div>
+
+                    <div style="text-align: center;">
+                        <a href="../index.html" class="back-link">
+                            <i class="fas fa-arrow-left"></i> Voltar para o site
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright" style="text-align: center; padding: var(--space-md); color: var(--gray);">
+                <p>© 2019 - 2026 Laboratório de Biofísica de Fungos (Labiofun). Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared Scripts -->
+    <!-- Data Files -->
+    <script src="../data/seminarios.js" defer></script>
+    <script src="../data/team.js" defer></script>
+    <script src="../data/alumni.js" defer></script>
+    <script src="../data/publications.js" defer></script>
+    <script src="../data/books.js" defer></script>
+    <script src="../data/collaborators.js" defer></script>
+    <script src="../js/translations.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/bell.js" defer></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('status') === 'success') {
+            document.getElementById('success-msg').style.display = 'block';
+            document.getElementById('contactForm').style.display = 'none';
+        } else if (urlParams.get('status') === 'error') {
+            document.getElementById('error-msg').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+

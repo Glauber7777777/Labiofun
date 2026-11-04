@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notícias & Eventos — Labiofun</title>
+    <meta name="description" content="Notícias, eventos e novidades do Laboratório de Biofísica de Fungos (Labiofun) - UFRJ.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <style>
+        .page-hero { background: var(--gradient-primary); color: var(--white); padding: var(--space-lg) 0 var(--space-md); text-align: center; position: relative; overflow: hidden; }
+        .page-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 60%, rgba(255,255,255,.08) 0%, transparent 70%); }
+        .page-hero .container { position: relative; z-index: 1; }
+        .page-hero h2 { color: var(--white); font-size: var(--font-size-5xl); margin-bottom: var(--space-md); }
+        .page-hero p { color: rgba(255,255,255,.88); font-size: var(--font-size-xl); max-width: 680px; margin: 0 auto; line-height: var(--line-height-relaxed); }
+        .breadcrumb { display: flex; align-items: center; justify-content: center; gap: var(--space-sm); margin-bottom: var(--space-xl); font-size: var(--font-size-sm); opacity: .75; }
+        .breadcrumb a { color: var(--white); }
+
+        /* Filter bar */
+        .filter-bar { display: flex; gap: var(--space-sm); justify-content: center; flex-wrap: wrap; margin-bottom: var(--space-2xl); }
+        .filter-btn { padding: var(--space-sm) var(--space-xl); border: 2px solid var(--light-gray); background: var(--white); border-radius: var(--radius-full); cursor: pointer; font-weight: var(--font-weight-semibold); color: var(--gray); transition: all var(--transition-base); font-size: var(--font-size-sm); }
+        .filter-btn.active, .filter-btn:hover { background: var(--gradient-primary); color: var(--white); border-color: transparent; transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+
+        /* News grid */
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-xl); margin-bottom: var(--space-3xl); }
+        .news-card { background: var(--white); border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-md); border: 1px solid var(--light-gray); transition: transform var(--transition-base), box-shadow var(--transition-base); display: flex; flex-direction: column; }
+        .news-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+        .news-card-header { padding: var(--space-xl); background: var(--gradient-primary); color: var(--white); position: relative; min-height: 140px; display: flex; flex-direction: column; justify-content: flex-end; }
+        .news-card-header.outreach { background: linear-gradient(135deg, hsl(165, 70%, 32%), hsl(145, 80%, 25%)); }
+        .news-card-icon { font-size: 3rem; opacity: .25; position: absolute; top: var(--space-md); right: var(--space-xl); }
+        .news-tag { display: inline-block; background: rgba(255,255,255,.2); color: var(--white); font-size: var(--font-size-xs); font-weight: var(--font-weight-bold); padding: 3px 10px; border-radius: var(--radius-full); text-transform: uppercase; letter-spacing: .08em; margin-bottom: var(--space-sm); }
+        .news-tag.evento { background: rgba(255,200,50,.3); }
+        .news-tag.publicacao { background: rgba(100,200,255,.3); }
+        .news-card-header h3 { color: var(--white); font-size: var(--font-size-lg); line-height: var(--line-height-tight); margin: 0; }
+        .news-card-body { padding: var(--space-xl); flex: 1; display: flex; flex-direction: column; }
+        .news-meta { display: flex; align-items: center; gap: var(--space-md); font-size: var(--font-size-xs); color: var(--gray); margin-bottom: var(--space-md); }
+        .news-meta i { color: var(--primary); }
+        .news-card-body p { font-size: var(--font-size-sm); color: var(--dark-gray); line-height: var(--line-height-relaxed); flex: 1; margin-bottom: var(--space-lg); }
+        .news-link { display: inline-flex; align-items: center; gap: var(--space-xs); color: var(--primary); font-size: var(--font-size-sm); font-weight: var(--font-weight-semibold); transition: gap var(--transition-fast); text-decoration: none; }
+        .news-link:hover { gap: var(--space-md); color: var(--accent); }
+
+        /* Featured card */
+        .news-card.featured .news-card-header { min-height: 200px; }
+        .news-card.featured .news-card-header h3 { font-size: var(--font-size-2xl); }
+
+        /* Events list */
+        .events-list { display: flex; flex-direction: column; gap: var(--space-lg); }
+        .event-item { display: flex; gap: var(--space-xl); align-items: flex-start; background: var(--white); border-radius: var(--radius-lg); padding: var(--space-xl); box-shadow: var(--shadow-md); border: 1px solid var(--light-gray); transition: box-shadow var(--transition-base); }
+        .event-item:hover { box-shadow: var(--shadow-xl); }
+        .event-date-box { background: var(--gradient-primary); color: var(--white); border-radius: var(--radius-md); padding: var(--space-md) var(--space-lg); text-align: center; min-width: 72px; flex-shrink: 0; }
+        .event-date-box .day { font-size: var(--font-size-3xl); font-weight: var(--font-weight-black); line-height: 1; }
+        .event-date-box .month { font-size: var(--font-size-xs); text-transform: uppercase; letter-spacing: .08em; opacity: .85; }
+        .event-info h3 { color: var(--primary); font-size: var(--font-size-xl); margin-bottom: var(--space-xs); }
+        .event-info p { color: var(--dark-gray); font-size: var(--font-size-sm); line-height: var(--line-height-relaxed); margin: 0; }
+        .event-badge { display: inline-flex; align-items: center; gap: 4px; font-size: var(--font-size-xs); font-weight: var(--font-weight-semibold); padding: 2px 10px; border-radius: var(--radius-full); margin-bottom: var(--space-sm); }
+        .event-badge.upcoming { background: #d4f5e3; color: #1a6b3c; }
+        .event-badge.past { background: var(--light-gray); color: var(--gray); }
+
+        .section-alt { background: var(--light); }
+
+        @media (max-width: 768px) {
+            .page-hero h2 { font-size: var(--font-size-3xl); }
+            .news-grid { grid-template-columns: 1fr; }
+            .event-item { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+    <div class="scroll-progress-bar" id="scroll-progress"></div>
+
+    <header role="banner">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo-container"><img src="../images/ufrj.webp" alt="Logo UFRJ" class="logo-img" loading="eager"></div>
+                <div class="header-title"><h1><strong>Laboratório de Biofísica de Fungos</strong></h1></div>
+                <div class="logo-container"><img src="../images/logo-pequeno.webp" alt="Logo Labiofun" class="logo-img" loading="eager"></div>
+                <!-- Language Switcher -->
+                <div class="language-switcher" role="navigation" aria-label="Seletor de idioma">
+                    <button class="lang-btn active" data-lang="pt-BR" aria-label="Português" title="Português">🇧🇷</button>
+                    <button class="lang-btn" data-lang="en" aria-label="English" title="English">🇺🇸</button>
+                    <button class="lang-btn" data-lang="es-ES" aria-label="Español" title="Español">🇪🇸</button>
+                    <button class="lang-btn" data-lang="fr-FR" aria-label="Français" title="Français">🇫🇷</button>
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-hero">
+            <div class="container">
+                <div class="breadcrumb">
+                    <a href="../index.html" data-i18n="nav.home"><i class="fas fa-home"></i> Início</a>
+                    <i class="fas fa-chevron-right" style="font-size:.6rem"></i>
+                    <span data-i18n="noticias.breadcrumb">Publicações 2026</span>
+                </div>
+                <h2 data-i18n="noticias.hero.title"><i class="fas fa-book-open" style="margin-right:.5rem"></i>Últimas Notícias e Publicações</h2>
+                <p data-i18n="noticias.hero.desc">Fique por dentro das novidades, eventos, seminários, defesas e produções científicas do Labiofun.</p>
+            </div>
+        </section>
+
+        <!-- Links to other pages -->
+        <section class="section-alt" style="padding: var(--space-xl) 0; background: var(--light);">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: var(--space-md);">
+                    <h2 data-i18n="noticias.other_links.title" style="margin-bottom: 0;">Acompanhe também</h2>
+                </div>
+                <div style="display: flex; gap: var(--space-xl); justify-content: center; flex-wrap: wrap;">
+                    <a href="seminarios.html" class="btn" style="background: var(--gradient-primary); color: white; padding: var(--space-md) var(--space-xl); border-radius: var(--radius-full); text-decoration: none; font-weight: bold; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 10px; transition: transform var(--transition-base);">
+                        <i class="fas fa-chalkboard-teacher"></i> <span data-i18n="noticias.links.seminars">Seminários</span>
+                    </a>
+                    <a href="defesas.html" class="btn" style="background: var(--gradient-primary); color: white; padding: var(--space-md) var(--space-xl); border-radius: var(--radius-full); text-decoration: none; font-weight: bold; box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 10px; transition: transform var(--transition-base);">
+                        <i class="fas fa-graduation-cap"></i> <span data-i18n="noticias.links.defences">Defesas de Tese</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications Section -->
+        <section class="about">
+            <div class="container">
+                <div class="section-header">
+                    <h2 data-i18n="noticias.section.title">Artigos & Divulgações de 2026</h2>
+                    <p data-i18n="noticias.section.desc">Conheça nossas publicações mais recentes na fronteira do conhecimento</p>
+                </div>
+
+                <div class="filter-bar" id="filterBar">
+                    <button class="filter-btn active" data-filter="all" data-i18n="noticias.filter.all">Todas as Publicações</button>
+                    <button class="filter-btn" data-filter="artigo" data-i18n="noticias.filter.articles">Artigos Científicos</button>
+                    <button class="filter-btn" data-filter="divulgacao" data-i18n="noticias.filter.outreach">Divulgação Científica</button>
+                </div>
+
+                <div class="news-grid" id="newsGrid">
+
+                    <!-- Content will be dynamically populated from publications-data.js -->
+
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer>
+        <div class="copyright">
+            <p><span data-i18n="footer.copyright">&copy; 2019 – 2026 Laboratório de Biofísica de Fungos - UFRJ. Todos os direitos reservados.</span> |
+            <a href="../index.html" style="color:rgba(255,255,255,.7);margin-left:.5rem" data-i18n="footer.back">Voltar ao site principal</a></p>
+        </div>
+    </footer>
+
+    <button id="scroll-top" class="scroll-top" aria-label="Voltar ao topo"><i class="fas fa-arrow-up"></i></button>
+
+    <!-- Shared Scripts -->
+    <!-- Data Files -->
+    <script src="../data/seminarios.js" defer></script>
+    <script src="../data/team.js" defer></script>
+    <script src="../data/alumni.js" defer></script>
+    <script src="../data/publications.js" defer></script>
+    <script src="../data/books.js" defer></script>
+    <script src="../data/collaborators.js" defer></script>
+    <script src="../js/translations.js" defer></script>
+    <script src="../js/language-switcher.js" defer></script>
+    <script src="../js/bell.js" defer></script>
+    <script src="../js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const newsGrid = document.getElementById('newsGrid');
+            
+            if (typeof publications !== 'undefined' && publications.length > 0) {
+                // Determine the latest year in the database
+                const latestYear = publications[0].year;
+                
+                // Filter publications from the latest year
+                const recentPubs = publications.filter(pub => pub.year === latestYear);
+                
+                // Update the page title to reflect the year
+                const titleElement = document.querySelector('h2[data-i18n="noticias.section.title"]');
+                if (titleElement) {
+                    titleElement.textContent = `Artigos & Divulgações de ${latestYear}`;
+                }
+
+                newsGrid.innerHTML = ''; // Clear fallback content
+
+                recentPubs.forEach(pub => {
+                    const isOutreach = pub.type === 'divulgacao';
+                    const category = isOutreach ? 'divulgacao' : 'artigo';
+                    
+                    // Style attributes based on type
+                    const headerClass = isOutreach ? 'news-card-header outreach' : 'news-card-header';
+                    const headerStyle = isOutreach ? '' : 'style="background: linear-gradient(135deg, var(--primary), var(--primary-dark));"';
+                    const iconClass = isOutreach ? 'fas fa-graduation-cap' : 'fas fa-file-signature';
+                    
+                    const tagBg = isOutreach ? 'rgba(255, 255, 255, 0.25)' : 'rgba(46, 204, 113, 0.25)';
+                    const tagColor = isOutreach ? 'var(--white)' : '#2ecc71';
+                    const tagText = isOutreach ? 'Divulgação Científica' : 'Artigo Científico';
+                    
+                    // Convert DOI to full URL if necessary
+                    const linkUrl = pub.doi.startsWith('http') ? pub.doi : `https://doi.org/${pub.doi}`;
+
+                    const cardHTML = `
+                        <div class="news-card scroll-animate" data-category="${category}">
+                            <div class="${headerClass}" ${headerStyle}>
+                                <i class="${iconClass} news-card-icon"></i>
+                                <span class="news-tag" style="background: ${tagBg}; color: ${tagColor};">${tagText}</span>
+                                <h3>${pub.title}</h3>
+                            </div>
+                            <div class="news-card-body">
+                                <div class="news-meta">
+                                    <span><i class="fas fa-journal-whills"></i> ${pub.journal}, ${pub.year}</span>
+                                    <span><i class="fas fa-fingerprint"></i> DOI: ${pub.doi}</span>
+                                </div>
+                                <p style="font-size: var(--font-size-sm); line-height: 1.6; margin-bottom: var(--space-md);">
+                                    <strong>Autores:</strong> ${pub.authors}
+                                </p>
+                                <a href="${linkUrl}" target="_blank" rel="noopener noreferrer" class="news-link">Acessar Publicação <i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    `;
+                    newsGrid.insertAdjacentHTML('beforeend', cardHTML);
+                });
+            }
+
+            // News filter functionality
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.dataset.filter;
+                    document.querySelectorAll('.news-card').forEach(card => {
+                        const show = filter === 'all' || card.dataset.category === filter;
+                        card.style.display = show ? '' : 'none';
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

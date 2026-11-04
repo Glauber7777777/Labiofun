@@ -1,0 +1,157 @@
+/**
+ * Dark Mode Styles for Labiofun Website
+ * Automatic dark theme with toggle
+ */
+
+/* Dark mode variables */
+[data-theme="dark"] {
+    /* Dark Colors */
+    --background: hsl(210, 15%, 12%);
+    --surface: hsl(210, 15%, 18%);
+    --surface-elevated: hsl(210, 15%, 22%);
+
+    /* Text Colors */
+    --text-primary: hsl(0, 0%, 95%);
+    --text-secondary: hsl(0, 0%, 75%);
+    --text-tertiary: hsl(0, 0%, 60%);
+
+    /* Adjusted Primary Colors for Dark */
+    --primary: hsl(145, 45%, 45%);
+    --primary-dark: hsl(145, 45%, 35%);
+    --accent: hsl(145, 80%, 50%);
+
+    /* Borders */
+    --border-color: hsl(210, 15%, 30%);
+
+    /* Shadows for Dark Mode */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+/* Apply dark mode to body */
+[data-theme="dark"] body {
+    background-color: var(--background);
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .hero {
+    background: var(--surface-elevated);
+}
+
+[data-theme="dark"] section {
+    background-color: var(--background);
+}
+
+[data-theme="dark"] .card,
+[data-theme="dark"] .publication-item,
+[data-theme="dark"] .tm-content,
+[data-theme="dark"] .event-item {
+    background: var(--surface);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .tm-name {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .tm-bio {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] span {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] a {
+    color: var(--primary);
+}
+
+[data-theme="dark"] a:hover {
+    color: var(--accent);
+}
+
+[data-theme="dark"] button,
+[data-theme="dark"] .btn {
+    background: var(--surface-elevated);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+    background: var(--surface);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Dark Mode Toggle Button — posicionado inline no header-top */
+.dark-mode-toggle {
+    background: transparent;
+    color: var(--white, #fff);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+}
+
+.dark-mode-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.9);
+    transform: scale(1.1);
+}
+
+.dark-mode-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Smooth transitions for theme switching */
+body,
+header,
+section,
+.card,
+.publication-item,
+.team-member,
+button,
+input {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Auto dark mode based on system preference */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --background: hsl(210, 15%, 12%);
+        --text-primary: hsl(0, 0%, 95%);
+    }
+}

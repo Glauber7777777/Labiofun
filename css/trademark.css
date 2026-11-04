@@ -1,0 +1,384 @@
+/* ── Page-level overrides ── */
+      /* ── Section titles ── */
+      .tm-section {
+        padding: 4rem 0;
+      }
+
+      .tm-section-title {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 0.4rem;
+      }
+
+      .tm-section-title i {
+        color: var(--primary);
+      }
+
+      .tm-section-desc {
+        color: var(--dark-gray);
+        margin-bottom: 2.5rem;
+        font-size: 0.95rem;
+      }
+
+      /* ── Logo grid ── */
+      .logo-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+      }
+
+      .logo-card {
+        flex: 1 1 280px;
+        max-width: 400px;
+        border-radius: var(--radius-xl);
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+        transition:
+          transform var(--transition-base),
+          box-shadow var(--transition-base);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-xl);
+      }
+
+      .logo-preview {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem 2rem;
+        min-height: 220px;
+      }
+
+      .logo-preview img {
+        max-width: 220px;
+        max-height: 180px;
+        object-fit: contain;
+        transition: transform var(--transition-slow);
+      }
+
+      .logo-card:hover .logo-preview img {
+        transform: scale(1.06);
+      }
+
+      /* Backgrounds */
+      .bg-white {
+        background: #ffffff;
+      }
+
+      .bg-light {
+        background: var(--light);
+      }
+
+      .bg-dark {
+        background: var(--dark);
+      }
+
+      .bg-primary {
+        background: var(--primary);
+      }
+
+      .bg-gradient {
+        background: var(--gradient-primary);
+      }
+
+      .logo-info {
+        padding: 1.25rem 1.5rem;
+        background: var(--white);
+        border-top: 1px solid var(--light-gray);
+      }
+
+      .logo-info h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 0.25rem;
+      }
+
+      .logo-info p {
+        font-size: 0.82rem;
+        color: var(--dark-gray);
+        margin-bottom: 1rem;
+      }
+
+      .logo-actions {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .btn-download {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.4rem 0.9rem;
+        border-radius: var(--radius-full);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all var(--transition-base);
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-download.primary {
+        background: var(--primary);
+        color: var(--white);
+      }
+
+      .btn-download.primary:hover {
+        background: var(--primary-dark);
+        color: var(--white);
+        transform: scale(1.04);
+      }
+
+      .btn-download.outline {
+        background: transparent;
+        color: var(--primary);
+        border: 1.5px solid var(--primary);
+      }
+
+      .btn-download.outline:hover {
+        background: var(--primary-light-bg);
+      }
+
+      /* ── Color palette ── */
+      .palette-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+
+      .color-swatch {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .swatch-preview {
+        height: 80px;
+      }
+
+      .swatch-info {
+        padding: 0.75rem 1rem;
+        background: var(--white);
+      }
+
+      .swatch-name {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .swatch-code {
+        font-family: "Courier New", monospace;
+        font-size: 0.75rem;
+        color: var(--dark-gray);
+      }
+
+      /* ── Typography showcase ── */
+      .font-showcase {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .font-card {
+        background: var(--white);
+        border-radius: var(--radius-xl);
+        padding: 2rem;
+        box-shadow: var(--shadow-md);
+        border-left: 4px solid var(--primary);
+      }
+
+      .font-card .font-sample {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 0.5rem;
+        line-height: 1.1;
+      }
+
+      .font-card .font-meta {
+        font-size: 0.8rem;
+        color: var(--dark-gray);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .font-card .font-alphabet {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        color: var(--gray);
+        line-height: 1.8;
+      }
+
+      .tm-divider {
+        height: 1px;
+        background: var(--light-gray);
+        margin: 0;
+      }
+
+      /* ── Back button ── */
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 0.9rem;
+        text-decoration: none;
+        margin-bottom: 2rem;
+        transition: color var(--transition-base);
+      }
+
+      .back-btn:hover {
+        color: var(--white);
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 640px) {
+        .logo-grid {
+          flex-direction: column;
+        }
+      }
+
+      /* ── Trademark Norms & Download ── */
+      .tm-rules-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .tm-rule-card {
+        background: var(--white);
+        border-radius: var(--radius-lg);
+        padding: 1.5rem;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .tm-rule-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .tm-rule-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(42, 98, 61, 0.1);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+      }
+
+      .tm-rule-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--dark);
+        margin: 0;
+      }
+
+      .tm-rule-text {
+        font-size: 0.92rem;
+        color: var(--dark-gray);
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .tm-btn-outline {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--primary);
+        text-decoration: none;
+        margin-top: 0.5rem;
+        border: 1px solid var(--primary);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        width: fit-content;
+        transition: all 0.3s ease;
+        background: transparent;
+      }
+
+      .tm-btn-outline:hover {
+        background: var(--primary);
+        color: var(--white);
+      }
+
+      .tm-footer-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.6rem;
+      }
+
+      .tm-footer-text {
+        font-size: 0.92rem;
+        color: var(--dark-gray);
+        line-height: 1.75;
+        margin: 0;
+      }
+
+      .tm-link {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .tm-download-section {
+        background: var(--gradient-primary);
+        padding: 4rem 0;
+      }
+
+      .tm-download-container {
+        text-align: center;
+      }
+
+      .tm-download-title {
+        color: var(--white);
+        margin-bottom: 0.75rem;
+      }
+
+      .tm-download-desc {
+        color: rgba(255, 255, 255, 0.8);
+        max-width: 500px;
+        margin: 0 auto 2rem;
+      }
+
+      .tm-btn-download-full {
+        background: var(--white);
+        color: var(--primary);
+        font-size: 1rem;
+        padding: 0.85rem 2rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .tm-btn-download-full:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
