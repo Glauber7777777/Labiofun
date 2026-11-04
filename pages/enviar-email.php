@@ -10,13 +10,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Honeypot (Anti-spam)
     if (!empty($_POST["website"])) {
         // Se o campo invisível foi preenchido, é um bot. Redireciona como se tivesse sido enviado com sucesso (para enganar o bot).
-        header("Location: contact.html?status=success");
+        header("Location: /pages/contact.html?status=success");
         exit;
     }
 
     // Validação básica
     if (empty($name) || empty($message) || empty($subject) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header("Location: contact.html?status=error");
+        header("Location: /pages/contact.html?status=error");
         exit;
     }
 
@@ -37,14 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Envio do email
     if (mail($recipient, $email_subject, $email_content, $email_headers)) {
-        header("Location: contact.html?status=success");
+        header("Location: /pages/contact.html?status=success");
         exit;
     } else {
-        header("Location: contact.html?status=error");
+        header("Location: /pages/contact.html?status=error");
         exit;
     }
 } else {
-    header("Location: contact.html");
+    header("Location: /pages/contact.html");
     exit;
 }
 ?>
