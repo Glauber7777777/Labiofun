@@ -804,8 +804,7 @@
                         <!-- Empty Search Results Box -->
                         <div class="glass-dashboard-card seminars-empty-state" id="seminars-empty-box">
                             <i class="fas fa-calendar-times"></i>
-                            <p data-i18n="publications.no.results">Nenhum seminário correspondente aos filtros foi
-                                encontrado.</p>
+                            <p data-i18n="seminars.no.results">Nenhum seminário encontrado para este filtro.</p>
                         </div>
 
                     </div>
@@ -834,7 +833,7 @@
     <script src="../data/publications.js?v=20261104b" defer></script>
     <script src="../data/books.js?v=20261104b" defer></script>
     <script src="../data/collaborators.js?v=20261104b" defer></script>
-    <script src="../js/translations.js?v=20261104b" defer></script>
+    <script src="../js/translations.js?v=20261104d" defer></script>
     <script src="../js/language-switcher.js?v=20261104b" defer></script>
     <script src="../js/bell.js?v=20261104b" defer></script>
     <script src="../js/main.js?v=20261104b"></script>
@@ -905,6 +904,12 @@
                 return 'scheduled';
             }
 
+            // 'AAAA-MM-DD' como data local (evita deslocamento de fuso)
+            function parseLocal(str) {
+                const [y, m, d] = String(str).split('-').map(Number);
+                return new Date(y, (m || 1) - 1, d || 1);
+            }
+
             // Render calendar grid
             function renderSeminars() {
                 const curLang = (typeof window.languageSwitcher !== 'undefined') ? window.languageSwitcher.getCurrentLanguage() : 'pt-BR';
@@ -912,21 +917,24 @@
 
                 // Calculate which seminar is the NEXT absolute spotlight one
                 const futureSeminars = seminarsData
-                    .map(s => ({ id: s.id, time: new Date(s.date).getTime() }))
+                    .map(s => ({ id: s.id, time: parseLocal(s.date).getTime() }))
                     .filter(s => s.time >= new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate()).getTime())
                     .sort((a, b) => a.time - b.time);
 
                 const nextSpotlightId = futureSeminars.length > 0 ? futureSeminars[0].id : null;
 
-                // Process and filter seminars (hide completed > 15 days)
-                const fifteenDaysMs = 15 * 24 * 60 * 60 * 1000;
-                const cutoffTime = new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate()).getTime() - fifteenDaysMs;
-
+                // Todos os seminários: próximos primeiro (data crescente), depois concluídos (mais recentes primeiro)
+                const todayTime = new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate()).getTime();
                 let filteredData = seminarsData
-                    .filter(item => new Date(item.date).getTime() >= cutoffTime)
                     .map(item => {
-                        const status = (item.id === nextSpotlightId) ? 'next' : (new Date(item.date).getTime() < new Date(baseDate.getFullYear(), baseDate.getMonth(), baseDate.getDate()).getTime() ? 'completed' : 'scheduled');
-                        return { ...item, status };
+                        const time = parseLocal(item.date).getTime();
+                        const status = (item.id === nextSpotlightId) ? 'next' : (time < todayTime ? 'completed' : 'scheduled');
+                        return { ...item, time, status };
+                    })
+                    .sort((a, b) => {
+                        const pa = a.status === 'completed', pb = b.status === 'completed';
+                        if (pa !== pb) return pa ? 1 : -1;
+                        return pa ? b.time - a.time : a.time - b.time;
                     });
 
                 // Apply text filters
@@ -962,8 +970,8 @@
                 // Generate and inject cards
                 filteredData.forEach(item => {
                     // Extract Date properties
-                    const dateObj = new Date(item.date);
-                    const day = dateObj.getDate() + 1; // Correct UTC timezone shift
+                    const dateObj = parseLocal(item.date);
+                    const day = dateObj.getDate();
                     const monthIdx = dateObj.getMonth();
                     const monthText = monthNames[curLang] ? monthNames[curLang][monthIdx] : '';
 
