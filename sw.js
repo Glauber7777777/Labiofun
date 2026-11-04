@@ -13,8 +13,8 @@ const urlsToCache = [
     '/js/main.js',
     '/js/translations.js',
     '/js/language-switcher.js',
-    '/images/Logo pequeno.png',
-    '/images/ufrj.png'
+    '/images/logo-pequeno.webp',
+    '/images/ufrj.webp'
 ];
 
 // Install event - cache resources

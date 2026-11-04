@@ -43,6 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
             .bell-item-desc { font-size: 12px; color: #6c757d; margin: 0; }
             
             /* Responsive */
+            @media (max-width: 768px) {
+                #notification-bell-container { bottom: 12px !important; right: 12px !important; }
+                .bell-btn { width: 44px; height: 44px; font-size: 18px; opacity: .9; }
+                .bell-badge { width: 18px; height: 18px; font-size: 10px; top: -4px; right: -4px; }
+            }
             @media (max-width: 400px) {
                 .bell-dialog { width: 300px; right: -10px; }
             }

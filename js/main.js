@@ -805,6 +805,9 @@ function renderPublications(pubs) {
             });
         });
 
+        // Nome acessível nos selos Altmetric (o script deles gera <a> vazios)
+        labelAltmetricBadges();
+
         // Re-initialize Altmetric badges
         if (window._altmetric_embed_init) {
             window._altmetric_embed_init();
@@ -814,6 +817,21 @@ function renderPublications(pubs) {
     } catch (error) {
         console.error('Error em renderPublications:', error);
     }
+}
+
+let altmetricObserver = null;
+function labelAltmetricBadges() {
+    const apply = (root) => root.querySelectorAll('.altmetric-embed a:not([aria-label])').forEach(link => {
+        const doi = link.closest('.altmetric-embed')?.dataset.doi || '';
+        link.setAttribute('aria-label', `Altmetric: atenção online ao artigo ${doi}`.trim());
+    });
+    apply(document);
+    if (altmetricObserver || !('MutationObserver' in window)) return;
+    altmetricObserver = new MutationObserver(() => apply(document));
+    document.querySelectorAll('.altmetric-embed').forEach(el => {
+        const section = el.closest('section') || document.body;
+        altmetricObserver.observe(section, { childList: true, subtree: true });
+    });
 }
 
 function filterPublications(publications, year) {

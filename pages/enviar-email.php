@@ -1,11 +1,11 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Coleta e sanitização dos dados do formulário
-    $name = strip_tags(trim($_POST["name"]));
+    $name = strip_tags(trim($_POST["name"] ?? ""));
     $name = str_replace(array("\r","\n"),array(" "," "),$name);
-    $email = filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL);
-    $subject = trim($_POST["subject"]);
-    $message = trim($_POST["message"]);
+    $email = filter_var(trim($_POST["email"] ?? ""), FILTER_SANITIZE_EMAIL);
+    $subject = str_replace(array("\r","\n"), " ", strip_tags(trim($_POST["subject"] ?? ""))); // bloqueia injeção de cabeçalho
+    $message = trim($_POST["message"] ?? "");
 
     // Honeypot (Anti-spam)
     if (!empty($_POST["website"])) {
@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Configurações do email
     $recipient = "labiofun@labiofun.com.br";
-    $email_subject = "Novo contato pelo site: $subject";
+    $email_subject = "=?UTF-8?B?" . base64_encode("Novo contato pelo site: $subject") . "?=";
     
     // Conteúdo do email
     $email_content = "Nome: $name\n";
