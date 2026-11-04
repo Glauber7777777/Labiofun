@@ -49,6 +49,7 @@ class LabiofunHeader extends HTMLElement {
                           <li role="none"><a href="${basePath}index.html#team" data-i18n="nav.team" role="menuitem"><i class="fas fa-users"></i>Equipe</a></li>
                           <li role="none"><a href="${basePath}index.html#publications-page" data-i18n="nav.publications" role="menuitem"><i class="fas fa-book"></i>Publicações</a></li>
                           <li role="none"><a href="${basePath}pages/defesas.html" data-i18n="nav.defences" role="menuitem"><i class="fas fa-graduation-cap"></i>Defesas</a></li>
+                          <li role="none"><a href="${basePath}pages/seminarios.html" data-i18n="nav.seminars" role="menuitem"><i class="fas fa-chalkboard-teacher"></i>Seminários</a></li>
                           <li role="none"><a href="${basePath}pages/vagas.html" data-i18n="nav.jobs" role="menuitem"><i class="fas fa-briefcase"></i>Vagas</a></li>
                           <li role="none"><a href="${basePath}index.html#sponsors" data-i18n="nav.sponsors" role="menuitem"><i class="fas fa-handshake"></i>Patrocínio</a></li>
                           <li role="none"><a href="${basePath}index.html#location" data-i18n="nav.location" role="menuitem"><i class="fas fa-location-dot"></i>Localização</a></li>
