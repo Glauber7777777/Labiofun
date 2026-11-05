@@ -1,0 +1,70 @@
+# Labiofun — configuração do servidor (Hostinger / LiteSpeed)
+# Se o site der "Erro 500" depois de enviar este arquivo, apague-o e avise.
+
+Options -Indexes
+DirectoryIndex index.html index.php
+
+# --- Endereço único: labiofun.com.br -> www.labiofun.com.br (evita conteúdo duplicado no Google)
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^labiofun\.com\.br$ [NC]
+  RewriteRule ^(.*)$ https://www.labiofun.com.br/$1 [R=301,L]
+</IfModule>
+
+# --- Página de erro própria
+ErrorDocument 404 /404.html
+
+# --- Bloqueia arquivos que não devem ser públicos
+<FilesMatch "(^\.|\.(md|bak|sh|log|lock|sql|ini|sugerido)$|^(package(-lock)?\.json|composer\.(json|lock))$)">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# --- Cabeçalhos de segurança
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+</IfModule>
+
+# --- Cache no navegador
+#   HTML e dados: sempre conferir a versão nova
+#   CSS/JS: 30 dias (as páginas usam ?v= para forçar atualização)
+#   Imagens e vídeos: 30 dias
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType application/json "access plus 0 seconds"
+  ExpiresByType application/xml "access plus 1 hour"
+  ExpiresByType text/xml "access plus 1 hour"
+  ExpiresByType text/css "access plus 30 days"
+  ExpiresByType application/javascript "access plus 30 days"
+  ExpiresByType application/x-javascript "access plus 30 days"
+  ExpiresByType text/javascript "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/x-icon "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
+  ExpiresByType application/pdf "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|json)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>
+
+# --- Tipos de arquivo
+AddType application/manifest+json .webmanifest
+AddType image/webp .webp
+AddDefaultCharset utf-8
