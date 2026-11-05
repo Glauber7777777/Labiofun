@@ -1,111 +1,917 @@
 [
-{"t":"Fungo","c":"Fundamentos","d":"Organismo eucarioto, heterotrófico por absorção, com parede celular rica em quitina e glucanas. Inclui leveduras, bolores e cogumelos e forma um reino próprio (Fungi).","k":["fungi","fungal"]},
-{"t":"Micologia","c":"Fundamentos","d":"Ramo da biologia que estuda os fungos: sua estrutura, fisiologia, ecologia, genética e a relação com outros organismos, incluindo os humanos.","k":["mycolog"]},
-{"t":"Levedura","c":"Morfologia","d":"Forma fúngica unicelular, geralmente arredondada ou oval, que se reproduz principalmente por brotamento. Ex.: Cryptococcus e Candida.","k":["yeast"]},
-{"t":"Bolor (fungo filamentoso)","c":"Morfologia","d":"Fungo que cresce formando hifas e micélio visível. Ex.: Aspergillus, Penicillium e os agentes da mucormicose.","k":["filamentous"]},
-{"t":"Hifa","c":"Morfologia","d":"Filamento tubular que constitui o corpo vegetativo dos fungos filamentosos; cresce pela ponta (crescimento apical).","k":["hypha"]},
-{"t":"Micélio","c":"Morfologia","d":"Conjunto entrelaçado de hifas que forma a colônia de um fungo filamentoso.","k":["mycel"]},
-{"t":"Septo","c":"Morfologia","d":"Parede transversal que divide a hifa em compartimentos; possui poros que permitem a passagem de citoplasma e organelas.","k":[]},
-{"t":"Dimorfismo","c":"Morfologia","d":"Capacidade de alternar entre forma de levedura e forma filamentosa conforme a temperatura ou o ambiente. Ex.: Histoplasma e Sporothrix (bolor a 25 °C, levedura a 37 °C).","k":["dimorph","yeast-to-hypha"]},
-{"t":"Brotamento","c":"Morfologia","d":"Reprodução assexuada das leveduras: uma célula-filha (broto) cresce a partir da célula-mãe até se separar.","k":["budding"]},
-{"t":"Esporo","c":"Morfologia","d":"Estrutura reprodutiva e de dispersão dos fungos, capaz de originar um novo indivíduo; pode ser sexuado ou assexuado.","k":["spore"]},
-{"t":"Conídio","c":"Morfologia","d":"Esporo assexuado formado na extremidade ou na lateral de hifas especializadas (conidióforos). Sua inalação é a principal via de infecção por Aspergillus.","k":["conidia"]},
-{"t":"Célula titã","c":"Morfologia","d":"Célula gigante de Cryptococcus (diâmetro acima de ~10 µm, podendo passar de 50 µm), com parede espessa e cápsula densa, que resiste à fagocitose.","k":["titan"]},
-{"t":"Pseudo-hifa","c":"Morfologia","d":"Cadeia de células alongadas de levedura que permanecem unidas após o brotamento, lembrando uma hifa. Comum em Candida.","k":[]},
-{"t":"Parede celular fúngica","c":"Estrutura celular","d":"Envoltório rígido que dá forma e proteção à célula, composto principalmente por quitina, glucanas e manoproteínas. É alvo de antifúngicos como as equinocandinas.","k":["cell wall"]},
-{"t":"Quitina","c":"Estrutura celular","d":"Polímero de N-acetilglicosamina presente na parede celular fúngica; dá resistência mecânica. Ausente nas células humanas.","k":["chitin"]},
-{"t":"Quito-oligômeros","c":"Estrutura celular","d":"Pequenas cadeias derivadas da quitina que participam da arquitetura da cápsula de Cryptococcus e podem ser reconhecidas por lectinas como a WGA.","k":["chitooligomer"]},
-{"t":"Glucana (β-1,3-glucana)","c":"Estrutura celular","d":"Polissacarídeo de glicose que forma o arcabouço da parede celular fúngica; sua síntese é inibida pelas equinocandinas.","k":["glucan"]},
-{"t":"Manoproteína","c":"Estrutura celular","d":"Proteína ligada a cadeias de manose, presente na camada externa da parede celular; participa da adesão e da estrutura capsular.","k":["mannoprotein"]},
-{"t":"Ergosterol","c":"Estrutura celular","d":"Principal esterol da membrana fúngica, equivalente ao colesterol humano. É alvo dos azóis (inibem sua síntese) e da anfotericina B (liga-se a ele).","k":["ergosterol"]},
-{"t":"Esfingolipídio","c":"Estrutura celular","d":"Classe de lipídios de membrana importante para a sinalização e a virulência fúngica; sua síntese é alvo de novas classes de antifúngicos.","k":["sphingolipid"]},
-{"t":"Cápsula polissacarídica","c":"Estrutura celular","d":"Camada externa de polissacarídeos que envolve Cryptococcus. É o principal fator de virulência: protege contra fagocitose, radicais livres e modula a imunidade.","k":["capsul"]},
-{"t":"Glucuronoxilomanana (GXM)","c":"Estrutura celular","d":"Polissacarídeo que corresponde a cerca de 90% da cápsula de Cryptococcus; é liberado no hospedeiro, tem efeito imunossupressor e é usado no diagnóstico (antígeno criptocócico).","k":["glucuronoxyloman","gxm"]},
-{"t":"Galactoxilomanana (GXMGal)","c":"Estrutura celular","d":"Polissacarídeo capsular minoritário de Cryptococcus, com forte efeito imunomodulador, capaz de induzir paralisia imunológica.","k":["galactoxyloman"]},
-{"t":"Exopolissacarídeo","c":"Estrutura celular","d":"Polissacarídeo secretado para o meio extracelular. Em Cryptococcus, difere física e antigenicamente do polissacarídeo que permanece na cápsula.","k":["exopolysacchar","secreted polysacchar","secreted carbohydrate"]},
-{"t":"Melanina fúngica","c":"Virulência","d":"Pigmento escuro depositado na parede celular que protege o fungo contra radiação, radicais livres, temperaturas extremas e antifúngicos.","k":["melanin","melanoid","melaniz"]},
-{"t":"Lacase","c":"Virulência","d":"Enzima que oxida compostos fenólicos (como L-DOPA) e catalisa a síntese de melanina em Cryptococcus neoformans.","k":["laccase"]},
-{"t":"L-DOPA","c":"Virulência","d":"Precursor fenólico usado por Cryptococcus para produzir melanina; abundante no sistema nervoso, o que pode favorecer a neurotropia do fungo.","k":["dopa","catecholamine"]},
-{"t":"Piomelanina","c":"Virulência","d":"Tipo de melanina derivado da degradação da tirosina via ácido homogentísico; produzida por alguns fungos e bactérias.","k":["pyomelanin","homogentisic"]},
-{"t":"Fator de virulência","c":"Virulência","d":"Característica do microrganismo que aumenta sua capacidade de causar doença, como cápsula, melanina, enzimas secretadas e crescimento a 37 °C.","k":["virulence"]},
-{"t":"Virulência","c":"Virulência","d":"Grau de patogenicidade de um microrganismo, isto é, a intensidade do dano que ele é capaz de causar ao hospedeiro.","k":["virulen"]},
-{"t":"Patogenicidade","c":"Virulência","d":"Capacidade de um microrganismo de causar doença em um hospedeiro.","k":["pathogen"]},
-{"t":"Fosfolipase B","c":"Virulência","d":"Enzima secretada que degrada fosfolipídios de membranas do hospedeiro; em Cryptococcus é crítica para a sobrevivência no sistema nervoso central e para a formação de criptococomas.","k":["phospholipase"]},
-{"t":"Termotolerância","c":"Virulência","d":"Capacidade de crescer à temperatura corporal (37 °C). Poucos fungos a possuem, e o aquecimento global pode selecionar espécies mais termotolerantes.","k":["thermo"]},
-{"t":"Biofilme","c":"Virulência","d":"Comunidade de microrganismos aderida a uma superfície e envolta por matriz extracelular; é muito mais resistente a antifúngicos e às defesas do hospedeiro.","k":["biofilm"]},
-{"t":"Adesão","c":"Virulência","d":"Ligação do microrganismo a superfícies ou células do hospedeiro; primeira etapa da colonização e da formação de biofilmes.","k":["adhes","adhere"]},
-{"t":"Vesícula extracelular","c":"Biologia celular","d":"Pequena bolsa de membrana liberada pelas células que transporta proteínas, lipídios, polissacarídeos e RNA através da parede celular, levando fatores de virulência ao hospedeiro.","k":["vesicle","exosome"]},
-{"t":"Exocitose","c":"Biologia celular","d":"Processo pelo qual a célula libera para o exterior o conteúdo de vesículas fundidas à membrana plasmática.","k":["exocytosis"]},
-{"t":"Endocitose","c":"Biologia celular","d":"Captura de material externo pela célula por meio da invaginação da membrana e formação de vesículas.","k":["endocytosis"]},
-{"t":"Secretoma","c":"Biologia celular","d":"Conjunto de proteínas secretadas por um organismo para o meio extracelular.","k":["secretome"]},
-{"t":"Metaboloma","c":"Biologia celular","d":"Conjunto de pequenas moléculas (metabólitos) presentes em uma célula ou amostra; seu estudo é a metabolômica.","k":["metabolom"]},
-{"t":"Plasticidade fenotípica","c":"Biologia celular","d":"Capacidade de um mesmo organismo alterar sua forma, metabolismo ou fisiologia em resposta ao ambiente, favorecendo a adaptação e a virulência.","k":["plasticity"]},
-{"t":"Polifosfato","c":"Biologia celular","d":"Polímero de fosfato armazenado em vacúolos fúngicos, usado como reserva de energia e fósforo e na regulação do metabolismo.","k":["polyphosphate","phosphorus"]},
-{"t":"Cryptococcus neoformans","c":"Patógenos","d":"Levedura encapsulada e cosmopolita, encontrada em excretas de aves; causa meningoencefalite principalmente em pessoas imunocomprometidas (ex.: HIV/aids).","k":["neoformans"]},
-{"t":"Cryptococcus gattii","c":"Patógenos","d":"Espécie de Cryptococcus associada a árvores (como eucaliptos) que pode infectar pessoas imunocompetentes, causando lesões pulmonares e cerebrais.","k":["gattii"]},
-{"t":"Candida albicans","c":"Patógenos","d":"Levedura comensal da microbiota humana que pode causar candidíase superficial ou invasiva, especialmente em pacientes hospitalizados.","k":["albicans"]},
-{"t":"Candidozyma (Candida) auris","c":"Patógenos","d":"Levedura emergente e multirresistente, de difícil identificação, que causa surtos hospitalares em várias partes do mundo.","k":["auris"]},
-{"t":"Complexo Candida haemulonii","c":"Patógenos","d":"Grupo de espécies de leveduras emergentes, relacionadas a C. auris, frequentemente resistentes à anfotericina B.","k":["haemulonii"]},
-{"t":"Aspergillus fumigatus","c":"Patógenos","d":"Fungo filamentoso ambiental cujos conídios inalados causam aspergilose, especialmente em imunossuprimidos.","k":["aspergillus"]},
-{"t":"Histoplasma capsulatum","c":"Patógenos","d":"Fungo dimórfico presente em solo com fezes de morcegos e aves; causa a histoplasmose.","k":["histoplasma"]},
-{"t":"Sporothrix brasiliensis","c":"Patógenos","d":"Espécie mais virulenta do complexo Sporothrix, transmitida principalmente por gatos; responsável pela epidemia de esporotricose no Brasil.","k":["brasiliensis"]},
-{"t":"Complexo Sporothrix","c":"Patógenos","d":"Grupo de fungos dimórficos (S. brasiliensis, S. schenckii, S. globosa, entre outros) causadores da esporotricose.","k":["sporothrix"]},
-{"t":"Trichosporon asahii","c":"Patógenos","d":"Levedura da família Trichosporonaceae, emergente em infecções hospitalares; produz GXM semelhante ao de Cryptococcus.","k":["trichosporon"]},
-{"t":"Rhodotorula mucilaginosa","c":"Patógenos","d":"Levedura de pigmento rosado, comum no ambiente, considerada patógeno oportunista; produz polissacarídeos capsulares.","k":["rhodotorula"]},
-{"t":"Scedosporium / Lomentospora","c":"Patógenos","d":"Fungos filamentosos ambientais, muitas vezes resistentes aos antifúngicos, que causam infecções graves em imunossuprimidos.","k":["scedosporium","lomentospora","pseudoallescheria"]},
-{"t":"Dermatófito","c":"Patógenos","d":"Fungo que utiliza queratina e infecta pele, pelos e unhas, causando as dermatofitoses (tineas). Ex.: Microsporum e Nannizzia.","k":["dermatophyt","nannizzia","microsporum"]},
-{"t":"Emergomyces","c":"Patógenos","d":"Gênero de fungos dimórficos emergentes que causam micose sistêmica, sobretudo em pessoas com HIV na África.","k":["emergomyces"]},
-{"t":"Mucorales","c":"Patógenos","d":"Ordem de fungos filamentosos que causa a mucormicose, infecção agressiva e angioinvasiva.","k":["mucor"]},
-{"t":"Micose","c":"Doenças","d":"Qualquer doença causada por fungos. Pode ser superficial, cutânea, subcutânea ou sistêmica.","k":["mycos"]},
-{"t":"Micose sistêmica","c":"Doenças","d":"Infecção fúngica profunda que atinge órgãos internos, geralmente adquirida por inalação. Ex.: histoplasmose e criptococose.","k":["systemic myco"]},
-{"t":"Micose oportunista","c":"Doenças","d":"Infecção causada por fungos que normalmente não adoecem pessoas saudáveis, mas se aproveitam da baixa imunidade do hospedeiro.","k":["opportunistic"]},
-{"t":"Criptococose","c":"Doenças","d":"Doença causada por Cryptococcus, adquirida por inalação; pode evoluir para meningoencefalite, uma das principais causas de morte em pessoas com aids.","k":["cryptococcosis","cryptococcal"]},
-{"t":"Meningoencefalite criptocócica","c":"Doenças","d":"Inflamação das meninges e do encéfalo causada por Cryptococcus após disseminação a partir do pulmão; forma mais grave da criptococose.","k":["brain","central nervous"]},
-{"t":"Criptococoma","c":"Doenças","d":"Lesão granulomatosa localizada (pulmonar ou cerebral) formada pelo acúmulo de Cryptococcus e células do hospedeiro.","k":["cryptococcoma"]},
-{"t":"Esporotricose","c":"Doenças","d":"Micose subcutânea causada por Sporothrix, transmitida por arranhões e mordidas de gatos ou por ferimentos com material vegetal.","k":["sporotrichosis"]},
-{"t":"Esporotricose zoonótica","c":"Doenças","d":"Forma da esporotricose transmitida de animais (sobretudo gatos) para humanos; o Rio de Janeiro é epicentro da epidemia por S. brasiliensis.","k":["zoonotic","cat-to-human","feline"]},
-{"t":"Histoplasmose","c":"Doenças","d":"Micose causada por Histoplasma capsulatum após inalação de esporos; varia de quadros leves a formas disseminadas graves.","k":["histoplasm"]},
-{"t":"Aspergilose","c":"Doenças","d":"Conjunto de doenças causadas por Aspergillus, desde alergias até infecção pulmonar invasiva em imunossuprimidos.","k":["aspergillosis"]},
-{"t":"Candidíase","c":"Doenças","d":"Infecção causada por Candida, que pode ser superficial (oral, vaginal) ou invasiva (candidemia).","k":["candida spp","candidiasis"]},
-{"t":"Mucormicose","c":"Doenças","d":"Infecção grave por fungos da ordem Mucorales, associada a diabetes descompensado e imunossupressão; ganhou destaque durante a COVID-19.","k":["mucormycosis"]},
-{"t":"Coinfecção","c":"Doenças","d":"Infecção simultânea por mais de um agente, como fungos em pacientes com COVID-19 grave.","k":["co-infection","coinfection"]},
-{"t":"Infecção nosocomial","c":"Doenças","d":"Infecção adquirida no ambiente hospitalar. Leveduras como Candida auris e Trichosporon são agentes importantes.","k":["nosocomial"]},
-{"t":"Antifúngico","c":"Tratamento","d":"Medicamento que mata fungos (fungicida) ou inibe seu crescimento (fungistático). As principais classes são poliênicos, azóis e equinocandinas.","k":["antifungal"]},
-{"t":"Azóis","c":"Tratamento","d":"Classe de antifúngicos que inibe a síntese de ergosterol. Ex.: fluconazol, itraconazol, voriconazol e isavuconazol.","k":["azole","fluconazole","itraconazole","isavuconazole"]},
-{"t":"Anfotericina B","c":"Tratamento","d":"Antifúngico poliênico que se liga ao ergosterol e forma poros na membrana; potente, mas com toxicidade renal importante.","k":["amphotericin"]},
-{"t":"Equinocandinas","c":"Tratamento","d":"Antifúngicos que inibem a síntese de β-1,3-glucana da parede celular. Ex.: caspofungina, micafungina e anidulafungina.","k":["caspofungin","echinocandin"]},
-{"t":"Olorofim","c":"Tratamento","d":"Antifúngico de nova classe (orotomidas) que inibe a síntese de pirimidinas; ativo contra fungos filamentosos e Sporothrix.","k":["olorofim"]},
-{"t":"Reposicionamento de fármacos","c":"Tratamento","d":"Estratégia que testa medicamentos já aprovados para outras doenças como novos antifúngicos, reduzindo custo e tempo de desenvolvimento.","k":["repurpos","off-label","pathogen box","covid box","response box"]},
-{"t":"Resistência antifúngica","c":"Tratamento","d":"Capacidade de um fungo sobreviver a concentrações de antifúngico que normalmente o inibiriam; pode ser intrínseca ou adquirida.","k":["resistance"]},
-{"t":"Resistência cruzada","c":"Tratamento","d":"Resistência a um fármaco que confere também resistência a outro de mecanismo semelhante; ex.: fungicidas agrícolas induzindo resistência a azóis clínicos.","k":["cross-resistance"]},
-{"t":"Fungicida agrícola","c":"Tratamento","d":"Produto usado na agricultura contra fungos de plantas; seu uso intensivo pode selecionar fungos patogênicos resistentes a antifúngicos humanos.","k":["fungicide"]},
-{"t":"Terapia fotodinâmica","c":"Tratamento","d":"Tratamento que combina um fotossensibilizador com luz para gerar espécies reativas de oxigênio e matar o microrganismo.","k":["photodynamic"]},
-{"t":"Interação medicamentosa","c":"Tratamento","d":"Alteração do efeito de um fármaco causada por outro; comum com azóis, que inibem enzimas hepáticas (CYP450).","k":["drug interaction"]},
-{"t":"Concentração inibitória mínima (CIM)","c":"Tratamento","d":"Menor concentração de um antimicrobiano capaz de inibir o crescimento visível do microrganismo in vitro.","k":["susceptibility"]},
-{"t":"Fagocitose","c":"Imunologia","d":"Englobamento e destruição de microrganismos por células como macrófagos e neutrófilos; a cápsula de Cryptococcus dificulta esse processo.","k":["phagocyt"]},
-{"t":"Macrófago","c":"Imunologia","d":"Célula do sistema imune que fagocita patógenos e apresenta antígenos; Cryptococcus pode sobreviver e se multiplicar dentro dele.","k":["macrophage"]},
-{"t":"Opsonização","c":"Imunologia","d":"Revestimento do microrganismo por anticorpos ou proteínas do complemento, o que facilita sua fagocitose.","k":["opsoniz","complement"]},
-{"t":"Anticorpo monoclonal","c":"Imunologia","d":"Anticorpo produzido a partir de um único clone celular que reconhece um alvo específico; usado em pesquisa, diagnóstico e terapia.","k":["monoclonal","antibod"]},
-{"t":"Receptor de reconhecimento de padrões (PRR)","c":"Imunologia","d":"Receptor do sistema imune inato que detecta moléculas típicas de microrganismos. Ex.: TLR4 e Dectina-1.","k":["toll-like","pattern recognition"]},
-{"t":"Imunomodulação","c":"Imunologia","d":"Alteração da resposta imune; polissacarídeos fúngicos como a GXM podem suprimir ou desviar a imunidade do hospedeiro.","k":["immunomodulat","immune respons","immunolog"]},
-{"t":"Barreira hematoencefálica","c":"Imunologia","d":"Barreira seletiva que protege o cérebro; Cryptococcus consegue atravessá-la, chegando ao sistema nervoso central.","k":["blood brain"]},
-{"t":"Vacina antifúngica","c":"Imunologia","d":"Preparação que estimula proteção contra fungos; ainda não há vacina aprovada para uso humano, mas há candidatas em estudo.","k":["vaccin"]},
-{"t":"Biofísica de superfícies","c":"Técnicas","d":"Estudo das propriedades físicas (carga, elasticidade, adesão, rugosidade) da superfície celular, área central do Labiofun.","k":["biophysic","surface"]},
-{"t":"Pinça óptica","c":"Técnicas","d":"Técnica que usa um feixe de laser focalizado para capturar e mover células ou partículas, permitindo medir forças e propriedades mecânicas.","k":["optical tweezers"]},
-{"t":"Potencial zeta","c":"Técnicas","d":"Medida da carga elétrica na superfície de partículas ou células em suspensão; influencia a adesão e a interação com o hospedeiro.","k":["zeta"]},
-{"t":"Microscopia de força atômica (AFM)","c":"Técnicas","d":"Técnica que varre a superfície com uma ponta nanométrica, gerando imagens em 3D e medidas de rigidez e adesão.","k":["atomic force"]},
-{"t":"Microscopia eletrônica de varredura (MEV)","c":"Técnicas","d":"Técnica que gera imagens tridimensionais de alta resolução da superfície das células.","k":["ultrastruct","high-resolution microscopy"]},
-{"t":"Microscopia eletrônica de transmissão (MET)","c":"Técnicas","d":"Técnica em que elétrons atravessam cortes ultrafinos da amostra, revelando a estrutura interna da célula.","k":["ultrastruct","cryoultramicrotomy"]},
-{"t":"Reologia","c":"Técnicas","d":"Estudo da deformação e do escoamento de materiais; aplicada às propriedades viscoelásticas da cápsula e dos polissacarídeos.","k":["rheolog","viscoelastic","elastic propert","mechanical propert"]},
-{"t":"RMN de estado sólido","c":"Técnicas","d":"Ressonância magnética nuclear aplicada a amostras sólidas, usada para investigar a estrutura molecular da melanina e da parede celular.","k":["nmr"]},
-{"t":"Metabarcoding (ITS)","c":"Técnicas","d":"Identificação de várias espécies de fungos em uma amostra ambiental pelo sequenciamento da região ITS do DNA ribossomal.","k":["metabarcoding","its2","metagenomic"]},
-{"t":"Metagenômica","c":"Técnicas","d":"Análise do material genético de todos os organismos de uma amostra ambiental, sem necessidade de cultivo.","k":["metagenomic"]},
-{"t":"PCR","c":"Técnicas","d":"Reação em cadeia da polimerase: técnica que amplifica trechos de DNA, usada para detectar e identificar fungos patogênicos.","k":["pcr"]},
-{"t":"Manguezal","c":"Ecologia","d":"Ecossistema costeiro de transição entre terra e mar; abriga fungos essenciais à ciclagem de nutrientes e sofre com poluição e mudanças climáticas.","k":["mangrove"]},
-{"t":"Biodeterioração","c":"Ecologia","d":"Degradação indesejada de materiais (papel, madeira, obras de arte, acervos) causada pela ação de organismos como fungos.","k":["biodegrad","biodeterior"]},
-{"t":"Biorremediação","c":"Ecologia","d":"Uso de organismos, como fungos, para degradar ou remover poluentes do ambiente.","k":["remediation"]},
-{"t":"Saúde Única (One Health)","c":"Ecologia","d":"Abordagem que integra saúde humana, animal e ambiental; essencial em doenças como a esporotricose zoonótica.","k":["one health"]},
-{"t":"Mudanças climáticas e fungos","c":"Ecologia","d":"O aquecimento global pode aumentar a termotolerância e a distribuição de fungos, favorecendo o surgimento de novos patógenos humanos.","k":["climate","anthropocene"]},
-{"t":"Fungo ambiental","c":"Ecologia","d":"Fungo que vive no solo, na água, em plantas ou em animais; alguns têm potencial patogênico oculto para humanos.","k":["environmental"]},
-{"t":"Biotecnologia fúngica","c":"Ecologia","d":"Uso de fungos ou de suas enzimas para produzir alimentos, fármacos, biocombustíveis e outros produtos de interesse.","k":["biotechnolog","cellulas","cellulolytic"]}
+ {
+  "t": "Fungo",
+  "c": "Fundamentos",
+  "d": "Organismo eucarioto, heterotrófico por absorção, com parede celular rica em quitina e glucanas. Inclui leveduras, bolores e cogumelos e forma um reino próprio (Fungi).",
+  "k": [
+   "fungi",
+   "fungal"
+  ]
+ },
+ {
+  "t": "Micologia",
+  "c": "Fundamentos",
+  "d": "Ramo da biologia que estuda os fungos: sua estrutura, fisiologia, ecologia, genética e a relação com outros organismos, incluindo os humanos.",
+  "k": [
+   "mycolog"
+  ]
+ },
+ {
+  "t": "Levedura",
+  "c": "Morfologia",
+  "d": "Forma fúngica unicelular, geralmente arredondada ou oval, que se reproduz principalmente por brotamento. Ex.: Cryptococcus e Candida.",
+  "k": [
+   "yeast"
+  ]
+ },
+ {
+  "t": "Bolor (fungo filamentoso)",
+  "c": "Morfologia",
+  "d": "Fungo que cresce formando hifas e micélio visível. Ex.: Aspergillus, Penicillium e os agentes da mucormicose.",
+  "k": [
+   "filamentous"
+  ]
+ },
+ {
+  "t": "Hifa",
+  "c": "Morfologia",
+  "d": "Filamento tubular que constitui o corpo vegetativo dos fungos filamentosos; cresce pela ponta (crescimento apical).",
+  "k": [
+   "hypha"
+  ]
+ },
+ {
+  "t": "Micélio",
+  "c": "Morfologia",
+  "d": "Conjunto entrelaçado de hifas que forma a colônia de um fungo filamentoso.",
+  "k": [
+   "mycel"
+  ]
+ },
+ {
+  "t": "Septo",
+  "c": "Morfologia",
+  "d": "Parede transversal que divide a hifa em compartimentos; possui poros que permitem a passagem de citoplasma e organelas.",
+  "k": []
+ },
+ {
+  "t": "Dimorfismo",
+  "c": "Morfologia",
+  "d": "Capacidade de alternar entre forma de levedura e forma filamentosa conforme a temperatura ou o ambiente. Ex.: Histoplasma e Sporothrix (bolor a 25 °C, levedura a 37 °C).",
+  "k": [
+   "dimorph",
+   "yeast-to-hypha"
+  ]
+ },
+ {
+  "t": "Brotamento",
+  "c": "Morfologia",
+  "d": "Reprodução assexuada das leveduras: uma célula-filha (broto) cresce a partir da célula-mãe até se separar.",
+  "k": [
+   "budding"
+  ]
+ },
+ {
+  "t": "Esporo",
+  "c": "Morfologia",
+  "d": "Estrutura reprodutiva e de dispersão dos fungos, capaz de originar um novo indivíduo; pode ser sexuado ou assexuado.",
+  "k": [
+   "spore"
+  ]
+ },
+ {
+  "t": "Conídio",
+  "c": "Morfologia",
+  "d": "Esporo assexuado formado na extremidade ou na lateral de hifas especializadas (conidióforos). Sua inalação é a principal via de infecção por Aspergillus.",
+  "k": [
+   "conidia"
+  ]
+ },
+ {
+  "t": "Célula titã",
+  "c": "Morfologia",
+  "d": "Célula gigante de Cryptococcus (diâmetro acima de ~10 µm, podendo passar de 50 µm), com parede espessa e cápsula densa, que resiste à fagocitose.",
+  "k": [
+   "titan"
+  ]
+ },
+ {
+  "t": "Pseudo-hifa",
+  "c": "Morfologia",
+  "d": "Cadeia de células alongadas de levedura que permanecem unidas após o brotamento, lembrando uma hifa. Comum em Candida.",
+  "k": []
+ },
+ {
+  "t": "Parede celular fúngica",
+  "c": "Estrutura celular",
+  "d": "Envoltório rígido que dá forma e proteção à célula, composto principalmente por quitina, glucanas e manoproteínas. É alvo de antifúngicos como as equinocandinas.",
+  "k": [
+   "cell wall"
+  ]
+ },
+ {
+  "t": "Quitina",
+  "c": "Estrutura celular",
+  "d": "Polímero de N-acetilglicosamina presente na parede celular fúngica; dá resistência mecânica. Ausente nas células humanas.",
+  "k": [
+   "chitin"
+  ]
+ },
+ {
+  "t": "Quito-oligômeros",
+  "c": "Estrutura celular",
+  "d": "Pequenas cadeias derivadas da quitina que participam da arquitetura da cápsula de Cryptococcus e podem ser reconhecidas por lectinas como a WGA.",
+  "k": [
+   "chitooligomer"
+  ]
+ },
+ {
+  "t": "Glucana (β-1,3-glucana)",
+  "c": "Estrutura celular",
+  "d": "Polissacarídeo de glicose que forma o arcabouço da parede celular fúngica; sua síntese é inibida pelas equinocandinas.",
+  "k": [
+   "glucan"
+  ]
+ },
+ {
+  "t": "Manoproteína",
+  "c": "Estrutura celular",
+  "d": "Proteína ligada a cadeias de manose, presente na camada externa da parede celular; participa da adesão e da estrutura capsular.",
+  "k": [
+   "mannoprotein"
+  ]
+ },
+ {
+  "t": "Ergosterol",
+  "c": "Estrutura celular",
+  "d": "Principal esterol da membrana fúngica, equivalente ao colesterol humano. É alvo dos azóis (inibem sua síntese) e da anfotericina B (liga-se a ele).",
+  "k": [
+   "ergosterol"
+  ]
+ },
+ {
+  "t": "Esfingolipídio",
+  "c": "Estrutura celular",
+  "d": "Classe de lipídios de membrana importante para a sinalização e a virulência fúngica; sua síntese é alvo de novas classes de antifúngicos.",
+  "k": [
+   "sphingolipid"
+  ]
+ },
+ {
+  "t": "Cápsula polissacarídea",
+  "c": "Estrutura celular",
+  "d": "Camada externa de polissacarídeos que envolve Cryptococcus. É o principal fator de virulência: protege contra fagocitose, radicais livres e modula a imunidade.",
+  "k": [
+   "capsul"
+  ]
+ },
+ {
+  "t": "Glucuronoxilomanana (GXM)",
+  "c": "Estrutura celular",
+  "d": "Polissacarídeo que corresponde a cerca de 90% da cápsula de Cryptococcus; é liberado no hospedeiro, tem efeito imunossupressor e é usado no diagnóstico (antígeno criptocócico).",
+  "k": [
+   "glucuronoxyloman",
+   "gxm"
+  ]
+ },
+ {
+  "t": "Galactoxilomanana (GXMGal)",
+  "c": "Estrutura celular",
+  "d": "Polissacarídeo capsular minoritário de Cryptococcus, com forte efeito imunomodulador, capaz de induzir paralisia imunológica.",
+  "k": [
+   "galactoxyloman"
+  ]
+ },
+ {
+  "t": "Exopolissacarídeo",
+  "c": "Estrutura celular",
+  "d": "Polissacarídeo secretado para o meio extracelular. Em Cryptococcus, difere física e antigenicamente do polissacarídeo que permanece na cápsula.",
+  "k": [
+   "exopolysacchar",
+   "secreted polysacchar",
+   "secreted carbohydrate"
+  ]
+ },
+ {
+  "t": "Melanina fúngica",
+  "c": "Virulência",
+  "d": "Pigmento escuro depositado na parede celular que protege o fungo contra radiação, radicais livres, temperaturas extremas e antifúngicos.",
+  "k": [
+   "melanin",
+   "melanoid",
+   "melaniz"
+  ]
+ },
+ {
+  "t": "Lacase",
+  "c": "Virulência",
+  "d": "Enzima que oxida compostos fenólicos (como L-DOPA) e catalisa a síntese de melanina em Cryptococcus neoformans.",
+  "k": [
+   "laccase"
+  ]
+ },
+ {
+  "t": "L-DOPA",
+  "c": "Virulência",
+  "d": "Precursor fenólico usado por Cryptococcus para produzir melanina; abundante no sistema nervoso, o que pode favorecer a neurotropia do fungo.",
+  "k": [
+   "dopa",
+   "catecholamine"
+  ]
+ },
+ {
+  "t": "Piomelanina",
+  "c": "Virulência",
+  "d": "Tipo de melanina derivado da degradação da tirosina via ácido homogentísico; produzida por alguns fungos e bactérias.",
+  "k": [
+   "pyomelanin",
+   "homogentisic"
+  ]
+ },
+ {
+  "t": "Fator de virulência",
+  "c": "Virulência",
+  "d": "Característica do microrganismo que aumenta sua capacidade de causar doença, como cápsula, melanina, enzimas secretadas e crescimento a 37 °C.",
+  "k": [
+   "virulence"
+  ]
+ },
+ {
+  "t": "Virulência",
+  "c": "Virulência",
+  "d": "Grau de patogenicidade de um microrganismo, isto é, a intensidade do dano que ele é capaz de causar ao hospedeiro.",
+  "k": [
+   "virulen"
+  ]
+ },
+ {
+  "t": "Patogenicidade",
+  "c": "Virulência",
+  "d": "Capacidade de um microrganismo de causar doença em um hospedeiro.",
+  "k": [
+   "pathogen"
+  ]
+ },
+ {
+  "t": "Fosfolipase B",
+  "c": "Virulência",
+  "d": "Enzima secretada que degrada fosfolipídios de membranas do hospedeiro; em Cryptococcus é crítica para a sobrevivência no sistema nervoso central e para a formação de criptococomas.",
+  "k": [
+   "phospholipase"
+  ]
+ },
+ {
+  "t": "Termotolerância",
+  "c": "Virulência",
+  "d": "Capacidade de crescer à temperatura corporal (37 °C). Poucos fungos a possuem, e o aquecimento global pode selecionar espécies mais termotolerantes.",
+  "k": [
+   "thermo"
+  ]
+ },
+ {
+  "t": "Biofilme",
+  "c": "Virulência",
+  "d": "Comunidade de microrganismos aderida a uma superfície e envolta por matriz extracelular; é muito mais resistente a antifúngicos e às defesas do hospedeiro.",
+  "k": [
+   "biofilm"
+  ]
+ },
+ {
+  "t": "Adesão",
+  "c": "Virulência",
+  "d": "Ligação do microrganismo a superfícies ou células do hospedeiro; primeira etapa da colonização e da formação de biofilmes.",
+  "k": [
+   "adhes",
+   "adhere"
+  ]
+ },
+ {
+  "t": "Vesícula extracelular",
+  "c": "Biologia celular",
+  "d": "Pequena bolsa de membrana liberada pelas células que transporta proteínas, lipídios, polissacarídeos e RNA através da parede celular, levando fatores de virulência ao hospedeiro.",
+  "k": [
+   "vesicle",
+   "exosome"
+  ]
+ },
+ {
+  "t": "Exocitose",
+  "c": "Biologia celular",
+  "d": "Processo pelo qual a célula libera para o exterior o conteúdo de vesículas fundidas à membrana plasmática.",
+  "k": [
+   "exocytosis"
+  ]
+ },
+ {
+  "t": "Endocitose",
+  "c": "Biologia celular",
+  "d": "Captura de material externo pela célula por meio da invaginação da membrana e formação de vesículas.",
+  "k": [
+   "endocytosis"
+  ]
+ },
+ {
+  "t": "Secretoma",
+  "c": "Biologia celular",
+  "d": "Conjunto de proteínas secretadas por um organismo para o meio extracelular.",
+  "k": [
+   "secretome"
+  ]
+ },
+ {
+  "t": "Metaboloma",
+  "c": "Biologia celular",
+  "d": "Conjunto de pequenas moléculas (metabólitos) presentes em uma célula ou amostra; seu estudo é a metabolômica.",
+  "k": [
+   "metabolom"
+  ]
+ },
+ {
+  "t": "Plasticidade fenotípica",
+  "c": "Biologia celular",
+  "d": "Capacidade de um mesmo organismo alterar sua forma, metabolismo ou fisiologia em resposta ao ambiente, favorecendo a adaptação e a virulência.",
+  "k": [
+   "plasticity"
+  ]
+ },
+ {
+  "t": "Polifosfato",
+  "c": "Biologia celular",
+  "d": "Polímero de fosfato armazenado em vacúolos fúngicos, usado como reserva de energia e fósforo e na regulação do metabolismo.",
+  "k": [
+   "polyphosphate",
+   "phosphorus"
+  ]
+ },
+ {
+  "t": "Cryptococcus neoformans",
+  "c": "Patógenos",
+  "d": "Levedura encapsulada e cosmopolita, encontrada em excretas de aves; causa meningoencefalite principalmente em pessoas imunocomprometidas (ex.: HIV/aids).",
+  "k": [
+   "neoformans"
+  ]
+ },
+ {
+  "t": "Cryptococcus gattii",
+  "c": "Patógenos",
+  "d": "Espécie de Cryptococcus associada a árvores (como eucaliptos) que pode infectar pessoas imunocompetentes, causando lesões pulmonares e cerebrais.",
+  "k": [
+   "gattii"
+  ]
+ },
+ {
+  "t": "Candida albicans",
+  "c": "Patógenos",
+  "d": "Levedura comensal da microbiota humana que pode causar candidíase superficial ou invasiva, especialmente em pacientes hospitalizados.",
+  "k": [
+   "albicans"
+  ]
+ },
+ {
+  "t": "Candidozyma (Candida) auris",
+  "c": "Patógenos",
+  "d": "Levedura emergente e multirresistente, de difícil identificação, que causa surtos hospitalares em várias partes do mundo.",
+  "k": [
+   "auris"
+  ]
+ },
+ {
+  "t": "Complexo Candida haemulonii",
+  "c": "Patógenos",
+  "d": "Grupo de espécies de leveduras emergentes, relacionadas a C. auris, frequentemente resistentes à anfotericina B.",
+  "k": [
+   "haemulonii"
+  ]
+ },
+ {
+  "t": "Aspergillus fumigatus",
+  "c": "Patógenos",
+  "d": "Fungo filamentoso ambiental cujos conídios inalados causam aspergilose, especialmente em imunossuprimidos.",
+  "k": [
+   "aspergillus"
+  ]
+ },
+ {
+  "t": "Histoplasma capsulatum",
+  "c": "Patógenos",
+  "d": "Fungo dimórfico presente em solo com fezes de morcegos e aves; causa a histoplasmose.",
+  "k": [
+   "histoplasma"
+  ]
+ },
+ {
+  "t": "Sporothrix brasiliensis",
+  "c": "Patógenos",
+  "d": "Espécie mais virulenta do complexo Sporothrix, transmitida principalmente por gatos; responsável pela epidemia de esporotricose no Brasil.",
+  "k": [
+   "brasiliensis"
+  ]
+ },
+ {
+  "t": "Complexo Sporothrix",
+  "c": "Patógenos",
+  "d": "Grupo de fungos dimórficos (S. brasiliensis, S. schenckii, S. globosa, entre outros) causadores da esporotricose.",
+  "k": [
+   "sporothrix"
+  ]
+ },
+ {
+  "t": "Trichosporon asahii",
+  "c": "Patógenos",
+  "d": "Levedura da família Trichosporonaceae, emergente em infecções hospitalares; produz GXM semelhante à de Cryptococcus.",
+  "k": [
+   "trichosporon"
+  ]
+ },
+ {
+  "t": "Rhodotorula mucilaginosa",
+  "c": "Patógenos",
+  "d": "Levedura de pigmento rosado, comum no ambiente, considerada patógeno oportunista; produz polissacarídeos capsulares.",
+  "k": [
+   "rhodotorula"
+  ]
+ },
+ {
+  "t": "Scedosporium / Lomentospora",
+  "c": "Patógenos",
+  "d": "Fungos filamentosos ambientais, muitas vezes resistentes aos antifúngicos, que causam infecções graves em imunossuprimidos.",
+  "k": [
+   "scedosporium",
+   "lomentospora",
+   "pseudoallescheria"
+  ]
+ },
+ {
+  "t": "Dermatófito",
+  "c": "Patógenos",
+  "d": "Fungo que utiliza queratina e infecta pele, pelos e unhas, causando as dermatofitoses (tinhas). Ex.: Trichophyton, Microsporum e Nannizzia.",
+  "k": [
+   "dermatophyt",
+   "nannizzia",
+   "microsporum"
+  ]
+ },
+ {
+  "t": "Emergomyces",
+  "c": "Patógenos",
+  "d": "Gênero de fungos dimórficos emergentes que causam micose sistêmica, sobretudo em pessoas com HIV na África.",
+  "k": [
+   "emergomyces"
+  ]
+ },
+ {
+  "t": "Mucorales",
+  "c": "Patógenos",
+  "d": "Ordem de fungos filamentosos que causa a mucormicose, infecção agressiva e angioinvasiva.",
+  "k": [
+   "mucor"
+  ]
+ },
+ {
+  "t": "Micose",
+  "c": "Doenças",
+  "d": "Qualquer doença causada por fungos. Pode ser superficial, cutânea, subcutânea ou sistêmica.",
+  "k": [
+   "mycos"
+  ]
+ },
+ {
+  "t": "Micose sistêmica",
+  "c": "Doenças",
+  "d": "Infecção fúngica profunda que atinge órgãos internos, geralmente adquirida por inalação. Ex.: histoplasmose e criptococose.",
+  "k": [
+   "systemic myco"
+  ]
+ },
+ {
+  "t": "Micose oportunista",
+  "c": "Doenças",
+  "d": "Infecção causada por fungos que normalmente não adoecem pessoas saudáveis, mas se aproveitam da baixa imunidade do hospedeiro.",
+  "k": [
+   "opportunistic"
+  ]
+ },
+ {
+  "t": "Criptococose",
+  "c": "Doenças",
+  "d": "Doença causada por Cryptococcus, adquirida por inalação; pode evoluir para meningoencefalite, uma das principais causas de morte em pessoas com aids.",
+  "k": [
+   "cryptococcosis",
+   "cryptococcal"
+  ]
+ },
+ {
+  "t": "Meningoencefalite criptocócica",
+  "c": "Doenças",
+  "d": "Inflamação das meninges e do encéfalo causada por Cryptococcus após disseminação a partir do pulmão; forma mais grave da criptococose.",
+  "k": [
+   "brain",
+   "central nervous"
+  ]
+ },
+ {
+  "t": "Criptococoma",
+  "c": "Doenças",
+  "d": "Lesão granulomatosa localizada (pulmonar ou cerebral) formada pelo acúmulo de Cryptococcus e células do hospedeiro.",
+  "k": [
+   "cryptococcoma"
+  ]
+ },
+ {
+  "t": "Esporotricose",
+  "c": "Doenças",
+  "d": "Micose subcutânea causada por Sporothrix, transmitida por arranhões e mordidas de gatos ou por ferimentos com material vegetal.",
+  "k": [
+   "sporotrichosis"
+  ]
+ },
+ {
+  "t": "Esporotricose zoonótica",
+  "c": "Doenças",
+  "d": "Forma da esporotricose transmitida de animais (sobretudo gatos) para humanos; o Rio de Janeiro é epicentro da epidemia por S. brasiliensis.",
+  "k": [
+   "zoonotic",
+   "cat-to-human",
+   "feline"
+  ]
+ },
+ {
+  "t": "Histoplasmose",
+  "c": "Doenças",
+  "d": "Micose causada por Histoplasma capsulatum após a inalação de microconídios; varia de quadros leves a formas disseminadas graves.",
+  "k": [
+   "histoplasm"
+  ]
+ },
+ {
+  "t": "Aspergilose",
+  "c": "Doenças",
+  "d": "Conjunto de doenças causadas por Aspergillus, desde alergias até infecção pulmonar invasiva em imunossuprimidos.",
+  "k": [
+   "aspergillosis"
+  ]
+ },
+ {
+  "t": "Candidíase",
+  "c": "Doenças",
+  "d": "Infecção causada por Candida, que pode ser superficial (oral, vaginal) ou invasiva (candidemia).",
+  "k": [
+   "candida spp",
+   "candidiasis"
+  ]
+ },
+ {
+  "t": "Mucormicose",
+  "c": "Doenças",
+  "d": "Infecção grave por fungos da ordem Mucorales, associada a diabetes descompensado e imunossupressão; ganhou destaque durante a COVID-19.",
+  "k": [
+   "mucormycosis"
+  ]
+ },
+ {
+  "t": "Coinfecção",
+  "c": "Doenças",
+  "d": "Infecção simultânea por mais de um agente, como fungos em pacientes com COVID-19 grave.",
+  "k": [
+   "co-infection",
+   "coinfection"
+  ]
+ },
+ {
+  "t": "Infecção nosocomial",
+  "c": "Doenças",
+  "d": "Infecção adquirida no ambiente hospitalar. Leveduras como Candida auris e Trichosporon são agentes importantes.",
+  "k": [
+   "nosocomial"
+  ]
+ },
+ {
+  "t": "Antifúngico",
+  "c": "Tratamento",
+  "d": "Medicamento que mata fungos (fungicida) ou inibe seu crescimento (fungistático). As principais classes são poliênicos, azóis e equinocandinas.",
+  "k": [
+   "antifungal"
+  ]
+ },
+ {
+  "t": "Azóis",
+  "c": "Tratamento",
+  "d": "Classe de antifúngicos que inibe a síntese de ergosterol. Ex.: fluconazol, itraconazol, voriconazol e isavuconazol.",
+  "k": [
+   "azole",
+   "fluconazole",
+   "itraconazole",
+   "isavuconazole"
+  ]
+ },
+ {
+  "t": "Anfotericina B",
+  "c": "Tratamento",
+  "d": "Antifúngico poliênico que se liga ao ergosterol e forma poros na membrana; potente, mas com toxicidade renal importante.",
+  "k": [
+   "amphotericin"
+  ]
+ },
+ {
+  "t": "Equinocandinas",
+  "c": "Tratamento",
+  "d": "Antifúngicos que inibem a síntese de β-1,3-glucana da parede celular. Ex.: caspofungina, micafungina e anidulafungina.",
+  "k": [
+   "caspofungin",
+   "echinocandin"
+  ]
+ },
+ {
+  "t": "Olorofim",
+  "c": "Tratamento",
+  "d": "Antifúngico de nova classe (orotomidas) que inibe a síntese de pirimidinas; ativo contra fungos filamentosos e Sporothrix.",
+  "k": [
+   "olorofim"
+  ]
+ },
+ {
+  "t": "Reposicionamento de fármacos",
+  "c": "Tratamento",
+  "d": "Estratégia que testa medicamentos já aprovados para outras doenças como novos antifúngicos, reduzindo custo e tempo de desenvolvimento.",
+  "k": [
+   "repurpos",
+   "off-label",
+   "pathogen box",
+   "covid box",
+   "response box"
+  ]
+ },
+ {
+  "t": "Resistência antifúngica",
+  "c": "Tratamento",
+  "d": "Capacidade de um fungo sobreviver a concentrações de antifúngico que normalmente o inibiriam; pode ser intrínseca ou adquirida.",
+  "k": [
+   "resistance"
+  ]
+ },
+ {
+  "t": "Resistência cruzada",
+  "c": "Tratamento",
+  "d": "Resistência a um fármaco que confere também resistência a outro de mecanismo semelhante; ex.: fungicidas agrícolas induzindo resistência a azóis clínicos.",
+  "k": [
+   "cross-resistance"
+  ]
+ },
+ {
+  "t": "Fungicida agrícola",
+  "c": "Tratamento",
+  "d": "Produto usado na agricultura contra fungos de plantas; seu uso intensivo pode selecionar fungos patogênicos resistentes a antifúngicos humanos.",
+  "k": [
+   "fungicide"
+  ]
+ },
+ {
+  "t": "Terapia fotodinâmica",
+  "c": "Tratamento",
+  "d": "Tratamento que combina um fotossensibilizador com luz para gerar espécies reativas de oxigênio e matar o microrganismo.",
+  "k": [
+   "photodynamic"
+  ]
+ },
+ {
+  "t": "Interação medicamentosa",
+  "c": "Tratamento",
+  "d": "Alteração do efeito de um fármaco causada por outro; comum com azóis, que inibem enzimas hepáticas (CYP450).",
+  "k": [
+   "drug interaction"
+  ]
+ },
+ {
+  "t": "Concentração inibitória mínima (CIM)",
+  "c": "Tratamento",
+  "d": "Menor concentração de um antimicrobiano capaz de inibir o crescimento visível do microrganismo in vitro.",
+  "k": [
+   "susceptibility"
+  ]
+ },
+ {
+  "t": "Fagocitose",
+  "c": "Imunologia",
+  "d": "Englobamento e destruição de microrganismos por células como macrófagos e neutrófilos; a cápsula de Cryptococcus dificulta esse processo.",
+  "k": [
+   "phagocyt"
+  ]
+ },
+ {
+  "t": "Macrófago",
+  "c": "Imunologia",
+  "d": "Célula do sistema imune que fagocita patógenos e apresenta antígenos; Cryptococcus pode sobreviver e se multiplicar dentro dele.",
+  "k": [
+   "macrophage"
+  ]
+ },
+ {
+  "t": "Opsonização",
+  "c": "Imunologia",
+  "d": "Revestimento do microrganismo por anticorpos ou proteínas do complemento, o que facilita sua fagocitose.",
+  "k": [
+   "opsoniz",
+   "complement"
+  ]
+ },
+ {
+  "t": "Anticorpo monoclonal",
+  "c": "Imunologia",
+  "d": "Anticorpo produzido a partir de um único clone celular que reconhece um alvo específico; usado em pesquisa, diagnóstico e terapia.",
+  "k": [
+   "monoclonal",
+   "antibod"
+  ]
+ },
+ {
+  "t": "Receptor de reconhecimento de padrões (PRR)",
+  "c": "Imunologia",
+  "d": "Receptor do sistema imune inato que detecta moléculas típicas de microrganismos. Ex.: TLR4 e Dectina-1.",
+  "k": [
+   "toll-like",
+   "pattern recognition"
+  ]
+ },
+ {
+  "t": "Imunomodulação",
+  "c": "Imunologia",
+  "d": "Alteração da resposta imune; polissacarídeos fúngicos como a GXM podem suprimir ou desviar a imunidade do hospedeiro.",
+  "k": [
+   "immunomodulat",
+   "immune respons",
+   "immunolog"
+  ]
+ },
+ {
+  "t": "Barreira hematoencefálica",
+  "c": "Imunologia",
+  "d": "Barreira seletiva que protege o cérebro; Cryptococcus consegue atravessá-la, chegando ao sistema nervoso central.",
+  "k": [
+   "blood brain"
+  ]
+ },
+ {
+  "t": "Vacina antifúngica",
+  "c": "Imunologia",
+  "d": "Preparação que estimula proteção contra fungos; ainda não há vacina aprovada para uso humano, mas há candidatas em estudo.",
+  "k": [
+   "vaccin"
+  ]
+ },
+ {
+  "t": "Biofísica de superfícies",
+  "c": "Técnicas",
+  "d": "Estudo das propriedades físicas (carga, elasticidade, adesão, rugosidade) da superfície celular, área central do Labiofun.",
+  "k": [
+   "biophysic",
+   "surface"
+  ]
+ },
+ {
+  "t": "Pinça óptica",
+  "c": "Técnicas",
+  "d": "Técnica que usa um feixe de laser focalizado para capturar e mover células ou partículas, permitindo medir forças e propriedades mecânicas.",
+  "k": [
+   "optical tweezers"
+  ]
+ },
+ {
+  "t": "Potencial zeta",
+  "c": "Técnicas",
+  "d": "Medida da carga elétrica na superfície de partículas ou células em suspensão; influencia a adesão e a interação com o hospedeiro.",
+  "k": [
+   "zeta"
+  ]
+ },
+ {
+  "t": "Microscopia de força atômica (AFM)",
+  "c": "Técnicas",
+  "d": "Técnica que varre a superfície com uma ponta nanométrica, gerando imagens em 3D e medidas de rigidez e adesão.",
+  "k": [
+   "atomic force"
+  ]
+ },
+ {
+  "t": "Microscopia eletrônica de varredura (MEV)",
+  "c": "Técnicas",
+  "d": "Técnica que gera imagens tridimensionais de alta resolução da superfície das células.",
+  "k": [
+   "ultrastruct",
+   "high-resolution microscopy"
+  ]
+ },
+ {
+  "t": "Microscopia eletrônica de transmissão (MET)",
+  "c": "Técnicas",
+  "d": "Técnica em que elétrons atravessam cortes ultrafinos da amostra, revelando a estrutura interna da célula.",
+  "k": [
+   "ultrastruct",
+   "cryoultramicrotomy"
+  ]
+ },
+ {
+  "t": "Reologia",
+  "c": "Técnicas",
+  "d": "Estudo da deformação e do escoamento de materiais; aplicada às propriedades viscoelásticas da cápsula e dos polissacarídeos.",
+  "k": [
+   "rheolog",
+   "viscoelastic",
+   "elastic propert",
+   "mechanical propert"
+  ]
+ },
+ {
+  "t": "RMN de estado sólido",
+  "c": "Técnicas",
+  "d": "Ressonância magnética nuclear aplicada a amostras sólidas, usada para investigar a estrutura molecular da melanina e da parede celular.",
+  "k": [
+   "nmr"
+  ]
+ },
+ {
+  "t": "Metabarcoding (ITS)",
+  "c": "Técnicas",
+  "d": "Identificação de várias espécies de fungos em uma amostra ambiental pelo sequenciamento da região ITS do DNA ribossomal.",
+  "k": [
+   "metabarcoding",
+   "its2",
+   "metagenomic"
+  ]
+ },
+ {
+  "t": "Metagenômica",
+  "c": "Técnicas",
+  "d": "Análise do material genético de todos os organismos de uma amostra ambiental, sem necessidade de cultivo.",
+  "k": [
+   "metagenomic"
+  ]
+ },
+ {
+  "t": "PCR",
+  "c": "Técnicas",
+  "d": "Reação em cadeia da polimerase; técnica que amplifica trechos de DNA, usada para detectar e identificar fungos patogênicos.",
+  "k": [
+   "pcr"
+  ]
+ },
+ {
+  "t": "Manguezal",
+  "c": "Ecologia",
+  "d": "Ecossistema costeiro de transição entre terra e mar; abriga fungos essenciais à ciclagem de nutrientes e sofre com poluição e mudanças climáticas.",
+  "k": [
+   "mangrove"
+  ]
+ },
+ {
+  "t": "Biodeterioração",
+  "c": "Ecologia",
+  "d": "Degradação indesejada de materiais (papel, madeira, obras de arte, acervos) causada pela ação de organismos como fungos.",
+  "k": [
+   "biodegrad",
+   "biodeterior"
+  ]
+ },
+ {
+  "t": "Biorremediação",
+  "c": "Ecologia",
+  "d": "Uso de organismos, como fungos, para degradar ou remover poluentes do ambiente.",
+  "k": [
+   "remediation"
+  ]
+ },
+ {
+  "t": "Saúde Única (One Health)",
+  "c": "Ecologia",
+  "d": "Abordagem que integra saúde humana, animal e ambiental; essencial em doenças como a esporotricose zoonótica.",
+  "k": [
+   "one health"
+  ]
+ },
+ {
+  "t": "Mudanças climáticas e fungos",
+  "c": "Ecologia",
+  "d": "O aquecimento global pode aumentar a termotolerância e a distribuição de fungos, favorecendo o surgimento de novos patógenos humanos.",
+  "k": [
+   "climate",
+   "anthropocene"
+  ]
+ },
+ {
+  "t": "Fungo ambiental",
+  "c": "Ecologia",
+  "d": "Fungo que vive no solo, na água, em plantas ou em animais; alguns têm potencial patogênico oculto para humanos.",
+  "k": [
+   "environmental"
+  ]
+ },
+ {
+  "t": "Biotecnologia fúngica",
+  "c": "Ecologia",
+  "d": "Uso de fungos ou de suas enzimas para produzir alimentos, fármacos, biocombustíveis e outros produtos de interesse.",
+  "k": [
+   "biotechnolog",
+   "cellulas",
+   "cellulolytic"
+  ]
+ }
 ]

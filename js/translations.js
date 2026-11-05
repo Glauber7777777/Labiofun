@@ -208,7 +208,7 @@ const translations = {
     "gallery.filter.outreach": "Divulgação Científica",
     "gallery.item1.title": "Cryptococcus neoformans",
     "gallery.item1.desc":
-      "Detalhe da cápsula polissacarídica em alta resolução.",
+      "Detalhe da cápsula polissacarídea em alta resolução.",
     "gallery.item2.title": "Ultraestrutura Celular",
     "gallery.item2.desc": "Visualização interna de organelas e parede celular.",
     "gallery.item3.title": "Manipulação com Laser",

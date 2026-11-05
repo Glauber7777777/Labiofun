@@ -15,6 +15,23 @@ const pubs = JSON.parse(pubSrc.slice(pubSrc.indexOf('['), pubSrc.lastIndexOf(']'
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const strip = s => String(s).replace(/<[^>]+>/g, '');
+// Nomes científicos em itálico (aplicado DEPOIS do escape de HTML)
+const GENERA = ['Cryptococcus', 'Candidozyma', 'Candida', 'Nakaseomyces', 'Aspergillus', 'Histoplasma',
+  'Sporothrix', 'Trichosporon', 'Rhodotorula', 'Scedosporium', 'Lomentospora', 'Pseudallescheria',
+  'Microsporum', 'Nannizzia', 'Trichophyton', 'Epidermophyton', 'Emergomyces', 'Penicillium',
+  'Paracoccidioides', 'Pneumocystis', 'Fusarium', 'Malassezia', 'Coccidioides', 'Blastomyces',
+  'Talaromyces', 'Saccharomyces', 'Panus', 'Carapa', 'Pantoea', 'Klebsiella', 'Streptomyces'];
+const EPITHETS = ['neoformans', 'gattii', 'liquefaciens', 'albicans', 'auris', 'glabrata', 'haemulonii',
+  'tropicalis', 'kudriavzevii', 'fumigatus', 'lentulus', 'capsulatum', 'brasiliensis', 'schenckii',
+  'globosa', 'asahii', 'mucilaginosa', 'glutinis', 'prolificans', 'gypsea', 'canis', 'rubrum',
+  'audouinii', 'floccosum', 'concentricum', 'africanus', 'jirovecii', 'immitis', 'dermatitidis',
+  'marneffei', 'cerevisiae', 'boulardii', 'furfur', 'pachydermatis', 'lecomtei', 'bisporus', 'edodes',
+  'muscaria', 'guianensis', 'agglomerans', 'aerogenes', 'wieringae', 'amylolentus', 'wingfieldii'];
+const SCI = new RegExp(
+  '\\b(?:' + GENERA.join('|') + ')\\b(?:\\s+(?:spp\\.|' + EPITHETS.join('|') + '))?'
+  + '|\\b[A-Z]\\.\\s(?:' + EPITHETS.join('|') + ')\\b', 'g');
+const sci = s => s.replace(SCI, m => `<em>${m}</em>`);
+
 const slug = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const sorted = [...glossary].sort((a, b) => a.t.localeCompare(b.t, 'pt-BR'));
@@ -31,11 +48,11 @@ const cards = sorted.map(term => {
   const doiUrl = d => d.startsWith('http') ? d : 'https://doi.org/' + d;
   const relHtml = related.length ? `
         <div class="fl-term-refs"><span><i class="fas fa-book-open"></i> Nos artigos do Labiofun:</span><ul>${related.map(p =>
-          `<li><a href="${esc(doiUrl(p.doi))}" target="_blank" rel="noopener">${esc(strip(p.title))}</a> <em>(${p.year})</em></li>`).join('')}</ul></div>` : '';
+          `<li><a href="${esc(doiUrl(p.doi))}" target="_blank" rel="noopener">${sci(esc(strip(p.title)))}</a> <em>(${p.year})</em></li>`).join('')}</ul></div>` : '';
   return `
       <article class="fl-term" id="termo-${slug(term.t)}" data-cat="${esc(term.c)}" data-search="${esc((term.t + ' ' + term.d).toLowerCase())}">
-        <div class="fl-term-head"><h3>${esc(term.t)}</h3><span class="fl-cat">${esc(term.c)}</span></div>
-        <p>${esc(term.d)}</p>${relHtml}
+        <div class="fl-term-head"><h3>${sci(esc(term.t))}</h3><span class="fl-cat">${esc(term.c)}</span></div>
+        <p>${sci(esc(term.d))}</p>${relHtml}
         <div class="fl-term-foot">
           <button type="button" class="fl-learn" data-term="${esc(term.t)}"><i class="far fa-circle-check"></i> <span>Aprendi</span></button>
           <a class="fl-report" href="contact.html?assunto=${encodeURIComponent('Fungilingo: erro no glossário — ' + term.t)}&amp;mensagem=${encodeURIComponent('Termo: ' + term.t + '\nO erro que encontrei: ')}"><i class="fas fa-flag"></i> Reportar erro</a>
