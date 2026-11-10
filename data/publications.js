@@ -1,23 +1,16 @@
 window.publications = [
   {
-  "title": "From the ground to the clinic: The evolution and adaptation of fungi",
-  "authors": "Dario Corrêa-Junior, Daniel Zamith-Miranda, Susana Frases, Joshua D. Nosanchuk",
-  "journal": "Journal of Fungi",
-  "doi": "10.3390/jof12010008",
-  "year": 2026
+    "title": "From the ground to the clinic: The evolution and adaptation of fungi",
+    "authors": "Dario Corrêa-Junior, Daniel Zamith-Miranda, Susana Frases, Joshua D. Nosanchuk",
+    "journal": "Journal of Fungi",
+    "doi": "10.3390/jof12010008",
+    "year": 2026
   },
   {
     "title": "P2X7 receptor blockade during <i>Cryptococcus neoformans</i> infection promotes a Th2-associated immune profile and enhances fungal dissemination to the brain",
     "authors": "Igor Correa da Costa Braga, Vinícius Alves, Glauber Ribeiro de Sousa Araujo, Letícia Diniz Crepaldi, Lorraine Oliveira-Cruz, Milla Souza Pessoa da Silva, Sabrina Sodré de Souza Serra, Fabiana Cristina-Rodrigues, Vinícius Santos Alves, Robson Coutinho-Silva, Susana Frases, Fernanda Ferreira Cruz, Marcelo Marcos Morales, Luiz Eduardo Baggio Savio.",
     "journal": "International Immunopharmacology",
     "doi": "10.1016/j.intimp.2026.116881",
-    "year": 2026
-  },
-  {
-    "title": "From the ground to the clinic: The evolution and adaptation of fungi",
-    "authors": "Dario Corrêa-Junior, Daniel Zamith-Miranda, Susana Frases, Joshua D. Nosanchuk",
-    "journal": "Journal of Fungi",
-    "doi": "10.3390/jof12010008",
     "year": 2026
   },
   {
@@ -35,7 +28,7 @@ window.publications = [
     "year": 2026
   },
   {
-    "title": "Intrapolysaccharides from <i>Amazonian panus</i> lecomtei induce pro-inflammatory responses and adhere to macrophage surfaces",
+    "title": "Intrapolysaccharides from Amazonian <i>Panus lecomtei</i> induce pro-inflammatory responses and adhere to macrophage surfaces",
     "authors": "Jefte Farias da Silva, Vítor Alves Pessoa, Danielle Furtado da Silva, Larissa Ramos Chevreuil, Alessandro Fernandes Valdez, Leonardo Nimrichter, Juliana Bello Baron Maurer, Walter José Martinez-Burgos, Susana Frases, Luciano Henrique Campestrini, Bruno Pontes, Ceci Sales-Campos",
     "journal": "Brazilian Journal of Microbiology",
     "doi": "10.1007/s42770-026-01899-8",
@@ -135,7 +128,7 @@ window.publications = [
     "year": 2025
   },
   {
-    "title": "ITS Metabarcoding of Filamentous Fungi in Traditional Biodegradation of Carapa Guianensis Seeds from the Brazilian Amazon",
+    "title": "ITS Metabarcoding of Filamentous Fungi in Traditional Biodegradation of <i>Carapa guianensis</i> Seeds from the Brazilian Amazon",
     "authors": "Mariana Barbieri, Luana Lessa R Santos, Ana C Bahia, Susana Frases",
     "journal": "World Journal Of Microbiology & Biotechnology",
     "doi": "10.1007/s11274-025-04581-7",
@@ -198,7 +191,7 @@ window.publications = [
     "year": 2024
   },
   {
-    "title": "Auranofin is active against Histoplasma capsulatum and reduces the expression of virulence-related genes",
+    "title": "Auranofin is active against <i>Histoplasma capsulatum</i> and reduces the expression of virulence-related genes",
     "authors": "Marcos De Abreu Almeida, Lilian Cristiane Baeza, Leandro B. R. Silva, Andréa Reis Bernardes-engemann, Fernando Almeida-silva, Rowena Alves Coelho, Iara Bastos De Andrade, Dario Corrêa-junior, Susana Frases, Rosely Maria Zancopé-oliveira, Alexandre Alanio, Carlos Pelleschi Taborda, Rodrigo Almeida-paes",
     "journal": "PLOS Neglected Tropical Diseases, 2024, 18, 10, e0012586",
     "doi": "10.1371/journal.pntd.0012586",
@@ -247,7 +240,7 @@ window.publications = [
     "year": 2023
   },
   {
-    "title": "<i>In Vitro</i> Isavuconazole Activity Against <i>Sporothrix Brasiliensis</i> Suggests Its Efficacy in Some Severe Sporotrichosis Cases",
+    "title": "<i>In Vitro</i> Isavuconazole Activity Against <i>Sporothrix brasiliensis</i> Suggests Its Efficacy in Some Severe Sporotrichosis Cases",
     "authors": "Fernando Almeida-silva, Rowena A Coelho, Andréa R Bernardes-engemann, Vivian Fichman, Dayvison Fs Freitas, Maria Cg Galhardo, Dario Corrêa-junior, Susana Frases, Rosely M Zancopé-oliveira, Rodrigo Almeida-paes",
     "journal": "Future Microbiology, 2023, 18, 15, 1041-1048",
     "doi": "10.2217/fmb-2023-0094",
@@ -317,7 +310,7 @@ window.publications = [
     "year": 2023
   },
   {
-    "title": "Comparative Analysis of Capsular and Secreted Polysaccharides Produced by Rhodotorula mucilaginosa and <i>Cryptococcus neoformans</i>",
+    "title": "Comparative Analysis of Capsular and Secreted Polysaccharides Produced by <i>Rhodotorula mucilaginosa</i> and <i>Cryptococcus neoformans</i>",
     "authors": "Gustavo Dornelles, Glauber R. De S. Araújo, Marcus Rodrigues, Vinicius Alves, Rodrigo Almeida-paes, Susana Frases",
     "journal": "Journal of Fungi, 2023, 9, 11, 1124",
     "doi": "10.3390/jof9111124",
@@ -366,7 +359,7 @@ window.publications = [
     "year": 2022
   },
   {
-    "title": "Harris' Hawk (<i>Parabuteo Unicinctus</i>) as a Source of Pathogenic Human Yeasts: A Potential Risk to Human Health",
+    "title": "Harris' Hawk (<i>Parabuteo unicinctus</i>) as a Source of Pathogenic Human Yeasts: A Potential Risk to Human Health",
     "authors": "Gustavo Dornelles, Glauber Rs Araújo, Marcus Rodrigues, Vinicius Alves, Rodrigo C Costa, Junior Abreu, Maria Hg Figueiredo-carvalho, Rodrigo Almeida-paes, Susana Frases",
     "journal": "Future Microbiology, 2022, 17, 3, 169-175",
     "doi": "10.2217/fmb-2021-0166",
@@ -471,7 +464,7 @@ window.publications = [
     "year": 2021
   },
   {
-    "title": "Dexamethasone and Methylprednisolone Promote Cell Proliferation, Capsule Enlargement, and in vivo Dissemination of <i>C. neoformans</i>",
+    "title": "Dexamethasone and Methylprednisolone Promote Cell Proliferation, Capsule Enlargement, and <i>in vivo</i> Dissemination of <i>C. neoformans</i>",
     "authors": "Glauber R. De S. Araújo, Vinicius Alves, Pedro H. Martins-de-souza, Allan J. Guimarães, Leandro Honorato, Leonardo Nimrichter, Christina Maeda Takiya, Bruno Pontes, Susana Frases",
     "journal": "Frontiers in Fungal Biology, 2021, 2",
     "doi": "10.3389/ffunb.2021.643537",
@@ -674,7 +667,7 @@ window.publications = [
     "year": 2016
   },
   {
-    "title": "Enhanced virulence of Histoplasma capsulatum through transfer and surface incorporation of glycans from <i>Cryptococcus neoformans</i> during co-infection",
+    "title": "Enhanced virulence of <i>Histoplasma capsulatum</i> through transfer and surface incorporation of glycans from <i>Cryptococcus neoformans</i> during co-infection",
     "authors": "Radames J. B. Cordero, Susie Coutinho Liedke, Glauber R. De S. Araújo, Luis R. Martinez, Leonardo Nimrichter, Susana Frases, Jose Mauro Peralta, Arturo Casadevall, Marcio L. Rodrigues, Joshua D. Nosanchuk, Allan J. Guimaraes",
     "journal": "Scientific Reports, 2016, 6, 1",
     "doi": "10.1038/srep21765",

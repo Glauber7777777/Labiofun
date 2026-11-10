@@ -9,53 +9,57 @@ class LabiofunHeader extends HTMLElement {
     const isPagesDir = window.location.pathname.includes('/pages/');
     const basePath = isPagesDir ? '../' : '';
 
+    const L = (href, key, label, icon) =>
+      `<li role="none"><a href="${basePath}${href}" data-i18n="${key}" role="menuitem"><i class="${icon}" aria-hidden="true"></i>${label}</a></li>`;
+    const group = (id, key, label, items) => `
+                          <li role="none" class="lf-has-sub">
+                              <button type="button" class="lf-sub-toggle" aria-expanded="false" aria-controls="lf-sub-${id}">
+                                  <span data-i18n="${key}">${label}</span><i class="fas fa-chevron-down" aria-hidden="true"></i>
+                              </button>
+                              <ul class="lf-sub" id="lf-sub-${id}" role="menu">${items.join('')}</ul>
+                          </li>`;
+
     this.innerHTML = `
-      <header role="banner" class="labiofun-main-header glass-header">
-          <div class="container">
+      <header role="banner" class="labiofun-main-header lf-header">
+          <div class="container lf-bar">
               <div class="header-top">
-                  <div class="logo-container">
-                      <img src="${basePath}images/ufrj.webp" 
-                           srcset="${basePath}images/ufrj.webp 800w, ${basePath}images/ufrj.webp 400w" 
-                           sizes="(max-width: 600px) 400px, 800px" 
-                           alt="Logo UFRJ" class="logo-img" loading="eager">
-                  </div>
-                  <div class="header-title">
-                      <h1 data-i18n="site.title"><strong>Laboratório de Biofísica de Fungos</strong></h1>
-                  </div>
-                  <div class="logo-container">
-                      <img src="${basePath}images/logo-pequeno.webp" 
-                           srcset="${basePath}images/logo-pequeno.webp 800w, ${basePath}images/logo-pequeno.webp 400w" 
-                           sizes="(max-width: 600px) 400px, 800px"
-                           alt="Logo Labiofun" class="logo-img" loading="eager">
-                  </div>
-                  <!-- Language Switcher -->
-                  <div class="language-switcher" role="navigation" aria-label="Seletor de idioma">
-                      <button class="lang-btn active" data-lang="pt-BR" aria-label="Português" title="Português">🇧🇷</button>
-                      <button class="lang-btn" data-lang="en" aria-label="English" title="English">🇺🇸</button>
-                      <button class="lang-btn" data-lang="es-ES" aria-label="Español" title="Español">🇪🇸</button>
-                      <button class="lang-btn" data-lang="fr-FR" aria-label="Français" title="Français">🇫🇷</button>
+                  <a class="lf-brand" href="${basePath}index.html" aria-label="Labiofun: página inicial">
+                      <img src="${basePath}images/logo-pequeno.webp" alt="" class="lf-brand-logo" width="40" height="40">
+                      <span class="lf-brand-text">
+                          <span class="lf-brand-name">Labiofun</span>
+                          <span class="lf-brand-sub" data-i18n="site.title">Laboratório de Biofísica de Fungos</span>
+                      </span>
+                  </a>
+                  <img src="${basePath}images/ufrj.webp" alt="UFRJ" class="lf-ufrj" width="34" height="34">
+                  <div class="language-switcher" role="group" aria-label="Idioma">
+                      <button class="lang-btn active" data-lang="pt-BR" aria-label="Português" title="Português">PT</button>
+                      <button class="lang-btn" data-lang="en" aria-label="English" title="English">EN</button>
+                      <button class="lang-btn" data-lang="es-ES" aria-label="Español" title="Español">ES</button>
+                      <button class="lang-btn" data-lang="fr-FR" aria-label="Français" title="Français">FR</button>
                   </div>
               </div>
 
-              <!-- Main Navigation -->
               <div class="header-bottom">
                   <nav aria-label="Navegação principal" role="navigation">
                       <ul role="menubar">
-                          <li role="none"><a href="${basePath}index.html#about" data-i18n="nav.home" role="menuitem"><i class="fas fa-home"></i>Início</a></li>
-                          <li role="none"><a href="${basePath}index.html#mission" data-i18n="nav.mission" role="menuitem"><i class="fas fa-id-badge"></i>Missão</a></li>
-                          <li role="none"><a href="${basePath}index.html#research" data-i18n="nav.research" role="menuitem"><i class="fas fa-flask"></i>Pesquisas</a></li>
-                          <li role="none"><a href="${basePath}index.html#techniques" data-i18n="nav.techniques" role="menuitem"><i class="fas fa-tools"></i>Técnicas</a></li>
-                          <li role="none"><a href="${basePath}pages/gallery.html" data-i18n="nav.gallery" role="menuitem"><i class="fas fa-camera"></i>Galeria</a></li>
-                          <li role="none"><a href="${basePath}index.html#team" data-i18n="nav.team" role="menuitem"><i class="fas fa-users"></i>Equipe</a></li>
-                          <li role="none"><a href="${basePath}index.html#publications-page" data-i18n="nav.publications" role="menuitem"><i class="fas fa-book"></i>Publicações</a></li>
-                          <li role="none"><a href="${basePath}pages/defesas.html" data-i18n="nav.defences" role="menuitem"><i class="fas fa-graduation-cap"></i>Defesas</a></li>
-                          <li role="none"><a href="${basePath}pages/seminarios.html" data-i18n="nav.seminars" role="menuitem"><i class="fas fa-chalkboard-teacher"></i>Seminários</a></li>
-                          <li role="none"><a href="${basePath}pages/fungilingo.html" data-i18n="nav.fungilingo" role="menuitem"><i class="fas fa-seedling"></i>Fungilingo</a></li>
-                          <li role="none"><a href="${basePath}pages/vagas.html" data-i18n="nav.jobs" role="menuitem"><i class="fas fa-briefcase"></i>Vagas</a></li>
-                          <li role="none"><a href="${basePath}index.html#sponsors" data-i18n="nav.sponsors" role="menuitem"><i class="fas fa-handshake"></i>Patrocínio</a></li>
-                          <li role="none"><a href="${basePath}index.html#location" data-i18n="nav.location" role="menuitem"><i class="fas fa-location-dot"></i>Localização</a></li>
-                          <li role="none"><a href="${basePath}index.html#contact" data-i18n="nav.contact" role="menuitem"><i class="fas fa-comments"></i>Contato</a></li>
-                          <li role="none"><a href="${basePath}pages/trademark.html" data-i18n="nav.trademark" role="menuitem"><i class="fa-solid fa-wand-magic-sparkles"></i>Identidade Visual</a></li>
+                          ${group('sobre', 'nav.about', 'Sobre', [
+                            L('index.html#about', 'nav.aboutLab', 'Sobre o Labiofun', 'fas fa-circle-info'),
+                            L('index.html#mission', 'nav.mission', 'Missão', 'fas fa-id-badge'),
+                            L('index.html#location', 'nav.location', 'Localização', 'fas fa-location-dot'),
+                            L('index.html#sponsors', 'nav.sponsors', 'Patrocinadores', 'fas fa-handshake'),
+                            L('pages/trademark.html', 'nav.trademark', 'Identidade Visual', 'fa-solid fa-wand-magic-sparkles')])}
+                          ${group('pesquisa', 'nav.research', 'Pesquisa', [
+                            L('index.html#research', 'nav.researchLines', 'Linhas de pesquisa', 'fas fa-flask'),
+                            L('index.html#techniques', 'nav.techniques', 'Técnicas', 'fas fa-tools'),
+                            L('pages/gallery.html', 'nav.gallery', 'Galeria', 'fas fa-camera')])}
+                          ${L('index.html#team', 'nav.team', 'Equipe', 'fas fa-users')}
+                          ${L('index.html#publications-page', 'nav.publications', 'Publicações', 'fas fa-book')}
+                          ${group('participe', 'nav.involve', 'Participe', [
+                            L('pages/vagas.html', 'nav.jobs', 'Vagas', 'fas fa-briefcase'),
+                            L('pages/seminarios.html', 'nav.seminars', 'Seminários', 'fas fa-chalkboard-teacher'),
+                            L('pages/defesas.html', 'nav.defences', 'Defesas', 'fas fa-graduation-cap')])}
+                          ${L('pages/fungilingo.html', 'nav.fungilingo', 'Fungilingo', 'fas fa-seedling')}
+                          <li role="none" class="lf-cta-item"><a href="${basePath}pages/contact.html" class="lf-cta" data-i18n="nav.contact" role="menuitem"><i class="fas fa-envelope" aria-hidden="true"></i>Contato</a></li>
                       </ul>
                   </nav>
               </div>
@@ -74,13 +78,43 @@ class LabiofunFooter extends HTMLElement {
     this.innerHTML = `
       <footer>
           <div class="copyright" style="display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
-              <p><span data-i18n="footer.copyright">&copy; 2019 – 2026 Laboratório de Biofísica de Fungos (Labiofun). Todos os direitos reservados.</span></p>
+              <p><span data-i18n="footer.copyright">&copy; 2019 a 2026 Laboratório de Biofísica de Fungos (Labiofun). Todos os direitos reservados.</span></p>
           </div>
       </footer>
     `;
     
   }
 }
+
+// Submenus do cabeçalho (clique/teclado) e cabeçalho compacto ao rolar
+function lfInitHeader() {
+  const header = document.querySelector('.lf-header');
+  if (!header || header.dataset.ready) return;
+  header.dataset.ready = '1';
+  const closeAll = except => header.querySelectorAll('.lf-has-sub.open').forEach(li => {
+    if (li !== except) { li.classList.remove('open'); li.querySelector('.lf-sub-toggle').setAttribute('aria-expanded', 'false'); }
+  });
+  header.querySelectorAll('.lf-sub-toggle').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const li = btn.parentElement, open = !li.classList.contains('open');
+      closeAll(li); li.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+  document.addEventListener('click', e => { if (!header.contains(e.target)) closeAll(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeAll(); });
+  // Item do grupo ativo quando a página atual está dentro dele
+  const here = location.pathname.split('/').pop() || 'index.html';
+  header.querySelectorAll('.lf-sub a').forEach(a => {
+    if (a.getAttribute('href').split('/').pop() === here) a.closest('.lf-has-sub').classList.add('current');
+  });
+  header.querySelectorAll('nav > ul > li > a').forEach(a => {
+    if (here !== 'index.html' && a.getAttribute('href').split('/').pop() === here) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
+  });
+  const onScroll = () => header.classList.toggle('lf-scrolled', window.scrollY > 8);
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+}
+document.addEventListener('DOMContentLoaded', lfInitHeader);
 
 // Define os componentes na janela do navegador
 customElements.define('labiofun-header', LabiofunHeader);

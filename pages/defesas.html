@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Defesas de Tese — Labiofun</title>
+    <title>Defesas de Tese: Labiofun</title>
     <meta name="description" content="Defesas de dissertações e teses do Laboratório de Biofísica de Fungos (Labiofun) - UFRJ.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/variables.css?v=20261104b">
     <link rel="stylesheet" href="../css/animations.css?v=20261104b">
     <link rel="stylesheet" href="../css/styles.css?v=20261104b">
     <link rel="stylesheet" href="../css/modern-ux.css?v=20261104b">
-    <script src="../js/components.js?v=20261104g"></script>
+    <link rel="stylesheet" href="../css/layout-v2.css?v=20261110d">
+    <script src="../js/components.js?v=20261110b"></script>
     <style>
         .breadcrumb { display: flex; align-items: center; justify-content: center; gap: var(--space-sm); margin-bottom: var(--space-xl); font-size: var(--font-size-sm); opacity: .75; }
         .breadcrumb a { color: var(--white); }
@@ -39,7 +40,7 @@
         .empty-state { padding: var(--space-3xl); text-align: center; color: var(--gray); }
 
         @media (max-width: 768px) {
-            .page-hero h2 { font-size: var(--font-size-3xl); }
+            .page-hero h1, .page-hero h2 { font-size: var(--font-size-3xl); }
             .defesa-item { flex-direction: column; }
             .countdown-box { min-width: 80px; padding: var(--space-md); }
             .countdown-number { font-size: 2.5rem; }
@@ -62,7 +63,7 @@
                     <i class="fas fa-chevron-right" style="font-size:.6rem; margin-top:5px;"></i>
                     <span>Defesas de Tese</span>
                 </div>
-                <h2 class="scroll-animate"><i class="fas fa-graduation-cap" style="margin-right:.5rem"></i>Defesas de Tese</h2>
+                <h1 class="scroll-animate"><i class="fas fa-graduation-cap" style="margin-right:.5rem"></i>Defesas de Tese</h1>
                 <p class="scroll-animate delay-200">Dissertações de mestrado, teses de doutorado e defesas de pós-doutoramento orientadas pelo Labiofun.</p>
             </div>
         </section>
@@ -93,10 +94,10 @@
     <script src="../data/publications.js?v=20261104b" defer></script>
     <script src="../data/books.js?v=20261104b" defer></script>
     <script src="../data/collaborators.js?v=20261104b" defer></script>
-    <script src="../js/translations.js?v=20261104g" defer></script>
+    <script src="../js/translations.js?v=20261110a" defer></script>
     <script src="../js/language-switcher.js?v=20261104b" defer></script>
     <script src="../js/bell.js?v=20261104e" defer></script>
-    <script src="../js/main.js?v=20261104b"></script>
+    <script src="../js/main.js?v=20261110b"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => (window.seminarsReady || Promise.resolve()).then(() => {

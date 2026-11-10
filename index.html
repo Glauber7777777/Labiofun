@@ -103,9 +103,10 @@
     <link rel="alternate" hreflang="fr" href="https://www.labiofun.com.br/?lang=fr-FR" />
     <link rel="alternate" hreflang="x-default" href="https://www.labiofun.com.br/" />
     <link rel="stylesheet" href="css/modern-ux.css?v=20261104b">
+    <link rel="stylesheet" href="css/layout-v2.css?v=20261110d">
     
     <!-- Web Components -->
-    <script src="js/components.js?v=20261104g"></script>
+    <script src="js/components.js?v=20261110b"></script>
 </head>
 
 <body id="home">
@@ -119,217 +120,43 @@
     <!-- Header -->
     <labiofun-header></labiofun-header>
 
-    <!-- Zoom Parallax Hero Section -->
-    <style>
-        .zoom-parallax-container {
-            padding: 12px 12px 0 12px;
-            background: var(--white);
-        }
-        
-        .zoom-parallax-hero {
-            position: relative;
-            height: 150vh; /* Extra height to allow scrolling */
-        }
-
-        .zoom-sticky-image {
-            position: sticky;
-            top: 12px;
-            height: calc(100vh - 24px);
-            border-radius: 24px;
-            overflow: hidden;
-            transform-origin: center center;
-            will-change: transform;
-            z-index: 0;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-
-        .zoom-sticky-image::after {
-            content: '';
-            position: absolute;
-            inset: -15%;
-            background: url('images/Background.jpg') center/cover no-repeat;
-            animation: backgroundZoomMove 35s ease-in-out infinite;
-            z-index: 0;
-        }
-
-        .zoom-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.45); /* Clareado de 0.7 para 0.45 */
-            will-change: opacity;
-            z-index: 1;
-        }
-
-        .zoom-text-content {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
-            will-change: transform, opacity, filter;
-            z-index: 2;
-            padding: 0 2rem;
-            transform-origin: center center;
-        }
-
-        .zoom-text-content h2 {
-            font-size: var(--font-size-6xl);
-            margin-bottom: var(--space-xs);
-            font-weight: var(--font-weight-black);
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-            max-width: 900px;
-        }
-
-        .title-highlight {
-            color: var(--primary) !important;
-            margin-bottom: var(--space-md) !important;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-        }
-
-        .zoom-text-content p {
-            font-size: var(--font-size-xl);
-            opacity: 0.95;
-            line-height: var(--line-height-relaxed);
-            max-width: 900px;
-        }
-
-        @media (max-width: 768px) {
-            .zoom-text-content h2 { font-size: var(--font-size-4xl); }
-            .zoom-text-content p { font-size: var(--font-size-lg); }
-        }
-    </style>
-
-    <div class="zoom-parallax-container">
-        <section class="zoom-parallax-hero" id="zoom-hero">
-            <div class="zoom-sticky-image" id="zoom-sticky-img">
-                <div class="zoom-overlay" id="zoom-overlay"></div>
-                <div class="zoom-text-content" id="zoom-text">
-                    <h2 data-i18n="hero.title1" style="color: white;">Pesquisa Translacional em</h2>
-                    <h2 data-i18n="hero.title2" class="title-highlight">Biofísica de Fungos</h2>
-                    <p data-i18n="hero.description">Da superfície fúngica à clínica: nossos
-                        estudos integram abordagens estruturais, físico-químicas e moleculares para elucidar a virulência, o
-                        impacto ambiental e os processos de interação com o hospedeiro, contribuindo para o desenvolvimento de
-                        estratégias diagnósticas mais sensíveis e terapias mais eficazes.</p>
+    <!-- Topo (hero) -->
+    <section class="lf-hero" aria-labelledby="lf-hero-title">
+        <div class="container">
+            <div class="lf-hero-content">
+                <span class="lf-eyebrow" data-i18n="hero.eyebrow">UFRJ · Instituto de Biofísica Carlos Chagas Filho</span>
+                <h1 id="lf-hero-title" data-i18n="hero.headline">Biofísica de fungos: da superfície celular à clínica</h1>
+                <p class="lf-hero-lead" data-i18n="hero.lead">Estudamos como os fungos causam doenças, se adaptam ao ambiente e resistem a tratamentos, para apoiar diagnósticos e terapias melhores.</p>
+                <div class="lf-hero-actions">
+                    <a class="lf-btn lf-btn-primary" href="#research"><span data-i18n="hero.cta.research">Conheça a pesquisa</span> <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+                    <a class="lf-btn lf-btn-ghost" href="pages/vagas.html"><span data-i18n="hero.cta.join">Faça parte do lab</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const heroSection = document.getElementById('zoom-hero');
-            const stickyImg = document.getElementById('zoom-sticky-img');
-            const overlay = document.getElementById('zoom-overlay');
-            const textContent = document.getElementById('zoom-text');
-
-            if (!heroSection || !stickyImg || !overlay || !textContent) return;
-
-            // rAF: no máximo 1 atualização por frame
-            let ticking = false;
-            const update = () => {
-                ticking = false;
-                const rect = heroSection.getBoundingClientRect();
-                if (rect.bottom < 0) return; // hero fora da tela: nada a fazer
-                const windowHeight = window.innerHeight;
-                
-                // For Hero, progress starts at 0 when page is loaded
-                // Ends at 1 when bottom of hero reaches bottom of viewport
-                const totalScroll = heroSection.offsetHeight - windowHeight;
-                const currentScroll = -rect.top;
-                
-                let progress = 0;
-                if (currentScroll <= 0) {
-                    progress = 0;
-                } else if (currentScroll >= totalScroll) {
-                    progress = 1;
-                } else {
-                    progress = currentScroll / totalScroll;
-                }
-
-                // Image scales down more dramatically: 1 -> 0.8
-                const scale = 1 - (0.2 * progress);
-                stickyImg.style.transform = `scale(${scale})`;
-
-                // Overlay opacity fades: 1 -> 0 (gets brighter)
-                overlay.style.opacity = 1 - progress;
-
-                // Text moves up with Parallax (0 -> -350px) and scales down slightly
-                const y = progress * -350;
-                const textScale = 1 - (0.1 * progress);
-                
-                // Text fades out earlier and blurs
-                const textOpacity = 1 - (progress * 1.5);
-                const blur = progress * 10;
-                
-                textContent.style.transform = `translateY(${y}px) scale(${textScale})`;
-                textContent.style.opacity = textOpacity < 0 ? 0 : textOpacity;
-                textContent.style.filter = `blur(${blur}px)`;
-            };
-            window.addEventListener('scroll', () => {
-                if (!ticking) { ticking = true; requestAnimationFrame(update); }
-            }, { passive: true });
-        });
-    </script>
-
-    <!-- Impact Counter Section -->
-    <section class="impact-counter" aria-label="Números do laboratório">
+    <!-- Números do laboratório -->
+    <section class="impact-counter lf-stats" aria-label="Números do laboratório">
         <div class="container">
             <div class="counter-grid">
-                <div class="counter-item scroll-animate">
-                    <div class="counter-icon"><i class="fas fa-book-open"></i></div>
-                    <span class="counter-number" data-target="168" data-suffix="+">0</span>
-                    <p class="counter-label" data-i18n="counter.publications">Publicações Científicas</p>
+                <div class="counter-item">
+                    <span class="counter-number" id="counter-articles" data-target="154" data-suffix="">154</span>
+                    <p class="counter-label" data-i18n="counter.articles">Artigos publicados</p>
                 </div>
-                <div class="counter-item scroll-animate delay-100">
-                    <div class="counter-icon"><i class="fas fa-flask"></i></div>
-                    <span class="counter-number" data-target="8" data-suffix="">0</span>
-                    <p class="counter-label" data-i18n="counter.research">Linhas de Pesquisa</p>
+                <div class="counter-item scholar-loading" id="counter-item-citations">
+                    <span class="counter-number" id="counter-citations" data-target="0" data-suffix="">···</span>
+                    <p class="counter-label" data-i18n="counter.citations2">Citações</p>
                 </div>
-                <div class="counter-item scroll-animate delay-200">
-                    <div class="counter-icon"><i class="fas fa-users"></i></div>
-                    <span class="counter-number" data-target="10" data-suffix="">0</span>
-                    <p class="counter-label" data-i18n="counter.team">Pesquisadores Ativos</p>
+                <div class="counter-item">
+                    <span class="counter-number" id="counter-hindex" data-target="0" data-suffix="">···</span>
+                    <p class="counter-label" data-i18n="counter.hindex">Índice h</p>
                 </div>
-                <div class="counter-item scroll-animate delay-300">
-                    <div class="counter-icon"><i class="fas fa-handshake"></i></div>
-                    <span class="counter-number" data-target="10" data-suffix="+">0</span>
-                    <p class="counter-label" data-i18n="counter.collaborators">Colaboradores</p>
-                </div>
-                <div class="counter-item scroll-animate delay-400">
-                    <div class="counter-icon"><i class="fas fa-calendar-days"></i></div>
-                    <span class="counter-number" data-target="2020" data-suffix="" data-prefix="">0</span>
-                    <p class="counter-label" data-i18n="counter.founded">Fundado em</p>
-                </div>
-                <!-- 6th counter: live citations from OpenAlex -->
-                <div class="counter-item scroll-animate delay-500 scholar-loading" id="counter-item-citations">
-                    <div class="counter-icon"><i class="fas fa-quote-right"></i></div>
-                    <span class="counter-number" id="counter-citations" data-target="0" data-suffix="+">···</span>
-                    <p class="counter-label" data-i18n="counter.citations">Citações Totais</p>
+                <div class="counter-item">
+                    <span class="counter-number" id="counter-team" data-target="10" data-suffix="">10</span>
+                    <p class="counter-label" data-i18n="counter.researchers">Pesquisadores na equipe</p>
                 </div>
             </div>
-
-            <!-- Scholar Metrics Bar — populated by scholar-api.js -->
-            <div class="scholar-metrics-bar" id="scholar-metrics-bar" aria-label="Métricas acadêmicas">
-                <span class="scholar-metric">
-                    <i class="fas fa-chart-line"></i>
-                    H-index: <strong id="scholar-h-index">—</strong>
-                </span>
-                <span class="scholar-divider">·</span>
-                <span class="scholar-metric">
-                    <i class="fas fa-list-ol"></i>
-                    i10-index: <strong id="scholar-i10">—</strong>
-                </span>
-                <span class="scholar-divider">·</span>
-                <span class="scholar-source">
-                    <i class="fas fa-database"></i>
-                    Fonte: <a href="https://openalex.org" target="_blank" rel="noopener noreferrer"
-                        title="OpenAlex — Open Academic Graph">OpenAlex</a>
-                    <span class="scholar-live-badge">LIVE</span>
-                </span>
-            </div>
+            <p class="lf-stats-note"><span data-i18n="counter.note">Desde 2020 · 8 linhas de pesquisa · citações e índice h da coordenadora, via OpenAlex</span></p>
         </div>
     </section>
 
@@ -355,7 +182,7 @@
                 <p style="text-align: justify;" data-i18n-html="about.p3">Adotamos o paradigma Saúde Única
                     <i>(One Health)</i>, integrando dados e saberes da saúde ambiental, da medicina humana e veterinária
                     para
-                    compreender de forma holística como os fungos interagem com diferentes nichos e hospedeiros — e como
+                    compreender de forma holística como os fungos interagem com diferentes nichos e hospedeiros, bem como de que modo
                     essas
                     interações são influenciadas pelas mudanças climáticas e pela ação humana.
                 </p>
@@ -513,7 +340,7 @@
                     <h3 data-i18n="tech.3.title">Mecânica celular - μreologia (Ativa e Passiva)</h3>
                     <p data-i18n="tech.3.desc">Ensaios para avaliar as propriedades viscoelásticas de polissacarídeos
                         capsulares e secretados, avaliar a resposta a tensões mecânicas e mapear alterações mecânicas
-                        vinculadas à interação hospedeiro–patógeno.</p>
+                        vinculadas à interação hospedeiro-patógeno.</p>
                 </div>
 
                 <div class="technique scroll-animate hover-lift delay-300">
@@ -526,7 +353,7 @@
                     <i class="fas fa-microscope"></i>
                     <h3 data-i18n="tech.5.title">Microscopia óptica</h3>
                     <p data-i18n="tech.5.desc">Base para identificação morfológica, análise de ciclos de vida,
-                        colorações diferenciais e observação em tempo real de interações fungo–hospedeiro.</p>
+                        colorações diferenciais e observação em tempo real de interações fungo-hospedeiro.</p>
                 </div>
 
                 <div class="technique scroll-animate hover-lift delay-500">
@@ -1019,15 +846,6 @@
                 <button class="pub-btn cite-btn" data-title="P2X7 receptor blockade during &lt;i&gt;Cryptococcus neoformans&lt;/i&gt; infection promotes a Th2-associated immune profile and enhances fungal dissemination to the brain" data-authors="Igor Correa da Costa Braga, Vinícius Alves, Glauber Ribeiro de Sousa Araujo, Letícia Diniz Crepaldi, Lorraine Oliveira-Cruz, Milla Souza Pessoa da Silva, Sabrina Sodré de Souza Serra, Fabiana Cristina-Rodrigues, Vinícius Santos Alves, Robson Coutinho-Silva, Susana Frases, Fernanda Ferreira Cruz, Marcelo Marcos Morales, Luiz Eduardo Baggio Savio." data-journal="International Immunopharmacology" data-year="2026" data-doi="10.1016/j.intimp.2026.116881" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
-            <h3>From the ground to the clinic: The evolution and adaptation of fungi</h3>
-            <p class="authors">Dario Corrêa-Junior, Daniel Zamith-Miranda, Susana Frases, Joshua D. Nosanchuk</p>
-            <p class="journal">Journal of Fungi</p>
-            <div class="pub-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                <div data-badge-popover="right" data-badge-type="donut" data-doi="10.3390/jof12010008" class="altmetric-embed"></div>
-                <a href="https://doi.org/10.3390/jof12010008" target="_blank" class="pub-btn" aria-label="Ver DOI da publicação">DOI</a>
-                <button class="pub-btn cite-btn" data-title="From the ground to the clinic: The evolution and adaptation of fungi" data-authors="Dario Corrêa-Junior, Daniel Zamith-Miranda, Susana Frases, Joshua D. Nosanchuk" data-journal="Journal of Fungi" data-year="2026" data-doi="10.3390/jof12010008" aria-label="Citar esta publicação">Citar</button>
-            </div>
-        </div><div class="publication-item scroll-animate">
             <h3>Extracellular vesicles of <i>Emergomyces africanus</i> modulate host immune responses and reflect metabolic adaptations to nutrient availability</h3>
             <p class="authors">Leandro Honorato, Albaniza Liuane Ribeiro do Nascimento Sabino, Jhon Jhamilton Artunduaga Bonilla, Susana Ruiz Mendoza, Julio Kornetz, Flavia C G Dos Reis, Elaine R Albergoni, Vinicius Alves, Susana Frases, Allan Jefferson Guimarães, Daniel Zamith-Miranda, Simone Sidoli, Joshua D. Nosanchuk, Marcio L Rodrigues, Leonardo Nimrichter</p>
             <p class="journal">ASM, Infection and Immunity</p>
@@ -1046,13 +864,13 @@
                 <button class="pub-btn cite-btn" data-title="Caspofungin reshapes the extracellular vesicles metabolome of &lt;i&gt;Candidozyma (Candida) auris&lt;/i&gt;, altering amino acid and nucleotide metabolism" data-authors="Vinicius Alves, Claire V Mulholland, Daniel Zamith-Miranda, Susana Frases, Michael Berney, Joshua D. Nosanchuk" data-journal="Journal of Fungi" data-year="2026" data-doi="10.3390/jof12020156" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
-            <h3>Intrapolysaccharides from <i>Amazonian panus</i> lecomtei induce pro-inflammatory responses and adhere to macrophage surfaces</h3>
+            <h3>Intrapolysaccharides from Amazonian <i>Panus lecomtei</i> induce pro-inflammatory responses and adhere to macrophage surfaces</h3>
             <p class="authors">Jefte Farias da Silva, Vítor Alves Pessoa, Danielle Furtado da Silva, Larissa Ramos Chevreuil, Alessandro Fernandes Valdez, Leonardo Nimrichter, Juliana Bello Baron Maurer, Walter José Martinez-Burgos, Susana Frases, Luciano Henrique Campestrini, Bruno Pontes, Ceci Sales-Campos</p>
             <p class="journal">Brazilian Journal of Microbiology</p>
             <div class="pub-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1007/s42770-026-01899-8" class="altmetric-embed"></div>
                 <a href="https://doi.org/10.1007/s42770-026-01899-8" target="_blank" class="pub-btn" aria-label="Ver DOI da publicação">DOI</a>
-                <button class="pub-btn cite-btn" data-title="Intrapolysaccharides from &lt;i&gt;Amazonian panus&lt;/i&gt; lecomtei induce pro-inflammatory responses and adhere to macrophage surfaces" data-authors="Jefte Farias da Silva, Vítor Alves Pessoa, Danielle Furtado da Silva, Larissa Ramos Chevreuil, Alessandro Fernandes Valdez, Leonardo Nimrichter, Juliana Bello Baron Maurer, Walter José Martinez-Burgos, Susana Frases, Luciano Henrique Campestrini, Bruno Pontes, Ceci Sales-Campos" data-journal="Brazilian Journal of Microbiology" data-year="2026" data-doi="10.1007/s42770-026-01899-8" aria-label="Citar esta publicação">Citar</button>
+                <button class="pub-btn cite-btn" data-title="Intrapolysaccharides from Amazonian &lt;i&gt;Panus lecomtei&lt;/i&gt; induce pro-inflammatory responses and adhere to macrophage surfaces" data-authors="Jefte Farias da Silva, Vítor Alves Pessoa, Danielle Furtado da Silva, Larissa Ramos Chevreuil, Alessandro Fernandes Valdez, Leonardo Nimrichter, Juliana Bello Baron Maurer, Walter José Martinez-Burgos, Susana Frases, Luciano Henrique Campestrini, Bruno Pontes, Ceci Sales-Campos" data-journal="Brazilian Journal of Microbiology" data-year="2026" data-doi="10.1007/s42770-026-01899-8" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
             <h3>The secret life of mangrove fungi: Tiny guardians of the swamp</h3>
@@ -1172,13 +990,13 @@
                 <button class="pub-btn cite-btn" data-title="Fungal Pathogenesis and Virulence in the Anthropocene: Multidimensional Impacts of Climate Change" data-authors="Glauber R. de S. Araújo, Susana Frases" data-journal="Current Clinical Microbiology Reports" data-year="2025" data-doi="10.1007/s40588-025-00252-1" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
-            <h3>ITS Metabarcoding of Filamentous Fungi in Traditional Biodegradation of Carapa Guianensis Seeds from the Brazilian Amazon</h3>
+            <h3>ITS Metabarcoding of Filamentous Fungi in Traditional Biodegradation of <i>Carapa guianensis</i> Seeds from the Brazilian Amazon</h3>
             <p class="authors">Mariana Barbieri, Luana Lessa R Santos, Ana C Bahia, Susana Frases</p>
             <p class="journal">World Journal Of Microbiology &amp; Biotechnology</p>
             <div class="pub-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1007/s11274-025-04581-7" class="altmetric-embed"></div>
                 <a href="https://doi.org/10.1007/s11274-025-04581-7" target="_blank" class="pub-btn" aria-label="Ver DOI da publicação">DOI</a>
-                <button class="pub-btn cite-btn" data-title="ITS Metabarcoding of Filamentous Fungi in Traditional Biodegradation of Carapa Guianensis Seeds from the Brazilian Amazon" data-authors="Mariana Barbieri, Luana Lessa R Santos, Ana C Bahia, Susana Frases" data-journal="World Journal Of Microbiology &amp; Biotechnology" data-year="2025" data-doi="10.1007/s11274-025-04581-7" aria-label="Citar esta publicação">Citar</button>
+                <button class="pub-btn cite-btn" data-title="ITS Metabarcoding of Filamentous Fungi in Traditional Biodegradation of &lt;i&gt;Carapa guianensis&lt;/i&gt; Seeds from the Brazilian Amazon" data-authors="Mariana Barbieri, Luana Lessa R Santos, Ana C Bahia, Susana Frases" data-journal="World Journal Of Microbiology &amp; Biotechnology" data-year="2025" data-doi="10.1007/s11274-025-04581-7" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
             <h3><i>Cryptococcus neoformans</i> Phospholipase B1 is Critical for Cryptococcoma Formation in the Mouse Brain</h3>
@@ -1253,13 +1071,13 @@
                 <button class="pub-btn cite-btn" data-title="Toll-like receptor 4 (TLR4) is the major pattern recognition receptor triggering the protective effect of a &lt;i&gt;Candida albicans&lt;/i&gt; extracellular vesicle-based vaccine prototype in murine systemic candidiasis" data-authors="Leandro Honorato, Jhon J. Artunduaga Bonilla, Alessandro F. Valdez, Susana Frases, Glauber Ribeiro De Sousa Araújo, Albaniza Liuane Ribeiro Do Nascimento Sabino, Natalia Martins Da Silva, Larissa Ribeiro, Marina Da Silva Ferreira, Julio Kornetz, Marcio L. Rodrigues, Iain Cunningham, Neil A. R. Gow, Attila Gacser, Allan J. Guimarães, Fabianno F. Dutra, Leonardo Nimrichter" data-journal="mSphere, 2024, 9, 8" data-year="2024" data-doi="10.1128/msphere.00467-24" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
-            <h3>Auranofin is active against Histoplasma capsulatum and reduces the expression of virulence-related genes</h3>
+            <h3>Auranofin is active against <i>Histoplasma capsulatum</i> and reduces the expression of virulence-related genes</h3>
             <p class="authors">Marcos De Abreu Almeida, Lilian Cristiane Baeza, Leandro B. R. Silva, Andréa Reis Bernardes-engemann, Fernando Almeida-silva, Rowena Alves Coelho, Iara Bastos De Andrade, Dario Corrêa-junior, Susana Frases, Rosely Maria Zancopé-oliveira, Alexandre Alanio, Carlos Pelleschi Taborda, Rodrigo Almeida-paes</p>
             <p class="journal">PLOS Neglected Tropical Diseases, 2024, 18, 10, e0012586</p>
             <div class="pub-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1371/journal.pntd.0012586" class="altmetric-embed"></div>
                 <a href="https://doi.org/10.1371/journal.pntd.0012586" target="_blank" class="pub-btn" aria-label="Ver DOI da publicação">DOI</a>
-                <button class="pub-btn cite-btn" data-title="Auranofin is active against Histoplasma capsulatum and reduces the expression of virulence-related genes" data-authors="Marcos De Abreu Almeida, Lilian Cristiane Baeza, Leandro B. R. Silva, Andréa Reis Bernardes-engemann, Fernando Almeida-silva, Rowena Alves Coelho, Iara Bastos De Andrade, Dario Corrêa-junior, Susana Frases, Rosely Maria Zancopé-oliveira, Alexandre Alanio, Carlos Pelleschi Taborda, Rodrigo Almeida-paes" data-journal="PLOS Neglected Tropical Diseases, 2024, 18, 10, e0012586" data-year="2024" data-doi="10.1371/journal.pntd.0012586" aria-label="Citar esta publicação">Citar</button>
+                <button class="pub-btn cite-btn" data-title="Auranofin is active against &lt;i&gt;Histoplasma capsulatum&lt;/i&gt; and reduces the expression of virulence-related genes" data-authors="Marcos De Abreu Almeida, Lilian Cristiane Baeza, Leandro B. R. Silva, Andréa Reis Bernardes-engemann, Fernando Almeida-silva, Rowena Alves Coelho, Iara Bastos De Andrade, Dario Corrêa-junior, Susana Frases, Rosely Maria Zancopé-oliveira, Alexandre Alanio, Carlos Pelleschi Taborda, Rodrigo Almeida-paes" data-journal="PLOS Neglected Tropical Diseases, 2024, 18, 10, e0012586" data-year="2024" data-doi="10.1371/journal.pntd.0012586" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
             <h3>Hazards Associated with the Combined Application of Fungicides and Poultry Litter in Agricultural Areas</h3>
@@ -1316,13 +1134,13 @@
                 <button class="pub-btn cite-btn" data-title="Off-Label Treatments As Potential Accelerators in the Search for the Ideal Antifungal Treatment Of Cryptococcosis" data-authors="Vinicius Alves, Glauber Rs Araújo, Susana Frases" data-journal="Future Microbiology, 2023, 18, 2, 127-135" data-year="2023" data-doi="10.2217/fmb-2022-0122" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
-            <h3><i>In Vitro</i> Isavuconazole Activity Against <i>Sporothrix Brasiliensis</i> Suggests Its Efficacy in Some Severe Sporotrichosis Cases</h3>
+            <h3><i>In Vitro</i> Isavuconazole Activity Against <i>Sporothrix brasiliensis</i> Suggests Its Efficacy in Some Severe Sporotrichosis Cases</h3>
             <p class="authors">Fernando Almeida-silva, Rowena A Coelho, Andréa R Bernardes-engemann, Vivian Fichman, Dayvison Fs Freitas, Maria Cg Galhardo, Dario Corrêa-junior, Susana Frases, Rosely M Zancopé-oliveira, Rodrigo Almeida-paes</p>
             <p class="journal">Future Microbiology, 2023, 18, 15, 1041-1048</p>
             <div class="pub-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <div data-badge-popover="right" data-badge-type="donut" data-doi="10.2217/fmb-2023-0094" class="altmetric-embed"></div>
                 <a href="https://doi.org/10.2217/fmb-2023-0094" target="_blank" class="pub-btn" aria-label="Ver DOI da publicação">DOI</a>
-                <button class="pub-btn cite-btn" data-title="&lt;i&gt;In Vitro&lt;/i&gt; Isavuconazole Activity Against &lt;i&gt;Sporothrix Brasiliensis&lt;/i&gt; Suggests Its Efficacy in Some Severe Sporotrichosis Cases" data-authors="Fernando Almeida-silva, Rowena A Coelho, Andréa R Bernardes-engemann, Vivian Fichman, Dayvison Fs Freitas, Maria Cg Galhardo, Dario Corrêa-junior, Susana Frases, Rosely M Zancopé-oliveira, Rodrigo Almeida-paes" data-journal="Future Microbiology, 2023, 18, 15, 1041-1048" data-year="2023" data-doi="10.2217/fmb-2023-0094" aria-label="Citar esta publicação">Citar</button>
+                <button class="pub-btn cite-btn" data-title="&lt;i&gt;In Vitro&lt;/i&gt; Isavuconazole Activity Against &lt;i&gt;Sporothrix brasiliensis&lt;/i&gt; Suggests Its Efficacy in Some Severe Sporotrichosis Cases" data-authors="Fernando Almeida-silva, Rowena A Coelho, Andréa R Bernardes-engemann, Vivian Fichman, Dayvison Fs Freitas, Maria Cg Galhardo, Dario Corrêa-junior, Susana Frases, Rosely M Zancopé-oliveira, Rodrigo Almeida-paes" data-journal="Future Microbiology, 2023, 18, 15, 1041-1048" data-year="2023" data-doi="10.2217/fmb-2023-0094" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
             <h3>Effect of Rapamycin on <i>Cryptococcus neoformans</i>: Cellular Organization, Biophysics and Virulence Factors</h3>
@@ -1406,13 +1224,13 @@
                 <button class="pub-btn cite-btn" data-title="Traversing the Cell Wall: The Chitinolytic Activity of &lt;i&gt;Histoplasma capsulatum&lt;/i&gt; Extracellular Vesicles Facilitates Their Release" data-authors="Alessandro F. Valdez, Taiane Nascimento De Souza, Jhon Jhamilton Artunduaga Bonilla, Daniel Zamith-miranda, Alicia Corbellini Piffer, Glauber R. S. Araujo, Allan J. Guimarães, Susana Frases, Alana Kelyene Pereira, Taicia Pacheco Fill, Igor L. Estevao, Angel Torres, Igor C. Almeida, Joshua D. Nosanchuk, Leonardo Nimrichter" data-journal="Journal of Fungi, 2023, 9, 11, 1052" data-year="2023" data-doi="10.3390/jof9111052" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
-            <h3>Comparative Analysis of Capsular and Secreted Polysaccharides Produced by Rhodotorula mucilaginosa and <i>Cryptococcus neoformans</i></h3>
+            <h3>Comparative Analysis of Capsular and Secreted Polysaccharides Produced by <i>Rhodotorula mucilaginosa</i> and <i>Cryptococcus neoformans</i></h3>
             <p class="authors">Gustavo Dornelles, Glauber R. De S. Araújo, Marcus Rodrigues, Vinicius Alves, Rodrigo Almeida-paes, Susana Frases</p>
             <p class="journal">Journal of Fungi, 2023, 9, 11, 1124</p>
             <div class="pub-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <div data-badge-popover="right" data-badge-type="donut" data-doi="10.3390/jof9111124" class="altmetric-embed"></div>
                 <a href="https://doi.org/10.3390/jof9111124" target="_blank" class="pub-btn" aria-label="Ver DOI da publicação">DOI</a>
-                <button class="pub-btn cite-btn" data-title="Comparative Analysis of Capsular and Secreted Polysaccharides Produced by Rhodotorula mucilaginosa and &lt;i&gt;Cryptococcus neoformans&lt;/i&gt;" data-authors="Gustavo Dornelles, Glauber R. De S. Araújo, Marcus Rodrigues, Vinicius Alves, Rodrigo Almeida-paes, Susana Frases" data-journal="Journal of Fungi, 2023, 9, 11, 1124" data-year="2023" data-doi="10.3390/jof9111124" aria-label="Citar esta publicação">Citar</button>
+                <button class="pub-btn cite-btn" data-title="Comparative Analysis of Capsular and Secreted Polysaccharides Produced by &lt;i&gt;Rhodotorula mucilaginosa&lt;/i&gt; and &lt;i&gt;Cryptococcus neoformans&lt;/i&gt;" data-authors="Gustavo Dornelles, Glauber R. De S. Araújo, Marcus Rodrigues, Vinicius Alves, Rodrigo Almeida-paes, Susana Frases" data-journal="Journal of Fungi, 2023, 9, 11, 1124" data-year="2023" data-doi="10.3390/jof9111124" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="year-header" data-year="2022">Publicações de 2022</div><div class="publication-item scroll-animate">
             <h3>New Insights in Dermatophytes: <i>Microsporum</i> spp. and <i>Nannizzia</i> spp.</h3>
@@ -1469,13 +1287,13 @@
                 <button class="pub-btn cite-btn" data-title="Lessons from protozoans: Phosphate sensing and polyphosphate storage in fungi" data-authors="Taissa Vila, Susana Frases, Fabio M. Gomes" data-journal="PLOS Pathogens, 2022, 18, 3, e1010298" data-year="2022" data-doi="10.1371/journal.ppat.1010298" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
-            <h3>Harris' Hawk (<i>Parabuteo Unicinctus</i>) as a Source of Pathogenic Human Yeasts: A Potential Risk to Human Health</h3>
+            <h3>Harris' Hawk (<i>Parabuteo unicinctus</i>) as a Source of Pathogenic Human Yeasts: A Potential Risk to Human Health</h3>
             <p class="authors">Gustavo Dornelles, Glauber Rs Araújo, Marcus Rodrigues, Vinicius Alves, Rodrigo C Costa, Junior Abreu, Maria Hg Figueiredo-carvalho, Rodrigo Almeida-paes, Susana Frases</p>
             <p class="journal">Future Microbiology, 2022, 17, 3, 169-175</p>
             <div class="pub-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <div data-badge-popover="right" data-badge-type="donut" data-doi="10.2217/fmb-2021-0166" class="altmetric-embed"></div>
                 <a href="https://doi.org/10.2217/fmb-2021-0166" target="_blank" class="pub-btn" aria-label="Ver DOI da publicação">DOI</a>
-                <button class="pub-btn cite-btn" data-title="Harris' Hawk (&lt;i&gt;Parabuteo Unicinctus&lt;/i&gt;) as a Source of Pathogenic Human Yeasts: A Potential Risk to Human Health" data-authors="Gustavo Dornelles, Glauber Rs Araújo, Marcus Rodrigues, Vinicius Alves, Rodrigo C Costa, Junior Abreu, Maria Hg Figueiredo-carvalho, Rodrigo Almeida-paes, Susana Frases" data-journal="Future Microbiology, 2022, 17, 3, 169-175" data-year="2022" data-doi="10.2217/fmb-2021-0166" aria-label="Citar esta publicação">Citar</button>
+                <button class="pub-btn cite-btn" data-title="Harris' Hawk (&lt;i&gt;Parabuteo unicinctus&lt;/i&gt;) as a Source of Pathogenic Human Yeasts: A Potential Risk to Human Health" data-authors="Gustavo Dornelles, Glauber Rs Araújo, Marcus Rodrigues, Vinicius Alves, Rodrigo C Costa, Junior Abreu, Maria Hg Figueiredo-carvalho, Rodrigo Almeida-paes, Susana Frases" data-journal="Future Microbiology, 2022, 17, 3, 169-175" data-year="2022" data-doi="10.2217/fmb-2021-0166" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
             <h3>One Health and Dermatophytes, what is the Link Between Them?</h3>
@@ -1604,13 +1422,13 @@
                 <button class="pub-btn cite-btn" data-title="&lt;i&gt;Histoplasma capsulatum&lt;/i&gt; Glycans From Distinct Genotypes Share Structural and Serological Similarities to &lt;i&gt;Cryptococcus neoformans&lt;/i&gt; Glucuronoxylomannan" data-authors="Diego De Souza Gonçalves, Claudia Rodriguez De La Noval, Marina Da Silva Ferreira, Leandro Honorato, Glauber Ribeiro De Sousa Araújo, Susana Frases, Claudia Vera Pizzini, Joshua D. Nosanchuk, Radames J. B. Cordero, Marcio L. Rodrigues, José Mauro Peralta, Leonardo Nimrichter, Allan J. Guimarães" data-journal="Frontiers in Cellular and Infection Microbiology, 2021, 10" data-year="2021" data-doi="10.3389/fcimb.2020.565571" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
-            <h3>Dexamethasone and Methylprednisolone Promote Cell Proliferation, Capsule Enlargement, and in vivo Dissemination of <i>C. neoformans</i></h3>
+            <h3>Dexamethasone and Methylprednisolone Promote Cell Proliferation, Capsule Enlargement, and <i>in vivo</i> Dissemination of <i>C. neoformans</i></h3>
             <p class="authors">Glauber R. De S. Araújo, Vinicius Alves, Pedro H. Martins-de-souza, Allan J. Guimarães, Leandro Honorato, Leonardo Nimrichter, Christina Maeda Takiya, Bruno Pontes, Susana Frases</p>
             <p class="journal">Frontiers in Fungal Biology, 2021, 2</p>
             <div class="pub-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <div data-badge-popover="right" data-badge-type="donut" data-doi="10.3389/ffunb.2021.643537" class="altmetric-embed"></div>
                 <a href="https://doi.org/10.3389/ffunb.2021.643537" target="_blank" class="pub-btn" aria-label="Ver DOI da publicação">DOI</a>
-                <button class="pub-btn cite-btn" data-title="Dexamethasone and Methylprednisolone Promote Cell Proliferation, Capsule Enlargement, and in vivo Dissemination of &lt;i&gt;C. neoformans&lt;/i&gt;" data-authors="Glauber R. De S. Araújo, Vinicius Alves, Pedro H. Martins-de-souza, Allan J. Guimarães, Leandro Honorato, Leonardo Nimrichter, Christina Maeda Takiya, Bruno Pontes, Susana Frases" data-journal="Frontiers in Fungal Biology, 2021, 2" data-year="2021" data-doi="10.3389/ffunb.2021.643537" aria-label="Citar esta publicação">Citar</button>
+                <button class="pub-btn cite-btn" data-title="Dexamethasone and Methylprednisolone Promote Cell Proliferation, Capsule Enlargement, and &lt;i&gt;in vivo&lt;/i&gt; Dissemination of &lt;i&gt;C. neoformans&lt;/i&gt;" data-authors="Glauber R. De S. Araújo, Vinicius Alves, Pedro H. Martins-de-souza, Allan J. Guimarães, Leandro Honorato, Leonardo Nimrichter, Christina Maeda Takiya, Bruno Pontes, Susana Frases" data-journal="Frontiers in Fungal Biology, 2021, 2" data-year="2021" data-doi="10.3389/ffunb.2021.643537" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
             <h3>Ultrastructural Study of <i>Cryptococcus neoformans</i> Surface During Budding Events</h3>
@@ -1865,13 +1683,13 @@
                 <button class="pub-btn cite-btn" data-title="&lt;i&gt;Cryptococcus neoformans&lt;/i&gt; capsular polysaccharides form branched and complex filamentous networks viewed by high-resolution microscopy" data-authors="Glauber R. De S. Araújo, Giselle N. Fontes, Daniela Leão, Gustavo Miranda Rocha, Bruno Pontes, Celso Sant'anna, Wanderley De Souza, Susana Frases" data-journal="Journal of Structural Biology, 2016, 193, 1, 75-82" data-year="2016" data-doi="10.1016/j.jsb.2015.11.010" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
-            <h3>Enhanced virulence of Histoplasma capsulatum through transfer and surface incorporation of glycans from <i>Cryptococcus neoformans</i> during co-infection</h3>
+            <h3>Enhanced virulence of <i>Histoplasma capsulatum</i> through transfer and surface incorporation of glycans from <i>Cryptococcus neoformans</i> during co-infection</h3>
             <p class="authors">Radames J. B. Cordero, Susie Coutinho Liedke, Glauber R. De S. Araújo, Luis R. Martinez, Leonardo Nimrichter, Susana Frases, Jose Mauro Peralta, Arturo Casadevall, Marcio L. Rodrigues, Joshua D. Nosanchuk, Allan J. Guimaraes</p>
             <p class="journal">Scientific Reports, 2016, 6, 1</p>
             <div class="pub-actions" style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                 <div data-badge-popover="right" data-badge-type="donut" data-doi="10.1038/srep21765" class="altmetric-embed"></div>
                 <a href="https://doi.org/10.1038/srep21765" target="_blank" class="pub-btn" aria-label="Ver DOI da publicação">DOI</a>
-                <button class="pub-btn cite-btn" data-title="Enhanced virulence of Histoplasma capsulatum through transfer and surface incorporation of glycans from &lt;i&gt;Cryptococcus neoformans&lt;/i&gt; during co-infection" data-authors="Radames J. B. Cordero, Susie Coutinho Liedke, Glauber R. De S. Araújo, Luis R. Martinez, Leonardo Nimrichter, Susana Frases, Jose Mauro Peralta, Arturo Casadevall, Marcio L. Rodrigues, Joshua D. Nosanchuk, Allan J. Guimaraes" data-journal="Scientific Reports, 2016, 6, 1" data-year="2016" data-doi="10.1038/srep21765" aria-label="Citar esta publicação">Citar</button>
+                <button class="pub-btn cite-btn" data-title="Enhanced virulence of &lt;i&gt;Histoplasma capsulatum&lt;/i&gt; through transfer and surface incorporation of glycans from &lt;i&gt;Cryptococcus neoformans&lt;/i&gt; during co-infection" data-authors="Radames J. B. Cordero, Susie Coutinho Liedke, Glauber R. De S. Araújo, Luis R. Martinez, Leonardo Nimrichter, Susana Frases, Jose Mauro Peralta, Arturo Casadevall, Marcio L. Rodrigues, Joshua D. Nosanchuk, Allan J. Guimaraes" data-journal="Scientific Reports, 2016, 6, 1" data-year="2016" data-doi="10.1038/srep21765" aria-label="Citar esta publicação">Citar</button>
             </div>
         </div><div class="publication-item scroll-animate">
             <h3>Yeast-derived biosynthesis of silver/silver chloride nanoparticles and their antiproliferative activity against bacteria</h3>
@@ -2640,17 +2458,17 @@
     <script src="data/publications.js?v=20261104b" defer></script>
     <script src="data/books.js?v=20261104b" defer></script>
     <script src="data/collaborators.js?v=20261104b" defer></script>
-    <script src="js/translations.js?v=20261104g" defer></script>
+    <script src="js/translations.js?v=20261110a" defer></script>
     <script src="js/language-switcher.js?v=20261104b" defer></script>
 
     <!-- Complete Data Files (deferred for non-blocking) -->
     <script src="js/bell.js?v=20261104e" defer></script>
     <!-- Main JavaScript (deferred) -->
     <script src="js/team-ui.js?v=20261104b" defer></script>
-    <script src="js/main.js?v=20261104b" defer></script>
+    <script src="js/main.js?v=20261110b" defer></script>
 
-    <!-- Scholar API Integration (OpenAlex — live citation metrics) -->
-    <script src="js/scholar-api.js?v=20261104b" defer></script>
+    <!-- Scholar API Integration (OpenAlex: live citation metrics) -->
+    <script src="js/scholar-api.js?v=20261110a" defer></script>
 
     <!-- Network Graph Integration (dynamic force-directed neural visualizer) -->
     <script src="js/network-graph.js?v=20261104b" defer></script>
@@ -2659,6 +2477,11 @@
     <script>
         // Wait for deferred scripts to load
         document.addEventListener('DOMContentLoaded', () => {
+            // Números calculados a partir dos dados do site
+            const setCount = (id, n) => { const el = document.getElementById(id); if (el && n > 0) { el.setAttribute('data-target', n); el.textContent = n.toLocaleString('pt-BR'); } };
+            if (typeof publications !== 'undefined') setCount('counter-articles', new Set(publications.map(p => p.doi || p.title)).size);
+            if (typeof currentTeam !== 'undefined') setCount('counter-team', currentTeam.length);
+
             // Initialize publications with complete dataset (168+ publications from 2001-2026)
             if (typeof initPublications === 'function' && typeof publications !== 'undefined') {
                 initPublications(publications);

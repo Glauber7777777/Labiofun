@@ -1,5 +1,5 @@
 /* Fungilingo — glossário e quiz de Micologia */
-.fl-hero h2 { display: flex; align-items: center; justify-content: center; gap: .5rem; }
+.fl-hero h1, .fl-hero h2 { display: flex; align-items: center; justify-content: center; gap: .5rem; }
 .fl-logo { font-size: 1.1em; }
 .fl-breadcrumb { position: relative; z-index: 2; display: flex; justify-content: center; gap: .5rem; margin-bottom: 1rem; color: #fff; opacity: .8; font-size: var(--font-size-sm); }
 .fl-breadcrumb a { color: #fff; }

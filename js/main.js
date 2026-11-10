@@ -1170,12 +1170,12 @@ function animateCounter(el) {
         const eased = easeOutExpo(progress);
         const current = Math.round(effectiveStart + (target - effectiveStart) * eased);
 
-        el.textContent = current + suffix;
+        el.textContent = (isYear ? String(current) : current.toLocaleString('pt-BR')) + suffix;
 
         if (progress < 1) {
             requestAnimationFrame(tick);
         } else {
-            el.textContent = target + suffix;
+            el.textContent = (isYear ? String(target) : target.toLocaleString('pt-BR')) + suffix;
         }
     }
 

@@ -75,7 +75,7 @@ function updateCitationsCounter(count) {
     if (!el) return;
 
     el.setAttribute('data-target', count);
-    el.setAttribute('data-suffix', '+');
+    el.setAttribute('data-suffix', '');
     setCounterLoading(el, false);
 
     // Use the shared animateCounter from main.js (exposed via window)
@@ -87,25 +87,20 @@ function updateCitationsCounter(count) {
 }
 
 function updateScholarBadges(metrics) {
-    // h-index badge
+    // Índice h como contador (layout v2)
+    const hCounter = document.getElementById('counter-hindex');
+    if (hCounter && metrics.hIndex != null) {
+        hCounter.setAttribute('data-target', metrics.hIndex);
+        if (typeof window.animateCounter === 'function') window.animateCounter(hCounter);
+        else hCounter.textContent = metrics.hIndex;
+    }
+    // Compatibilidade com a barra antiga, se existir
     const hEl = document.getElementById('scholar-h-index');
     if (hEl && metrics.hIndex != null) hEl.textContent = metrics.hIndex;
-
-    // i10-index badge
     const i10El = document.getElementById('scholar-i10');
     if (i10El && metrics.i10Index != null) i10El.textContent = metrics.i10Index;
-
-    // Show the metrics bar with animation
     const bar = document.getElementById('scholar-metrics-bar');
-    if (bar) {
-        bar.classList.add('loaded');
-    }
-
-    // Update the "Publicações" counter if OpenAlex count is higher
-    const worksEl = document.querySelector('.counter-number[data-target="168"]');
-    if (worksEl && metrics.worksCount > 168) {
-        worksEl.setAttribute('data-target', metrics.worksCount);
-    }
+    if (bar) bar.classList.add('loaded');
 }
 
 // ============================================================================
@@ -148,6 +143,8 @@ async function initScholarMetrics() {
         // Graceful fallback: hide loading, show dash
         setCounterLoading(citEl, false);
         citEl.textContent = '—';
+        const hFallback = document.getElementById('counter-hindex');
+        if (hFallback) hFallback.textContent = '—';
 
         const bar = document.getElementById('scholar-metrics-bar');
         if (bar) bar.style.display = 'none';
