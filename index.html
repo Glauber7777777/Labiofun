@@ -47,7 +47,6 @@
 
     <!-- Font Awesome (deve ser a primeira stylesheet) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&display=swap">
     <!-- Preload Critical Resources -->
     <link rel="preload" href="css/variables.css?v=20261104b" as="style">
     <link rel="preload" href="css/styles.css?v=20261104b" as="style">
@@ -104,7 +103,7 @@
     <link rel="alternate" hreflang="fr" href="https://www.labiofun.com.br/?lang=fr-FR" />
     <link rel="alternate" hreflang="x-default" href="https://www.labiofun.com.br/" />
     <link rel="stylesheet" href="css/modern-ux.css?v=20261104b">
-    <link rel="stylesheet" href="css/theme-editorial.css?v=20261110j">
+    <link rel="stylesheet" href="css/layout-v2.css?v=20261110d">
     
     <!-- Web Components -->
     <script src="js/components.js?v=20261110b"></script>
@@ -123,48 +122,41 @@
 
     <!-- Topo (hero) -->
     <section class="lf-hero" aria-labelledby="lf-hero-title">
-        <div class="lf-hero-inner">
-            <h1 id="lf-hero-title" data-i18n="hero.headline2">Da superfície fúngica à clínica.</h1>
-            <div class="lf-hero-side">
-                <p data-i18n="hero.side">Laboratório de Biofísica de Fungos da UFRJ. Pesquisamos virulência, resistência e ecologia de fungos patogênicos.</p>
-                <p class="lf-hero-links">
-                    <a href="#research" data-i18n="hero.cta.research">Conheça a pesquisa</a>
-                    <a href="pages/vagas.html" data-i18n="hero.cta.join">Faça parte do lab</a>
-                </p>
+        <div class="container">
+            <div class="lf-hero-content">
+                <span class="lf-eyebrow" data-i18n="hero.eyebrow">UFRJ · Instituto de Biofísica Carlos Chagas Filho</span>
+                <h1 id="lf-hero-title" data-i18n="hero.headline">Biofísica de fungos: da superfície celular à clínica</h1>
+                <p class="lf-hero-lead" data-i18n="hero.lead">Estudamos como os fungos causam doenças, se adaptam ao ambiente e resistem a tratamentos, para apoiar diagnósticos e terapias melhores.</p>
+                <div class="lf-hero-actions">
+                    <a class="lf-btn lf-btn-primary" href="#research"><span data-i18n="hero.cta.research">Conheça a pesquisa</span> <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
+                    <a class="lf-btn lf-btn-ghost" href="pages/vagas.html"><span data-i18n="hero.cta.join">Faça parte do lab</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Frase de destaque -->
-    <section class="lf-statement" aria-label="Sobre o laboratório">
-        <p data-i18n="hero.lead">Estudamos como os fungos causam doenças, se adaptam ao ambiente e resistem a tratamentos, para apoiar diagnósticos e terapias melhores.</p>
-    </section>
-
     <!-- Números do laboratório -->
     <section class="impact-counter lf-stats" aria-label="Números do laboratório">
-        <div class="lf-stats-inner">
-            <div class="lf-stats-intro">
-                <span class="lf-label" data-i18n="counter.since">Desde 2020</span>
-                <p data-i18n="counter.intro">O laboratório em números. Artigos e equipe vêm dos dados do site; citações e índice h, do OpenAlex.</p>
-            </div>
+        <div class="container">
             <div class="counter-grid">
                 <div class="counter-item">
-                    <p class="counter-label" data-i18n="counter.articles">Artigos publicados</p>
                     <span class="counter-number" id="counter-articles" data-target="154" data-suffix="">154</span>
+                    <p class="counter-label" data-i18n="counter.articles">Artigos publicados</p>
                 </div>
                 <div class="counter-item scholar-loading" id="counter-item-citations">
-                    <p class="counter-label" data-i18n="counter.citations2">Citações</p>
                     <span class="counter-number" id="counter-citations" data-target="0" data-suffix="">···</span>
+                    <p class="counter-label" data-i18n="counter.citations2">Citações</p>
                 </div>
                 <div class="counter-item">
-                    <p class="counter-label" data-i18n="counter.hindex">Índice h</p>
                     <span class="counter-number" id="counter-hindex" data-target="0" data-suffix="">···</span>
+                    <p class="counter-label" data-i18n="counter.hindex">Índice h</p>
                 </div>
                 <div class="counter-item">
-                    <p class="counter-label" data-i18n="counter.researchers">Pesquisadores na equipe</p>
                     <span class="counter-number" id="counter-team" data-target="10" data-suffix="">10</span>
+                    <p class="counter-label" data-i18n="counter.researchers">Pesquisadores na equipe</p>
                 </div>
             </div>
+            <p class="lf-stats-note"><span data-i18n="counter.note">Desde 2020 · 8 linhas de pesquisa · citações e índice h da coordenadora, via OpenAlex</span></p>
         </div>
     </section>
 
