@@ -348,3 +348,18 @@ footer, footer p, footer span, footer .copyright { color: rgba(255, 255, 255, .7
 
 /* Nota abaixo dos cards de números (fundo em degradê) */
 .impact-counter .counter-note { position: relative; z-index: 1; text-align: center; margin: 28px auto 0; font-size: .875rem; color: rgba(255, 255, 255, .8); }
+
+/* Números: menos espaço em branco, cards e fonte um pouco menores */
+.impact-counter { margin-top: -10vh; padding: 40px 0 32px; }
+.impact-counter .counter-grid { gap: 20px; }
+.impact-counter .counter-item { padding: 22px 16px; max-width: 190px; flex-basis: 150px; }
+.impact-counter .counter-icon { font-size: 1.5rem; margin-bottom: 10px; }
+.impact-counter .counter-number { font-size: 2.375rem; margin-bottom: 6px; }
+.impact-counter .counter-label { font-size: .75rem; }
+.impact-counter .counter-note { margin-top: 18px; font-size: .8125rem; }
+@media (max-width: 768px) {
+    .impact-counter { padding: 28px 0 24px; }
+    .impact-counter .counter-grid { gap: 12px; }
+    .impact-counter .counter-item { padding: 16px 10px; }
+    .impact-counter .counter-number { font-size: 1.75rem; }
+}
