@@ -23,14 +23,8 @@ class LabiofunHeader extends HTMLElement {
       <header role="banner" class="labiofun-main-header lf-header">
           <div class="container lf-bar">
               <div class="header-top">
-                  <a class="lf-brand" href="${basePath}index.html" aria-label="Labiofun: página inicial">
-                      <img src="${basePath}images/logo-pequeno.webp" alt="" class="lf-brand-logo" width="40" height="40">
-                      <span class="lf-brand-text">
-                          <span class="lf-brand-name">Labiofun</span>
-                          <span class="lf-brand-sub" data-i18n="site.title">Laboratório de Biofísica de Fungos</span>
-                      </span>
-                  </a>
-                  <img src="${basePath}images/ufrj.webp" alt="UFRJ" class="lf-ufrj" width="34" height="34">
+                  <a class="lf-brand" href="${basePath}index.html" aria-label="Labiofun: página inicial">Labiofun</a>
+                  <span class="lf-tagline" data-i18n="site.title">Laboratório de Biofísica de Fungos</span>
                   <div class="language-switcher" role="group" aria-label="Idioma">
                       <button class="lang-btn active" data-lang="pt-BR" aria-label="Português" title="Português">PT</button>
                       <button class="lang-btn" data-lang="en" aria-label="English" title="English">EN</button>
@@ -111,7 +105,12 @@ function lfInitHeader() {
   header.querySelectorAll('nav > ul > li > a').forEach(a => {
     if (here !== 'index.html' && a.getAttribute('href').split('/').pop() === here) { a.classList.add('active'); a.setAttribute('aria-current', 'page'); }
   });
-  const onScroll = () => header.classList.toggle('lf-scrolled', window.scrollY > 8);
+  const hero = document.querySelector('.lf-hero');
+  if (hero) document.body.classList.add('lf-has-hero');
+  const onScroll = () => {
+    header.classList.toggle('lf-scrolled', window.scrollY > 8);
+    if (hero) header.classList.toggle('lf-over-hero', window.scrollY < hero.offsetHeight - header.offsetHeight);
+  };
   window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
 }
 document.addEventListener('DOMContentLoaded', lfInitHeader);
