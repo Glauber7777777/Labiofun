@@ -334,3 +334,14 @@ header.lf-header.lf-scrolled {
 @media (max-width: 768px) {
     .lf-header .lf-sub a { padding: 12px 20px !important; }
 }
+
+/* ---------- Contraste (WCAG AA) no modo claro ---------- */
+:root { --gray: hsl(210, 8%, 42%); }             /* texto secundário: era #adb5bd (2,1:1), agora ≈ 5,4:1 */
+.skip-link, .skip-link:focus { color: #fff !important; }
+.tab-btn { color: #4a5358; }
+.about-content em { color: var(--primary); }
+.seminar-badge.type-regular { color: #0e6e5c !important; }
+.seminar-badge.status-completed { color: #1d6e40 !important; }
+.seminar-badge.type-admission { color: #7a5f00 !important; }
+.fl-stat span, .fl-levelhint, .fl-count, .fl-report, .fl-footnote { color: #5b666b !important; }
+footer, footer p, footer span, footer .copyright { color: rgba(255, 255, 255, .75) !important; }

@@ -103,7 +103,8 @@
     <link rel="alternate" hreflang="fr" href="https://www.labiofun.com.br/?lang=fr-FR" />
     <link rel="alternate" hreflang="x-default" href="https://www.labiofun.com.br/" />
     <link rel="stylesheet" href="css/modern-ux.css?v=20261104b">
-    <link rel="stylesheet" href="css/layout-v2.css?v=20261110d">
+    <link rel="stylesheet" href="css/layout-v2.css?v=20261110f">
+    <link rel="stylesheet" href="css/dark-fixes.css?v=20261110c">
     
     <!-- Web Components -->
     <script src="js/components.js?v=20261110b"></script>
@@ -120,20 +121,160 @@
     <!-- Header -->
     <labiofun-header></labiofun-header>
 
-    <!-- Topo (hero) -->
-    <section class="lf-hero" aria-labelledby="lf-hero-title">
-        <div class="container">
-            <div class="lf-hero-content">
-                <span class="lf-eyebrow" data-i18n="hero.eyebrow">UFRJ · Instituto de Biofísica Carlos Chagas Filho</span>
-                <h1 id="lf-hero-title" data-i18n="hero.headline">Biofísica de fungos: da superfície celular à clínica</h1>
-                <p class="lf-hero-lead" data-i18n="hero.lead">Estudamos como os fungos causam doenças, se adaptam ao ambiente e resistem a tratamentos, para apoiar diagnósticos e terapias melhores.</p>
-                <div class="lf-hero-actions">
-                    <a class="lf-btn lf-btn-primary" href="#research"><span data-i18n="hero.cta.research">Conheça a pesquisa</span> <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
-                    <a class="lf-btn lf-btn-ghost" href="pages/vagas.html"><span data-i18n="hero.cta.join">Faça parte do lab</span> <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+    <!-- Zoom Parallax Hero Section -->
+    <style>
+        .zoom-parallax-container {
+            padding: 12px 12px 0 12px;
+            background: var(--white);
+        }
+        
+        .zoom-parallax-hero {
+            position: relative;
+            height: 150vh; /* Extra height to allow scrolling */
+        }
+
+        .zoom-sticky-image {
+            position: sticky;
+            top: 12px;
+            height: calc(100vh - 24px);
+            border-radius: 24px;
+            overflow: hidden;
+            transform-origin: center center;
+            will-change: transform;
+            z-index: 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .zoom-sticky-image::after {
+            content: '';
+            position: absolute;
+            inset: -15%;
+            background: url('images/Background.jpg') center/cover no-repeat;
+            animation: backgroundZoomMove 35s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .zoom-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.45); /* Clareado de 0.7 para 0.45 */
+            will-change: opacity;
+            z-index: 1;
+        }
+
+        .zoom-text-content {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            will-change: transform, opacity, filter;
+            z-index: 2;
+            padding: 0 2rem;
+            transform-origin: center center;
+        }
+
+        .zoom-text-content h1, .zoom-text-content h2 {
+            font-size: var(--font-size-6xl);
+            margin-bottom: var(--space-xs);
+            font-weight: var(--font-weight-black);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+            max-width: 900px;
+        }
+
+        .title-highlight {
+            color: var(--primary) !important;
+            margin-bottom: var(--space-md) !important;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .zoom-text-content p {
+            font-size: var(--font-size-xl);
+            opacity: 0.95;
+            line-height: var(--line-height-relaxed);
+            max-width: 900px;
+        }
+
+        @media (max-width: 768px) {
+            .zoom-text-content h1, .zoom-text-content h2 { font-size: var(--font-size-4xl); }
+            .zoom-text-content p { font-size: var(--font-size-lg); }
+        }
+    </style>
+
+    <div class="zoom-parallax-container">
+        <section class="zoom-parallax-hero" id="zoom-hero">
+            <div class="zoom-sticky-image" id="zoom-sticky-img">
+                <div class="zoom-overlay" id="zoom-overlay"></div>
+                <div class="zoom-text-content" id="zoom-text">
+                    <h1 data-i18n="hero.title1" style="color: white;">Pesquisa Translacional em</h1>
+                    <h2 data-i18n="hero.title2" class="title-highlight">Biofísica de Fungos</h2>
+                    <p data-i18n="hero.description">Da superfície fúngica à clínica: nossos
+                        estudos integram abordagens estruturais, físico-químicas e moleculares para elucidar a virulência, o
+                        impacto ambiental e os processos de interação com o hospedeiro, contribuindo para o desenvolvimento de
+                        estratégias diagnósticas mais sensíveis e terapias mais eficazes.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroSection = document.getElementById('zoom-hero');
+            const stickyImg = document.getElementById('zoom-sticky-img');
+            const overlay = document.getElementById('zoom-overlay');
+            const textContent = document.getElementById('zoom-text');
+
+            if (!heroSection || !stickyImg || !overlay || !textContent) return;
+
+            // rAF: no máximo 1 atualização por frame
+            let ticking = false;
+            const update = () => {
+                ticking = false;
+                const rect = heroSection.getBoundingClientRect();
+                if (rect.bottom < 0) return; // hero fora da tela: nada a fazer
+                const windowHeight = window.innerHeight;
+                
+                // For Hero, progress starts at 0 when page is loaded
+                // Ends at 1 when bottom of hero reaches bottom of viewport
+                const totalScroll = heroSection.offsetHeight - windowHeight;
+                const currentScroll = -rect.top;
+                
+                let progress = 0;
+                if (currentScroll <= 0) {
+                    progress = 0;
+                } else if (currentScroll >= totalScroll) {
+                    progress = 1;
+                } else {
+                    progress = currentScroll / totalScroll;
+                }
+
+                // Image scales down more dramatically: 1 -> 0.8
+                const scale = 1 - (0.2 * progress);
+                stickyImg.style.transform = `scale(${scale})`;
+
+                // Overlay opacity fades: 1 -> 0 (gets brighter)
+                overlay.style.opacity = 1 - progress;
+
+                // Text moves up with Parallax (0 -> -350px) and scales down slightly
+                const y = progress * -350;
+                const textScale = 1 - (0.1 * progress);
+                
+                // Text fades out earlier and blurs
+                const textOpacity = 1 - (progress * 1.5);
+                const blur = progress * 10;
+                
+                textContent.style.transform = `translateY(${y}px) scale(${textScale})`;
+                textContent.style.opacity = textOpacity < 0 ? 0 : textOpacity;
+                textContent.style.filter = `blur(${blur}px)`;
+            };
+            window.addEventListener('scroll', () => {
+                if (!ticking) { ticking = true; requestAnimationFrame(update); }
+            }, { passive: true });
+        });
+    </script>
 
     <!-- Números do laboratório -->
     <section class="impact-counter lf-stats" aria-label="Números do laboratório">

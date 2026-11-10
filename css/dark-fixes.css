@@ -1,0 +1,155 @@
+/* Gerado por tools: correções do modo escuro (fundos claros escritos direto no CSS).
+   Cada seletor abaixo tinha fundo branco/claro fixo e ficava ilegível no modo escuro. */
+[data-theme="dark"] {
+    --dk-surface: hsl(210, 15%, 18%);
+    --dk-surface-2: hsl(210, 15%, 22%);
+    --dk-text: hsl(0, 0%, 94%);
+    --dk-muted: hsl(210, 10%, 72%);
+    --dk-border: hsl(210, 15%, 30%);
+}
+[data-theme="dark"] .about,
+[data-theme="dark"] .about-content,
+[data-theme="dark"] .address,
+[data-theme="dark"] .alert-danger,
+[data-theme="dark"] .alumni-card,
+[data-theme="dark"] .bell-body,
+[data-theme="dark"] .bell-dialog,
+[data-theme="dark"] .bell-header,
+[data-theme="dark"] .bell-item,
+[data-theme="dark"] .benefit-card,
+[data-theme="dark"] .bento-section,
+[data-theme="dark"] .bg-light,
+[data-theme="dark"] .bg-white,
+[data-theme="dark"] .candidate-name,
+[data-theme="dark"] .card,
+[data-theme="dark"] .card-gradient-border,
+[data-theme="dark"] .citation-close,
+[data-theme="dark"] .citation-modal-content,
+[data-theme="dark"] .citation-text,
+[data-theme="dark"] .contact-container,
+[data-theme="dark"] .contact-email,
+[data-theme="dark"] .contact-page,
+[data-theme="dark"] .countdown-number,
+[data-theme="dark"] .defesa-item,
+[data-theme="dark"] .email-link,
+[data-theme="dark"] .event-badge.past,
+[data-theme="dark"] .event-item,
+[data-theme="dark"] .filter-btn,
+[data-theme="dark"] .fl-btn-ghost,
+[data-theme="dark"] .fl-card,
+[data-theme="dark"] .fl-cat,
+[data-theme="dark"] .fl-chip,
+[data-theme="dark"] .fl-levelbar,
+[data-theme="dark"] .fl-option,
+[data-theme="dark"] .fl-progress,
+[data-theme="dark"] .fl-rank-period,
+[data-theme="dark"] .fl-ranking li:nth-child(odd),
+[data-theme="dark"] .fl-search input,
+[data-theme="dark"] .fl-stat,
+[data-theme="dark"] .fl-tab,
+[data-theme="dark"] .fl-term,
+[data-theme="dark"] .fl-term-refs,
+[data-theme="dark"] .font-card,
+[data-theme="dark"] .info-box,
+[data-theme="dark"] .logo-info,
+[data-theme="dark"] .map,
+[data-theme="dark"] .network-container-wrapper,
+[data-theme="dark"] .network-controls,
+[data-theme="dark"] .network-controls button,
+[data-theme="dark"] .network-details-panel,
+[data-theme="dark"] .network-filters-bar,
+[data-theme="dark"] .network-legend,
+[data-theme="dark"] .network-search-box,
+[data-theme="dark"] .network-visualization,
+[data-theme="dark"] .news-card,
+[data-theme="dark"] .notif-badge,
+[data-theme="dark"] .notif-item,
+[data-theme="dark"] .notif-item.read .notif-icon,
+[data-theme="dark"] .notif-mark-all-btn,
+[data-theme="dark"] .notif-sidebar,
+[data-theme="dark"] .panel-pub-item,
+[data-theme="dark"] .position-badge,
+[data-theme="dark"] .position-badge.review,
+[data-theme="dark"] .position-card,
+[data-theme="dark"] .privacy-notice,
+[data-theme="dark"] .publications-container,
+[data-theme="dark"] .publications-page,
+[data-theme="dark"] .research-lines,
+[data-theme="dark"] .scientific-gallery,
+[data-theme="dark"] .search-close,
+[data-theme="dark"] .search-modal,
+[data-theme="dark"] .section-alt,
+[data-theme="dark"] .seminar-item-card.spotlight-next,
+[data-theme="dark"] .seminar-item-card.spotlight-outreach,
+[data-theme="dark"] .seminars-search,
+[data-theme="dark"] .seminars-select,
+[data-theme="dark"] .seminars-toolbar,
+[data-theme="dark"] .shimmer,
+[data-theme="dark"] .skeleton,
+[data-theme="dark"] .social-media,
+[data-theme="dark"] .swatch-info,
+[data-theme="dark"] .tab-btn,
+[data-theme="dark"] .tc-avatar-wrapper,
+[data-theme="dark"] .tc-btn,
+[data-theme="dark"] .tc-card,
+[data-theme="dark"] .tcm-avatar-wrapper,
+[data-theme="dark"] .technique,
+[data-theme="dark"] .techniques,
+[data-theme="dark"] .tm-btn-download-full,
+[data-theme="dark"] .tm-content,
+[data-theme="dark"] .tm-divider,
+[data-theme="dark"] .tm-image-wrapper,
+[data-theme="dark"] .tm-rule-card,
+[data-theme="dark"] .year-btn {
+    background: var(--dk-surface) !important;
+    border-color: var(--dk-border) !important;
+    color: var(--dk-text);
+}
+
+/* Mantêm cor própria no escuro */
+[data-theme="dark"] .sponsor-item { background: #fff !important; }
+[data-theme="dark"] .fl-option.correct { background: #173d29 !important; border-color: #2ecc71 !important; color: var(--dk-text) !important; }
+[data-theme="dark"] .fl-option.wrong { background: #4a1f1c !important; border-color: #e74c3c !important; color: var(--dk-text) !important; }
+[data-theme="dark"] .fl-feedback.ok { background: #173d29 !important; }
+[data-theme="dark"] .fl-feedback.no { background: #4a1f1c !important; }
+[data-theme="dark"] .fl-feedback p, [data-theme="dark"] .fl-feedback-head, [data-theme="dark"] .fl-option { color: var(--dk-text) !important; }
+
+/* Textos que continuavam escuros (cores fixas) dentro das superfícies escuras */
+[data-theme="dark"] :is(.about-content, .technique, .card, .fl-term, .fl-card, .fl-stat, .contact-container, .contact-email, .privacy-notice,
+  .tm-rule-card, .font-card, .logo-info, .swatch-info, .benefit-card, .position-card, .news-card, .defesa-item, .info-box,
+  .seminar-item-card, .tc-card, .alumni-card, .tm-content, .network-details-panel, .panel-pub-item, .bell-dialog, .citation-modal-content)
+  :is(h1, h2, h3, h4, strong, .fl-stat strong, .seminar-title-txt, .tm-rule-title, .presenter-name) { color: var(--dk-text) !important; }
+[data-theme="dark"] :is(.about-content, .technique, .card, .fl-term, .fl-card, .fl-stat, .contact-container, .contact-email, .privacy-notice,
+  .tm-rule-card, .font-card, .logo-info, .swatch-info, .benefit-card, .position-card, .news-card, .defesa-item, .info-box,
+  .seminar-item-card, .tc-card, .alumni-card, .tm-content, .network-details-panel, .panel-pub-item, .bell-dialog, .citation-modal-content)
+  :is(p, span, li, small, .tm-rule-text, .fl-cat, .seminar-badge, .outreach-free-badge, label) { color: var(--dk-muted) !important; }
+[data-theme="dark"] :is(.section-header h2, .section-header p, #sponsors h2, .tabs .tab-btn) { color: var(--dk-text) !important; }
+[data-theme="dark"] a:not(.lf-btn):not(.lf-cta):not(.btn):not([class*="tab"]) { color: inherit; }
+[data-theme="dark"] .fl-term-refs a, [data-theme="dark"] .about-content em, [data-theme="dark"] .about-content a { color: #8fdcab !important; }
+
+/* Fundos brancos escritos no atributo style do HTML */
+[data-theme="dark"] :is([style*="background: white"], [style*="background:white"], [style*="background: var(--white)"], [style*="background:var(--white)"],
+  [style*="background: #fff"], [style*="background:#fff"], [style*="background-color: white"], [style*="background-color: #fff"], [style*="background: var(--light)"]) {
+    background: var(--dk-surface) !important;
+}
+[data-theme="dark"] :is([style*="background: white"], [style*="background:white"], [style*="background: var(--white)"], [style*="background:var(--white)"], [style*="background: #fff"])
+  :is(h1, h2, h3, h4, strong) { color: var(--dk-text) !important; }
+[data-theme="dark"] :is([style*="background: white"], [style*="background:white"], [style*="background: var(--white)"], [style*="background:var(--white)"], [style*="background: #fff"])
+  :is(p, span, li) { color: var(--dk-muted) !important; }
+
+/* Patrocinadores: seção escura, logos sobre cartões brancos */
+[data-theme="dark"] #sponsors { background: var(--dk-surface) !important; }
+
+/* Identidade visual: amostras de cor e fonte */
+[data-theme="dark"] :is(.swatch-name, .font-sample) { color: var(--dk-text) !important; }
+[data-theme="dark"] :is(.swatch-code, .font-meta, .font-alphabet) { color: var(--dk-muted) !important; }
+[data-theme="dark"] .tm-btn-outline { background: transparent !important; color: #8fdcab !important; border-color: #8fdcab !important; }
+
+/* Botões verdes com texto branco: verde mais escuro para manter contraste */
+[data-theme="dark"] { --lf-action: #2f7d4c; --lf-action-hover: #276b40; }
+[data-theme="dark"] :is(.btn-download.primary, .fl-btn, .btn-primary) { background: #2f7d4c !important; color: #fff !important; }
+[data-theme="dark"] .fl-report { color: var(--dk-muted) !important; }
+
+/* Logo preto precisa de fundo claro mesmo no modo escuro */
+[data-theme="dark"] :has(> img[src*="logo-lbf-preto"]),
+[data-theme="dark"] :has(> picture img[src*="logo-lbf-preto"]) { background: #fff !important; }
