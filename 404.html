@@ -25,20 +25,37 @@
     </style>
 </head>
 <body>
-    <header><a href="/">Laboratório de Biofísica de Fungos</a></header>
+    <header><a href="/" data-t="lab">Laboratório de Biofísica de Fungos</a></header>
     <main>
         <div class="card">
             <div class="big" aria-hidden="true">🍄</div>
-            <h1>Página não encontrada</h1>
-            <p>Este endereço não existe ou mudou de lugar. Como um esporo levado pelo vento, ele foi parar em outro canto.</p>
+            <h1 data-t="h1">Página não encontrada</h1>
+            <p data-t="p">Este endereço não existe ou mudou de lugar. Como um esporo levado pelo vento, ele foi parar em outro canto.</p>
             <nav aria-label="Atalhos">
-                <a class="main" href="/">Página inicial</a>
-                <a href="/index.html#publications-page">Publicações</a>
+                <a class="main" href="/" data-t="home">Página inicial</a>
+                <a href="/index.html#publications-page" data-t="pubs">Publicações</a>
                 <a href="/pages/fungilingo.html">Fungilingo</a>
-                <a href="/pages/contact.html">Contato</a>
+                <a href="/pages/contact.html" data-t="contact">Contato</a>
             </nav>
         </div>
     </main>
     <footer>© Labiofun · UFRJ</footer>
+    <script>
+    (function () {
+        var T = {
+            en: { title: 'Page not found | Labiofun', lab: 'Fungal Biophysics Laboratory', h1: 'Page not found', p: 'This address does not exist or has moved. Like a spore carried by the wind, it landed somewhere else.', home: 'Home page', pubs: 'Publications', contact: 'Contact', nav: 'Shortcuts' },
+            'es-ES': { title: 'Página no encontrada | Labiofun', lab: 'Laboratorio de Biofísica de Hongos', h1: 'Página no encontrada', p: 'Esta dirección no existe o ha cambiado de lugar. Como una espora llevada por el viento, fue a parar a otro rincón.', home: 'Página de inicio', pubs: 'Publicaciones', contact: 'Contacto', nav: 'Accesos directos' },
+            'fr-FR': { title: 'Page introuvable | Labiofun', lab: 'Laboratoire de Biophysique des Champignons', h1: 'Page introuvable', p: "Cette adresse n'existe pas ou a été déplacée. Comme une spore emportée par le vent, elle a atterri ailleurs.", home: "Page d'accueil", pubs: 'Publications', contact: 'Contact', nav: 'Raccourcis' }
+        };
+        var l = 'pt-BR';
+        try { l = localStorage.getItem('labiofun-language') || ''; } catch (e) { }
+        if (!l) { var n = (navigator.language || '').toLowerCase(); l = n.indexOf('en') === 0 ? 'en' : n.indexOf('es') === 0 ? 'es-ES' : n.indexOf('fr') === 0 ? 'fr-FR' : 'pt-BR'; }
+        l = { es: 'es-ES', fr: 'fr-FR' }[l] || l;
+        var d = T[l]; if (!d) return;
+        document.documentElement.lang = l; document.title = d.title;
+        document.querySelectorAll('[data-t]').forEach(function (el) { var v = d[el.getAttribute('data-t')]; if (v) el.textContent = v; });
+        var nav = document.querySelector('nav'); if (nav) nav.setAttribute('aria-label', d.nav);
+    })();
+    </script>
 </body>
 </html>

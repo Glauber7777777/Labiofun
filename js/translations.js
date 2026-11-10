@@ -5,6 +5,13 @@
 
 const translations = {
   "pt-BR": {
+    "jobs.hero.title": "Junte-se à Nossa Equipe",
+    "jobs.hero.subtitle": "Buscamos talentos apaixonados por ciência para integrar nossos projetos de pesquisa em biofísica de fungos.",
+    "nav.news.seminars": "Seminários",
+    "seminars.sidebar.info.location.title": "Local de Realização",
+    "seminars.sidebar.info.time.title": "Dia e Horário",
+    "team.no.results": "Nenhum colaborador encontrado",
+    "vagas.step5.title": "Bem-vindo(a)!",
     // Header
     "site.title": "Laboratório de Biofísica de Fungos",
     "nav.home": "Início",
@@ -380,6 +387,13 @@ const translations = {
   },
 
   en: {
+    "jobs.hero.title": "Join Our Team",
+    "jobs.hero.subtitle": "We are looking for people passionate about science to join our research projects in fungal biophysics.",
+    "nav.news.seminars": "Seminars",
+    "seminars.sidebar.info.location.title": "Venue",
+    "seminars.sidebar.info.time.title": "Day and Time",
+    "team.no.results": "No collaborators found",
+    "vagas.step5.title": "Welcome!",
     // Header
     "site.title": "Fungal Biophysics Laboratory",
     "nav.home": "Home",
@@ -758,6 +772,13 @@ const translations = {
   },
 
   "es-ES": {
+    "jobs.hero.title": "Únete a Nuestro Equipo",
+    "jobs.hero.subtitle": "Buscamos talentos apasionados por la ciencia para integrarse en nuestros proyectos de investigación en biofísica de hongos.",
+    "nav.news.seminars": "Seminarios",
+    "seminars.sidebar.info.location.title": "Lugar de Realización",
+    "seminars.sidebar.info.time.title": "Día y Horario",
+    "team.no.results": "No se encontraron colaboradores",
+    "vagas.step5.title": "¡Bienvenido/a!",
     // Header
     "site.title": "Laboratorio de Biofísica de Hongos",
     "nav.home": "Inicio",
@@ -1139,6 +1160,13 @@ const translations = {
   },
 
   "fr-FR": {
+    "jobs.hero.title": "Rejoignez Notre Équipe",
+    "jobs.hero.subtitle": "Nous recherchons des passionnés de science pour rejoindre nos projets de recherche en biophysique des champignons.",
+    "nav.news.seminars": "Séminaires",
+    "seminars.sidebar.info.location.title": "Lieu",
+    "seminars.sidebar.info.time.title": "Jour et Horaire",
+    "team.no.results": "Aucun collaborateur trouvé",
+    "vagas.step5.title": "Bienvenue !",
     // Header
     "site.title": "Laboratoire de Biophysique des Champignons",
     "nav.home": "Accueil",

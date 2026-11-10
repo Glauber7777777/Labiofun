@@ -19,7 +19,7 @@ window.collaborators = [
   {
     "name": "Arturo Casadevall",
     "institution": "Johns Hopkins University",
-    "description": "Especialista em imunologia de fungos and desenvolvimento de vaccinas.",
+    "description": "Especialista em imunologia de fungos e desenvolvimento de vacinas.",
     "links": [
       {
         "url": "https://publichealth.jhu.edu/faculty/86/arturo-casadevall",
@@ -92,7 +92,7 @@ window.collaborators = [
   {
     "name": "Nathan Bessa Viana",
     "institution": "Universidade Federal do Rio de Janeiro",
-    "description": "Tem experiência na área de Física, com ênfase em Interações da Matéria com a Radiação, atuando principalmente nos seguintes temas: pinças ópticas, microscopia óptica e em aplicações de física à biologia celular. Trabalha atualmente como professor do Instituto de Física da UFRJ e é um dos responsáveis pelo laboratório de Pinças óptica.",
+    "description": "Tem experiência na área de Física, com ênfase em Interações da Matéria com a Radiação, atuando principalmente nos seguintes temas: pinças ópticas, microscopia óptica e em aplicações de física à biologia celular. Trabalha atualmente como professor do Instituto de Física da UFRJ e é um dos responsáveis pelo laboratório de Pinças Ópticas.",
     "links": [
       {
         "url": "http://lattes.cnpq.br/6743625976268812",
@@ -114,7 +114,7 @@ window.collaborators = [
   {
     "name": "Marcio Lourenço Rodrigues",
     "institution": "Fiocruz",
-    "description": "Suas pesquisas baseiam-se no estudo da arquitetura da superfície celular de patógenos fúngicos e na exportação de biomoléculas através de vesículas extracelulares, visando o desenvolvimento de fármacos antifúngicos e ferramentas profiláticas. Também lidera estudos sobre políticas justas de financiamento para pesquisa em doenças negligenciadas e a redução de costos de publicação em países em desenvolvimento.",
+    "description": "Suas pesquisas baseiam-se no estudo da arquitetura da superfície celular de patógenos fúngicos e na exportação de biomoléculas através de vesículas extracelulares, visando o desenvolvimento de fármacos antifúngicos e ferramentas profiláticas. Também lidera estudos sobre políticas justas de financiamento para pesquisa em doenças negligenciadas e a redução de custos de publicação em países em desenvolvimento.",
     "links": [
       {
         "url": "http://lattes.cnpq.br/3942578011658070",
@@ -180,7 +180,7 @@ window.collaborators = [
   {
     "name": "Luis R. Martinez",
     "institution": "University of Florida Health",
-    "description": "Suas pesquisas baseiam-se no estudo da arquitetura da superfície celular de patógenos fúngicos e na exportação de biomoléculas através de vesículas extracelulares, visando o desenvolvimento de fármacos antifúngicos e ferramentas profiláticas. Também lidera estudos sobre políticas justas de financiamento para pesquisa em doenças negligenciadas e a redução de costos de publicação em países em desenvolvimento.",
+    "description": "Suas pesquisas baseiam-se no estudo da arquitetura da superfície celular de patógenos fúngicos e na exportação de biomoléculas através de vesículas extracelulares, visando o desenvolvimento de fármacos antifúngicos e ferramentas profiláticas. Também lidera estudos sobre políticas justas de financiamento para pesquisa em doenças negligenciadas e a redução de custos de publicação em países em desenvolvimento.",
     "links": [
       {
         "url": "https://luis-r-martinez-lab.org",

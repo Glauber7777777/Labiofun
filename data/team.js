@@ -111,7 +111,7 @@ window.currentTeam = [
     "image": "images/Thais.webp",
     "roleKey": "role.masters",
     "roleDefault": "Mestranda",
-    "bioDefault": "Filosofa (IFCS/UFRJ), desenvolve manuais de gestão escolar com foco em Saúde Única, integrando divulgação científica e práticas de gestão democrática para combater a desinformação no ambiente educacional. Atua no desenvolvimento de modelos conceituais, diagnóstico das necessidades escolares e criação de conteúdos práticos.",
+    "bioDefault": "Filósofa (IFCS/UFRJ), desenvolve manuais de gestão escolar com foco em Saúde Única, integrando divulgação científica e práticas de gestão democrática para combater a desinformação no ambiente educacional. Atua no desenvolvimento de modelos conceituais, diagnóstico das necessidades escolares e criação de conteúdos práticos.",
     "links": [
       {
         "url": "http://lattes.cnpq.br/8505365615580719",
