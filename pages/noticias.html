@@ -147,7 +147,7 @@
     <script src="../js/seminars-sheet.js?v=20261104e" defer></script>
     <script src="../data/team.js?v=20261104b" defer></script>
     <script src="../data/alumni.js?v=20261104b" defer></script>
-    <script src="../data/publications.js?v=20261104b" defer></script>
+    <script src="../data/publications.js?v=20261110q" defer></script>
     <script src="../data/books.js?v=20261104b" defer></script>
     <script src="../data/collaborators.js?v=20261104b" defer></script>
     <script src="../js/translations.js?v=20261110a" defer></script>
@@ -162,14 +162,19 @@
                 // Determine the latest year in the database
                 const latestYear = publications[0].year;
                 
-                // Filter publications from the latest year
-                const recentPubs = publications.filter(pub => pub.year === latestYear);
-                
-                // Update the page title to reflect the year
-                const titleElement = document.querySelector('h2[data-i18n="noticias.section.title"]');
-                if (titleElement) {
-                    titleElement.textContent = `Artigos & Divulgações de ${latestYear}`;
-                }
+                // Os dois anos mais recentes (ex.: artigos com data do próximo ano já publicados online)
+                const recentPubs = publications.filter(pub => pub.year >= latestYear - 1);
+                const years = [...new Set(recentPubs.map(p => p.year))].sort();
+                const yearLabel = years.length > 1 ? `${years[0]}–${years[years.length - 1]}` : `${latestYear}`;
+
+                // Update the page title to reflect the years
+                // A tradução reescreve o título; trocamos só o ano depois dela (e a cada troca de idioma)
+                const fixTitleYear = () => {
+                    const el = document.querySelector('h2[data-i18n="noticias.section.title"]');
+                    if (el) el.textContent = el.textContent.replace(/\d{4}(–\d{4})?/, yearLabel);
+                };
+                setTimeout(fixTitleYear, 0); setTimeout(fixTitleYear, 400);
+                document.addEventListener('languageChanged', () => setTimeout(fixTitleYear, 0));
 
                 newsGrid.innerHTML = ''; // Clear fallback content
 

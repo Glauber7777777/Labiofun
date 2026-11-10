@@ -1,6 +1,13 @@
 window.publications = [
   {
-    "title": "From the ground to the clinic: The evolution and adaptation of fungi",
+    "title": "Eco-phenotypic characterization of <i>Candida palmioleophila</i> from poultry litter and marine environments: implications for One Health",
+    "authors": "Dario Corrêa-Junior, Igor Avellar-Moura, Marcos de Abreu Almeida, Elisa Gonçalves Medeiros, Alessandro F. Valdez, Rodrigo Almeida-Paes, Leonardo Nimrichter, Cláudio Ernesto Taveira Parente, Allan Jefferson Guimarães, Susana Frases",
+    "journal": "Archives of Microbiology",
+    "doi": "10.1007/s00203-026-05260-3",
+    "year": 2027
+  },
+  {
+    "title": "From the Ground to the Clinic: The Evolution and Adaptation of Fungi",
     "authors": "Dario Corrêa-Junior, Daniel Zamith-Miranda, Susana Frases, Joshua D. Nosanchuk",
     "journal": "Journal of Fungi",
     "doi": "10.3390/jof12010008",
@@ -16,12 +23,12 @@ window.publications = [
   {
     "title": "Extracellular vesicles of <i>Emergomyces africanus</i> modulate host immune responses and reflect metabolic adaptations to nutrient availability",
     "authors": "Leandro Honorato, Albaniza Liuane Ribeiro do Nascimento Sabino, Jhon Jhamilton Artunduaga Bonilla, Susana Ruiz Mendoza, Julio Kornetz, Flavia C G Dos Reis, Elaine R Albergoni, Vinicius Alves, Susana Frases, Allan Jefferson Guimarães, Daniel Zamith-Miranda, Simone Sidoli, Joshua D. Nosanchuk, Marcio L Rodrigues, Leonardo Nimrichter",
-    "journal": "ASM, Infection and Immunity",
+    "journal": "Infection and Immunity",
     "doi": "10.1128/iai.00632-25",
     "year": 2026
   },
   {
-    "title": "Caspofungin reshapes the extracellular vesicles metabolome of <i>Candidozyma (Candida) auris</i>, altering amino acid and nucleotide metabolism",
+    "title": "Caspofungin Reshapes the Extracellular Vesicles Metabolome of <i>Candidozyma</i> (<i>Candida</i>) <i>auris</i>, Altering Amino Acid and Nucleotide Metabolism",
     "authors": "Vinicius Alves, Claire V Mulholland, Daniel Zamith-Miranda, Susana Frases, Michael Berney, Joshua D. Nosanchuk",
     "journal": "Journal of Fungi",
     "doi": "10.3390/jof12020156",
@@ -49,6 +56,34 @@ window.publications = [
     "doi": "10.61440/JBSBR.2026.v3.25",
     "year": 2026,
     "type": "divulgacao"
+  },
+  {
+    "title": "Fungus Among Us: The Hidden Life Beneath Our Feet",
+    "authors": "Susana Frases, Monique Leone Cunha Vidal, Juliana Britto Martins de Oliveira, Glauber R. S Araujo",
+    "journal": "Frontiers for Young Minds",
+    "doi": "10.3389/frym.2026.1527658",
+    "year": 2026
+  },
+  {
+    "title": "ITS-based metabarcoding of broiler and layer chicken litter: Linking fungal diversity to environmental and One Health risks",
+    "authors": "Dario Corrêa-Junior, Luana Lessa R. Santos, Ana C. Bahia, Cláudio Ernesto Taveira Parente, Susana Frases",
+    "journal": "Fungal Biology",
+    "doi": "10.1016/j.funbio.2026.101807",
+    "year": 2026
+  },
+  {
+    "title": "Host immunosuppression and antifungal pressure cooperatively shape fungal adaptation and pulmonary microenvironment in cryptococcosis",
+    "authors": "Vinicius Alves, Glauber R de S. Araujo, Bruna Miranda, Igor Avellar-Moura, Iara Bastos de Andrade, Dario Corrêa-Junior, Luiza Pereira, Tânia Rodrigues Alves, David Carraro, Matheus Luckshal, Fernanda Cruz, Allan J. Guimarães, Christina Maeda Takiya, Susana Frases",
+    "journal": "Microbial Pathogenesis",
+    "doi": "10.1016/j.micpath.2026.108688",
+    "year": 2026
+  },
+  {
+    "title": "Repurposing the Insecticide Flufenerim, the Only Anti-<i>Cryptococcus</i> Compound Identified in the MMV Global Health Priority Box, as a Candidate for the Environmental Control of the Cryptococcosis Agents",
+    "authors": "Juliana Godoy, Iara Bastos de Andrade, Edinaldo Castro de Oliveira, Igor Avellar-Moura, Kamilla Xavier Gomes, Felipe Carvalho da Costa, Marcelo Kurgonas de Oliveira, Carlos Pelleschi Taborda, Allan Jefferson Guimarães, Rosely Maria Zancopé-Oliveira, Marcos Abreu Almeida, Susana Frases, Rodrigo Almeida-Paes",
+    "journal": "ACS Omega",
+    "doi": "10.1021/acsomega.6c04207",
+    "year": 2026
   },
   {
     "title": "Drug Interactions of Antifungal Agents: Clinical Relevance and Implications",
@@ -324,7 +359,7 @@ window.publications = [
     "year": 2022
   },
   {
-    "title": "A water-soluble manganese(II) octanediacate/phenanthroline complex acts as an antioxidant and attenuates α-synuclein toxicity",
+    "title": "A water-soluble manganese(II) octanediaoate/phenanthroline complex acts as an antioxidant and attenuates α-synuclein toxicity",
     "authors": "Daniela D. Queiroz, Thales De P. Ribeiro, Juliana M. Gonçalves, Larissa M.m. Mattos, Ellen Gerhardt, Júlia Freitas, Fernando L. Palhano, Susana Frases, Anderson S. Pinheiro, Malachy Mccam, Andrew Knox, Michael Devereux, Tiago F. Outeiro, Marcos D. Pereira",
     "journal": "Biochimica et Biophysica Acta (BBA) - Molecular Basis of Disease, 2022, 1868, 10, 166475",
     "doi": "10.1016/j.bbadis.2022.166475",
@@ -639,7 +674,7 @@ window.publications = [
     "year": 2017
   },
   {
-    "title": "Biofilm Formation by <i>Pseudoallescheria/Scedosporium</i> Species: A Comparative Study",
+    "title": "Biofilm Formation by <i>Pseudallescheria/Scedosporium</i> Species: A Comparative Study",
     "authors": "Rodrigo Rollin-pinheiro, Jardel V. De Meirelles, Taissa V. M. Vila, Beatriz B. Fonseca, Vinicius Alves, Susana Frases, Sonia Rozental, Eliana Barreto-berger",
     "journal": "Frontiers in Microbiology, 2017, 8",
     "doi": "10.3389/fmicb.2017.01568",
@@ -996,6 +1031,20 @@ window.publications = [
     "year": 2009
   },
   {
+    "title": "The Capsule of the Fungal Pathogen <i>Cryptococcus neoformans</i>",
+    "authors": "Oscar Zaragoza, Marcio L. Rodrigues, Magdia De Jesus, Susana Frases, Ekaterina Dadachova, Arturo Casadevall",
+    "journal": "Advances in Applied Microbiology",
+    "doi": "10.1016/s0065-2164(09)01204-0",
+    "year": 2009
+  },
+  {
+    "title": "Molecular epidemiology of isolates of the <i>Cryptococcus neoformans</i> species complex from Spain",
+    "authors": "Susana Frasés, Consuelo Ferrer, Manuel Sánchez, María Francisca Colom-Valiente",
+    "journal": "Revista Iberoamericana de Micología",
+    "doi": "10.1016/s1130-1406(09)70021-x",
+    "year": 2009
+  },
+  {
     "title": "Following Fungal Melanin Biosynthesis with Solid-State NMR: Biopolymer Molecular Structures and Possible Connections to Cell-Wall Polysaccharides",
     "authors": "Junyan Zhong, Susana Frases, Hsin Wang, Arturo Casadevall, Ruth E. Stark",
     "journal": "Biochemistry, 2008, 47, 16, 4701-4710",
@@ -1024,7 +1073,7 @@ window.publications = [
     "year": 2008
   },
   {
-    "title": "Growth and Pigment Production on L-Tryptophan Medium by <i>Cryptococcus gattii</i>, <i>Cryptococcus neoformans</i>, and <i>Candida albicans</i>",
+    "title": "Growth and Pigment Production on D-Tryptophan Medium by <i>Cryptococcus gattii</i>, <i>Cryptococcus neoformans</i>, and <i>Candida albicans</i>",
     "authors": "Stuart Chaskes, Susana Frases, Michael Cammer, Gary Gerfen, Arturo Casadevall",
     "journal": "Journal of Clinical Microbiology, 2008, 46, 1, 255-264",
     "doi": "10.1128/JCM.01721-07",
@@ -1066,17 +1115,31 @@ window.publications = [
     "year": 2006
   },
   {
-    "title": "First Case of Human <i>Cryptococcus</i> Due to <i>Cryptococcus neoformans</i> var. <i>gattii</i> in Spain",
+    "title": "First Case of Human Cryptococcosis Due to <i>Cryptococcus neoformans</i> var. <i>gattii</i> in Spain",
     "authors": "M. Francisca Colom, Susana Frasés, Consuelo Ferrer, Alejandro Jover, Mariano Andreu, Sergio Reus, Manuel Sánchez, Josep M. Torres-rodriguez",
     "journal": "Journal of Clinical Microbiology, 2005, 43, 7, 3548-3550",
     "doi": "10.1128/JCM.43.7.3548-3550.2005",
     "year": 2005
   },
   {
+    "title": "First local case of human cryptococcosis in Spain caused by <i>Cryptococcus neoformans</i> var. <i>gattii</i>",
+    "authors": "M. F. Colom, Susana Frases, M. Andreu, C. Ferrer, A. Jover, Grupo de Epidemiología de la Criptococosis",
+    "journal": "Revista Iberoamericana de Micología",
+    "doi": "",
+    "year": 2003
+  },
+  {
     "title": "Detection and Identification of Fungal Pathogens by PCR and by ITS2 and 5.8S Ribosomal DNA Typing in Ocular Infections",
     "authors": "Consuelo Ferrer, Francisca Colom, Susana Frasés, Emilia Mulet, José L. Abad, Jorge L. Alió",
     "journal": "Journal of Clinical Microbiology, 2001, 39, 8, 2873-2879",
     "doi": "10.1128/JCM.39.8.2873-2879.2001",
+    "year": 2001
+  },
+  {
+    "title": "Epidemiological study of cryptococcosis in Spain: first results",
+    "authors": "M. F. Colom, Susana Frases, C. Ferrer, E. Martín-Mazuelos, M. Hermoso-de-Mendoza, J. M. Torres-Rodríguez, G. Quindós",
+    "journal": "Revista Iberoamericana de Micología",
+    "doi": "",
     "year": 2001
   }
 ];
