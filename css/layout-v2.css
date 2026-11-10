@@ -345,3 +345,6 @@ header.lf-header.lf-scrolled {
 .seminar-badge.type-admission { color: #7a5f00 !important; }
 .fl-stat span, .fl-levelhint, .fl-count, .fl-report, .fl-footnote { color: #5b666b !important; }
 footer, footer p, footer span, footer .copyright { color: rgba(255, 255, 255, .75) !important; }
+
+/* Nota abaixo dos cards de números (fundo em degradê) */
+.impact-counter .counter-note { position: relative; z-index: 1; text-align: center; margin: 28px auto 0; font-size: .875rem; color: rgba(255, 255, 255, .8); }

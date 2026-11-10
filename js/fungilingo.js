@@ -10,6 +10,29 @@
         { name: 'Esporo', xp: 0 }, { name: 'Hifa', xp: 300 }, { name: 'Micélio', xp: 1000 },
         { name: 'Colônia', xp: 2500 }, { name: 'Cogumelo', xp: 5000 }, { name: 'Micologista', xp: 10000 },
     ];
+    // ---------- Idioma ----------
+    const DICT = window.FL_I18N || {};
+    function lang() {
+        let l = 'pt-BR';
+        try { l = (window.languageSwitcher && window.languageSwitcher.getCurrentLanguage()) || localStorage.getItem('labiofun-language') || 'pt-BR'; } catch (e) { }
+        if (l === 'es') l = 'es-ES'; if (l === 'fr') l = 'fr-FR';
+        return DICT[l] ? l : 'pt-BR';
+    }
+    function t(key, vars) {
+        const d = DICT[lang()] || {}, base = DICT['pt-BR'] || {};
+        let v = (key in d) ? d[key] : base[key];
+        if (v == null) return key;
+        if (vars && typeof v === 'string') v = v.replace(/\{(\w+)\}/g, (m, k) => (k in vars ? vars[k] : m));
+        return v;
+    }
+    const catLabel = c => ((DICT[lang()] || {}).cats || {})[c] || c;
+    // Mensagens do servidor (em português) -> chave do dicionário
+    const SERVER_ERR = { 'Apelido': 'err.nick', 'já pertence': 'err.taken', 'Muitas rodadas': 'err.rate', 'expirad': 'err.expired', 'não encontrada': 'err.expired' };
+    const trErr = msg => { for (const k in SERVER_ERR) if (String(msg).includes(k)) return t(SERVER_ERR[k]); return msg; };
+    const trType = tipo => String(tipo)
+        .replace(/^Glossário · (.+)$/, (m, c) => t('type.glossary') + ' · ' + catLabel(c))
+        .replace(/^Artigo do Labiofun$/, t('type.article')).replace(/^Micologia$/, t('type.myco'));
+
     const $ = (s, r = document) => r.querySelector(s);
     const $$ = (s, r = document) => [...r.querySelectorAll(s)];
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -31,11 +54,11 @@
     const today = () => new Date().toLocaleDateString('sv-SE'); // AAAA-MM-DD local
 
     function touchStreak() {
-        const t = today();
-        if (P.lastDay === t) return;
+        const td = today();
+        if (P.lastDay === td) return;
         const y = new Date(); y.setDate(y.getDate() - 1);
         P.streak = (P.lastDay === y.toLocaleDateString('sv-SE')) ? P.streak + 1 : 1;
-        P.lastDay = t;
+        P.lastDay = td;
     }
 
     function addXP(n, msg) {
@@ -50,13 +73,13 @@
         const streak = (P.lastDay === today() || P.lastDay === y.toLocaleDateString('sv-SE')) ? P.streak : 0;
         let li = 0; LEVELS.forEach((l, i) => { if (P.xp >= l.xp) li = i; });
         const cur = LEVELS[li], next = LEVELS[li + 1];
-        $('#fl-level').textContent = cur.name;
+        $('#fl-level').textContent = (t('levels') || [])[li] || cur.name;
         $('#fl-xp').textContent = P.xp.toLocaleString('pt-BR');
         $('#fl-streak').textContent = streak;
         $('#fl-learned').textContent = P.learned.length;
         const pct = next ? ((P.xp - cur.xp) / (next.xp - cur.xp)) * 100 : 100;
         $('#fl-levelbar-fill').style.width = Math.max(2, Math.min(100, pct)) + '%';
-        $('#fl-levelhint').textContent = next ? `Faltam ${(next.xp - P.xp).toLocaleString('pt-BR')} XP para ${next.name}` : 'Nível máximo alcançado!';
+        $('#fl-levelhint').textContent = next ? t('level.hint', { n: (next.xp - P.xp).toLocaleString('pt-BR'), lvl: (t('levels') || [])[li + 1] || next.name }) : t('level.max');
     }
 
     let toastTimer;
@@ -83,11 +106,11 @@
     function filterTerms() {
         const q = norm($('#fl-search').value.trim());
         let n = 0;
-        $$('.fl-term').forEach(t => {
-            const ok = (!activeCat || t.dataset.cat === activeCat) && (!q || norm(t.dataset.search).includes(q));
-            t.hidden = !ok; if (ok) n++;
+        $$('.fl-term').forEach(card => {
+            const ok = (!activeCat || card.dataset.cat === activeCat) && (!q || norm(card.dataset.search).includes(q));
+            card.hidden = !ok; if (ok) n++;
         });
-        $('#fl-count').textContent = `${n} ${n === 1 ? 'termo' : 'termos'}`;
+        $('#fl-count').textContent = `${n} ${n === 1 ? t('count.one') : t('count.many')}`;
         $('#fl-empty').hidden = n > 0;
     }
     $('#fl-search').addEventListener('input', filterTerms);
@@ -95,13 +118,13 @@
         $$('.fl-chip').forEach(x => x.classList.remove('active')); c.classList.add('active');
         activeCat = c.dataset.cat; filterTerms();
     }));
-    $$('.fl-term').forEach(t => {
-        const btn = $('.fl-learn', t), term = btn.dataset.term;
-        const paint = () => { const on = P.learned.includes(term); t.classList.toggle('learned', on); $('span', btn).textContent = on ? 'Aprendido' : 'Aprendi'; $('i', btn).className = on ? 'fas fa-circle-check' : 'far fa-circle-check'; };
+    $$('.fl-term').forEach(card => {
+        const btn = $('.fl-learn', card), term = btn.dataset.term;
+        const paint = () => { const on = P.learned.includes(term); card.classList.toggle('learned', on); $('span', btn).textContent = on ? t('learned') : t('learn'); $('i', btn).className = on ? 'fas fa-circle-check' : 'far fa-circle-check'; };
         paint();
         btn.addEventListener('click', () => {
             if (P.learned.includes(term)) { P.learned = P.learned.filter(x => x !== term); save(); renderStats(); }
-            else { P.learned.push(term); addXP(5, 'termo aprendido'); }
+            else { P.learned.push(term); addXP(5, t('xp.learned')); }
             paint();
         });
     });
@@ -112,8 +135,8 @@
     async function api(action, data) {
         const opt = data ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) } : {};
         const r = await fetch(`${API}?action=${action}`, opt);
-        let j; try { j = await r.json(); } catch (e) { throw new Error('Servidor do quiz indisponível. Tente novamente mais tarde.'); }
-        if (!j.ok) throw new Error(j.error || 'Erro inesperado');
+        let j; try { j = await r.json(); } catch (e) { throw new Error(t('err.server')); }
+        if (!j.ok) throw new Error(trErr(j.error || t('err.unexpected')));
         return j;
     }
 
@@ -126,7 +149,7 @@
         err.hidden = true; input.removeAttribute('aria-invalid');
         if (!NAME_RE.test(name)) {
             show('#fl-quiz-start'); input.setAttribute('aria-invalid', 'true'); input.focus();
-            err.textContent = 'Escolha um apelido de 2 a 20 caracteres (letras, números, espaço, ponto, hífen ou _).'; err.hidden = false;
+            err.textContent = t('err.nick'); err.hidden = false;
             return;
         }
         btn.disabled = true;
@@ -139,7 +162,7 @@
             show('#fl-quiz-play'); renderQuestion();
         } catch (e) {
             show('#fl-quiz-start'); err.textContent = e.message; err.hidden = false;
-            if (/apelido/i.test(e.message)) { input.setAttribute('aria-invalid', 'true'); input.focus(); input.select(); }
+            if (/apelido|nickname|apodo|pseudo/i.test(e.message)) { input.setAttribute('aria-invalid', 'true'); input.focus(); input.select(); }
         }
         finally { btn.disabled = false; }
     }
@@ -153,7 +176,7 @@
     function renderQuestion() {
         const q = round.questions[idx]; answered = false;
         $('#fl-qnum').textContent = `${idx + 1}/${round.total}`;
-        $('#fl-qtype').textContent = q.tipo;
+        $('#fl-qtype').textContent = trType(q.tipo);
         $('#fl-question').innerHTML = fmt(q.q);
         $('#fl-progress-fill').style.width = (idx / round.total * 100) + '%';
         $('#fl-feedback').hidden = true;
@@ -180,12 +203,12 @@
             const fb = $('#fl-feedback');
             fb.className = 'fl-feedback ' + (r.correct ? 'ok' : 'no');
             $('.fl-feedback-head i', fb).className = 'fas ' + (r.correct ? 'fa-circle-check' : 'fa-circle-xmark');
-            $('#fl-feedback-title').textContent = r.correct ? 'Resposta correta!' : 'Resposta incorreta';
-            $('#fl-feedback-pts').textContent = r.correct ? `+${r.points}${r.bonus ? ` (bônus ${r.bonus})` : ''}` : '';
+            $('#fl-feedback-title').textContent = r.correct ? t('correct') : t('wrong');
+            $('#fl-feedback-pts').textContent = r.correct ? `+${r.points}${r.bonus ? ` (${t('bonus')} ${r.bonus})` : ''}` : '';
             $('#fl-feedback-text').innerHTML = fmt(r.explanation);
             const ref = $('#fl-feedback-ref'); ref.hidden = !r.ref; if (r.ref) ref.href = r.ref;
             $('#fl-feedback-report').href = reportLink(round.questions[idx]);
-            $('#fl-next').innerHTML = r.done ? 'Ver resultado <i class="fas fa-flag-checkered"></i>' : 'Continuar <i class="fas fa-arrow-right"></i>';
+            $('#fl-next').innerHTML = r.done ? `${t('results')} <i class="fas fa-flag-checkered"></i>` : `${t('continue')} <i class="fas fa-arrow-right"></i>`;
             $('#fl-next').dataset.done = r.done ? '1' : '';
             fb.hidden = false;
             $('#fl-next').focus({ preventScroll: true });
@@ -205,14 +228,14 @@
         $('#fl-progress-fill').style.width = '100%';
         $('#fl-end-score').textContent = score;
         $('#fl-end-correct').textContent = correctCount;
-        $('#fl-end-correct').parentNode.lastChild.textContent = `/${round.total} acertos`;
+        $('#fl-end-total').textContent = round.total;
         const pct = correctCount / round.total;
         $('#fl-end-icon').textContent = pct >= .9 ? '🏆' : pct >= .6 ? '🍄' : '🌱';
-        $('#fl-end-title').textContent = pct >= .9 ? 'Excelente desempenho, micologista!' : pct >= .6 ? 'Muito bom resultado!' : 'Continue praticando!';
+        $('#fl-end-title').textContent = pct >= .9 ? t('end.great') : pct >= .6 ? t('end.good') : t('end.keep');
         const msg = $('#fl-rank-msg'), err = $('#fl-submit-error');
-        msg.textContent = 'Registrando no ranking…'; msg.hidden = false; err.hidden = true;
+        msg.textContent = t('registering'); msg.hidden = false; err.hidden = true;
         show('#fl-quiz-end');
-        addXP(Math.round(score / 10), 'rodada concluída');
+        addXP(Math.round(score / 10), t('xp.round'));
         submitScore();
     }
 
@@ -222,9 +245,9 @@
         try {
             const r = await api('submit', { sid: round.sid });
             msg.textContent = r.isBest
-                ? `🎉 ${P.name}, você está em ${r.rank}º lugar no ranking geral (de ${r.players} ${r.players === 1 ? 'jogador' : 'jogadores'})!`
-                : `Pontuação registrada, ${P.name}. Seu recorde (${r.best} pts) segue em ${r.rank}º lugar.`;
-        } catch (ex) { msg.hidden = true; err.textContent = 'Não foi possível registrar no ranking: ' + ex.message; err.hidden = false; }
+                ? t('rank.best', { name: P.name, rank: r.rank, n: r.players, players: r.players === 1 ? t('player') : t('players') })
+                : t('rank.other', { name: P.name, best: r.best, rank: r.rank });
+        } catch (ex) { msg.hidden = true; err.textContent = t('rank.fail') + ex.message; err.hidden = false; }
     }
 
     $('#fl-start-form').addEventListener('submit', e => { e.preventDefault(); start(); });
@@ -242,15 +265,15 @@
     let period = 'week';
     async function loadRanking() {
         const ol = $('#fl-ranking');
-        ol.innerHTML = '<li class="fl-muted">Carregando…</li>';
+        ol.innerHTML = `<li class="fl-muted">${t('loading')}</li>`;
         try {
             const r = await api('leaderboard&period=' + period);
-            if (!r.top.length) { ol.innerHTML = '<li class="fl-muted">Ninguém jogou ainda neste período. Seja o primeiro!</li>'; return; }
+            if (!r.top.length) { ol.innerHTML = `<li class="fl-muted">${t('rank.empty')}</li>`; return; }
             const medal = ['🥇', '🥈', '🥉'];
             ol.innerHTML = r.top.map((e, i) => `
                 <li class="${P.name && e.name.toLowerCase() === P.name.toLowerCase() ? 'me' : ''}">
                     <span class="pos">${medal[i] || i + 1}</span>
-                    <span class="name">${esc(e.name)}<small>${e.correct}/${e.total} acertos · ${e.secs}s · ${new Date(e.ts * 1000).toLocaleDateString('pt-BR')}</small></span>
+                    <span class="name">${esc(e.name)}<small>${e.correct}/${e.total} ${t('hits.short')} · ${e.secs}s · ${new Date(e.ts * 1000).toLocaleDateString('pt-BR')}</small></span>
                     <span class="pts">${e.score}</span>
                 </li>`).join('');
         } catch (e) { ol.innerHTML = `<li class="fl-muted">${esc(e.message)}</li>`; }
@@ -260,11 +283,30 @@
         period = b.dataset.period; loadRanking();
     }));
 
+    // ---------- Aplicar idioma ----------
+    function applyLang() {
+        $$('[data-fl]').forEach(el => { const v = t(el.dataset.fl); if (typeof v === 'string') { el.textContent = v; if (el.dataset.fl === 'content.note') el.hidden = !v; } });
+        $$('[data-fl-ph]').forEach(el => el.setAttribute('placeholder', t(el.dataset.flPh)));
+        $$('[data-fl-html]').forEach(el => { el.innerHTML = t(el.dataset.flHtml); });
+        $$('.fl-chip').forEach(c => {
+            const n = (c.textContent.match(/\((\d+)\)\s*$/) || [])[1];
+            const label = c.dataset.cat ? catLabel(c.dataset.cat) : t('all');
+            c.textContent = n ? `${label} (${n})` : label;
+        });
+        $$('.fl-term .fl-cat').forEach(el => { el.dataset.pt = el.dataset.pt || el.textContent; el.textContent = catLabel(el.dataset.pt); });
+        $$('.fl-term').forEach(tm => { const btn = $('.fl-learn', tm); if (btn) $('span', btn).textContent = P.learned.includes(btn.dataset.term) ? t('learned') : t('learn'); });
+        renderStats(); filterTerms();
+        if (!$('#fl-panel-ranking').hidden) loadRanking();
+        if (round && !$('#fl-quiz-play').hidden) { $('#fl-qtype').textContent = trType(round.questions[idx].tipo); }
+    }
+    document.addEventListener('languageChanged', () => setTimeout(applyLang, 0));
+
     // ---------- Início ----------
     renderStats();
+    setTimeout(applyLang, 0);
     const h = location.hash.replace('#', '');
     if (h.startsWith('termo-')) {
-        const t = document.getElementById(h);
-        if (t) { setTimeout(() => { t.scrollIntoView({ block: 'center' }); t.classList.add('flash'); }, 300); }
+        const el = document.getElementById(h);
+        if (el) { setTimeout(() => { el.scrollIntoView({ block: 'center' }); el.classList.add('flash'); }, 300); }
     } else if (['quiz', 'ranking', 'glossario'].includes(h)) showTab(h);
 })();

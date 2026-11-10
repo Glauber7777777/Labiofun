@@ -103,7 +103,7 @@
     <link rel="alternate" hreflang="fr" href="https://www.labiofun.com.br/?lang=fr-FR" />
     <link rel="alternate" hreflang="x-default" href="https://www.labiofun.com.br/" />
     <link rel="stylesheet" href="css/modern-ux.css?v=20261104b">
-    <link rel="stylesheet" href="css/layout-v2.css?v=20261110f">
+    <link rel="stylesheet" href="css/layout-v2.css?v=20261110g">
     <link rel="stylesheet" href="css/dark-fixes.css?v=20261110c">
     
     <!-- Web Components -->
@@ -276,28 +276,32 @@
         });
     </script>
 
-    <!-- Números do laboratório -->
-    <section class="impact-counter lf-stats" aria-label="Números do laboratório">
+    <!-- Números do laboratório (estilo cards) -->
+    <section class="impact-counter" aria-label="Números do laboratório">
         <div class="container">
             <div class="counter-grid">
-                <div class="counter-item">
-                    <span class="counter-number" id="counter-articles" data-target="154" data-suffix="">154</span>
+                <div class="counter-item scroll-animate">
+                    <div class="counter-icon"><i class="fas fa-book-open"></i></div>
+                    <span class="counter-number" id="counter-articles" data-target="163" data-suffix="">0</span>
                     <p class="counter-label" data-i18n="counter.articles">Artigos publicados</p>
                 </div>
-                <div class="counter-item scholar-loading" id="counter-item-citations">
+                <div class="counter-item scroll-animate delay-100 scholar-loading" id="counter-item-citations">
+                    <div class="counter-icon"><i class="fas fa-quote-right"></i></div>
                     <span class="counter-number" id="counter-citations" data-target="0" data-suffix="">···</span>
                     <p class="counter-label" data-i18n="counter.citations2">Citações</p>
                 </div>
-                <div class="counter-item">
+                <div class="counter-item scroll-animate delay-200">
+                    <div class="counter-icon"><i class="fas fa-chart-line"></i></div>
                     <span class="counter-number" id="counter-hindex" data-target="0" data-suffix="">···</span>
                     <p class="counter-label" data-i18n="counter.hindex">Índice h</p>
                 </div>
-                <div class="counter-item">
-                    <span class="counter-number" id="counter-team" data-target="10" data-suffix="">10</span>
+                <div class="counter-item scroll-animate delay-300">
+                    <div class="counter-icon"><i class="fas fa-users"></i></div>
+                    <span class="counter-number" id="counter-team" data-target="10" data-suffix="">0</span>
                     <p class="counter-label" data-i18n="counter.researchers">Pesquisadores na equipe</p>
                 </div>
             </div>
-            <p class="lf-stats-note"><span data-i18n="counter.note">Desde 2020 · 8 linhas de pesquisa · citações e índice h da coordenadora, via OpenAlex</span></p>
+            <p class="counter-note"><span data-i18n="counter.note">Desde 2020 · 8 linhas de pesquisa · citações e índice h da coordenadora, via OpenAlex</span></p>
         </div>
     </section>
 
@@ -2700,9 +2704,10 @@
         // Wait for deferred scripts to load
         document.addEventListener('DOMContentLoaded', () => {
             // Números calculados a partir dos dados do site
-            const setCount = (id, n) => { const el = document.getElementById(id); if (el && n > 0) { el.setAttribute('data-target', n); el.textContent = n.toLocaleString('pt-BR'); } };
-            if (typeof publications !== 'undefined') setCount('counter-articles', new Set(publications.map(p => p.doi || p.title)).size);
+            const setCount = (id, n) => { const el = document.getElementById(id); if (el && n > 0) el.setAttribute('data-target', n); };
+            if (typeof publications !== 'undefined') setCount('counter-articles', publications.length);
             if (typeof currentTeam !== 'undefined') setCount('counter-team', currentTeam.length);
+            if (typeof collaborators !== 'undefined') setCount('counter-collab', collaborators.length);
 
             // Initialize publications with complete dataset (168+ publications from 2001-2026)
             if (typeof initPublications === 'function' && typeof publications !== 'undefined') {

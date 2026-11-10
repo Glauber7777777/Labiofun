@@ -47,7 +47,7 @@ const cards = sorted.map(term => {
   if (related.length) linked++;
   const doiUrl = d => d.startsWith('http') ? d : 'https://doi.org/' + d;
   const relHtml = related.length ? `
-        <div class="fl-term-refs"><span><i class="fas fa-book-open"></i> Nos artigos do Labiofun:</span><ul>${related.map(p =>
+        <div class="fl-term-refs"><span><i class="fas fa-book-open"></i> <span data-fl="refs">Nos artigos do Labiofun:</span></span><ul>${related.map(p =>
           `<li><a href="${esc(doiUrl(p.doi))}" target="_blank" rel="noopener">${sci(esc(strip(p.title)))}</a> <em>(${p.year})</em></li>`).join('')}</ul></div>` : '';
   return `
       <article class="fl-term" id="termo-${slug(term.t)}" data-cat="${esc(term.c)}" data-search="${esc((term.t + ' ' + term.d).toLowerCase())}">
@@ -55,7 +55,7 @@ const cards = sorted.map(term => {
         <p>${sci(esc(term.d))}</p>${relHtml}
         <div class="fl-term-foot">
           <button type="button" class="fl-learn" data-term="${esc(term.t)}"><i class="far fa-circle-check"></i> <span>Aprendi</span></button>
-          <a class="fl-report" href="contact.html?assunto=${encodeURIComponent('Fungilingo: erro no glossário — ' + term.t)}&amp;mensagem=${encodeURIComponent('Termo: ' + term.t + '\nO erro que encontrei: ')}"><i class="fas fa-flag"></i> Reportar erro</a>
+          <a class="fl-report" href="contact.html?assunto=${encodeURIComponent('Fungilingo: erro no glossário — ' + term.t)}&amp;mensagem=${encodeURIComponent('Termo: ' + term.t + '\nO erro que encontrei: ')}"><i class="fas fa-flag"></i> <span data-fl="report">Reportar erro</span></a>
         </div>
       </article>`;
 }).join('');

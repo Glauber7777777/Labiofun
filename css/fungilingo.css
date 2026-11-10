@@ -144,3 +144,4 @@
 .fl-player { text-align: left; font-size: var(--font-size-sm); color: var(--primary); font-weight: 600; margin: var(--space-sm) 0 0; }
 #fl-start-form { margin-bottom: var(--space-sm); }
 .fl-submit input[aria-invalid="true"] { border-color: #e74c3c; }
+.fl-content-note { margin-top: 10px; font-size: .9rem; opacity: .85; }
