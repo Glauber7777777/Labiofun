@@ -103,7 +103,7 @@ window.publications = [
     "title": "The biofilm produced by <i>Cryptococcus neoformans</i> protects the fungus from the antifungal and anti-melanin effects of cyclosporine",
     "authors": "Iara Bastos De Andrade, Vinicius Alves, Dario Correa-junior, Igor Avellar-moura, Juliana Soares, Glauber Ribeiro De Sousa Araújo, Bruno Pontes, Joshua D. Nosanchuk, Rodrigo Almeida-paes, Susana Frases",
     "journal": "Microbial Pathogenesis, 2025, 198, 107124",
-    "doi": "10.1016/j.miopath.2024.107124",
+    "doi": "10.1016/j.micpath.2024.107124",
     "year": 2025
   },
   {
@@ -180,7 +180,7 @@ window.publications = [
     "title": "The Role of Nutritional Environment in <i>Cryptococcus gattii</i> Titan Cells? Ultrastructure, Biophysical Properties, Molecular Features, and Virulence in Cynomolgus Macaques",
     "authors": "Igor Avellar-Moura, Glauber R de S Araujo, Juliana Godoy, Vinicius Alves, Iara Bastos de Andrade, Juliana Soares, Bruno Pontes, Susana Frases",
     "journal": "Frontiers in Cellular and Infection Microbiology",
-    "doi": "10.3389/fcimb.2025.1543210",
+    "doi": "10.3390/idr17040101",
     "year": 2025
   },
   {
@@ -929,7 +929,7 @@ window.publications = [
     "title": "Immunomodulatory Effects of Serotype B Glucuronoxylomannan from <i>Cryptococcus gattii</i> Correlate with Polysaccharide Diameter",
     "authors": "Fernanda L. Fonseca, Lilian L. Nohara, Radames J. B. Cordero, Susana Frases, Arturo Casadevall, Igor C. Almeida, Leonardo Nimrichter, Marcio L. Rodrigues",
     "journal": "Infection and Immunity, 2010, 78, 9, 3861-3870",
-    "doi": "10.1128/AI.00111-10",
+    "doi": "10.1128/iai.00111-10",
     "year": 2010
   },
   {

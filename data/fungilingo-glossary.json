@@ -913,5 +913,472 @@
    "cellulas",
    "cellulolytic"
   ]
+ },
+ {
+  "t": "Quitosana",
+  "c": "Estrutura celular",
+  "d": "Biopolímero catiônico linear derivado da desacetilação enzimática ou química da quitina; essencial para a integridade da parede e retenção de melanina em Cryptococcus.",
+  "k": [
+   "chitosan",
+   "deacetyl"
+  ]
+ },
+ {
+  "t": "Glicosilceramida (GlcCer)",
+  "c": "Estrutura celular",
+  "d": "Esfingolipídio neutro da membrana plasmática e das vesículas extracelulares fúngicas, estruturalmente distinto do de mamíferos e crítico para o crescimento em pH fisiológico e alcalino.",
+  "k": [
+   "glucosylceramide",
+   "glccer"
+  ]
+ },
+ {
+  "t": "Hidrofobina",
+  "c": "Estrutura celular",
+  "d": "Família de pequenas proteínas anfipáticas que formam uma camada hidrofóbica de bastonetes (rodlets) na superfície de conídios (como em Aspergillus), ocultando PAMPs do sistema imune.",
+  "k": [
+   "hydrophobin",
+   "rodlet"
+  ]
+ },
+ {
+  "t": "Spitzenkörper (corpo apical)",
+  "c": "Morfologia",
+  "d": "Estrutura subcelular dinâmica localizada no ápice de hifas em crescimento que atua como centro organizador do tráfego de vesículas secretoras para a expansão polarizada da parede.",
+  "k": [
+   "spitzenkorper",
+   "apical body"
+  ]
+ },
+ {
+  "t": "Corpo de Woronin",
+  "c": "Morfologia",
+  "d": "Organela peroxissomal densa exclusiva de fungos filamentosos ascomicetos que oclui rapidamente o poro septal após injúria mecânica, evitando a perda de citoplasma.",
+  "k": [
+   "woronin"
+  ]
+ },
+ {
+  "t": "Septo doliporo",
+  "c": "Morfologia",
+  "d": "Estrutura septal complexa em forma de barril característica de basidiomicetos (como Cryptococcus na fase filamentosa), frequentemente recoberta por membranas chamadas parentossomos.",
+  "k": [
+   "dolipore"
+  ]
+ },
+ {
+  "t": "Urease",
+  "c": "Virulência",
+  "d": "Metaloenzima dependente de níquel que hidrolisa a ureia em amônia e carbamato; em Cryptococcus e Coccidioides, alcaliniza o microambiente e facilita a invasão da barreira hematoencefálica.",
+  "k": [
+   "urease"
+  ]
+ },
+ {
+  "t": "Vomocitose (exocitose não lítica)",
+  "c": "Virulência",
+  "d": "Mecanismo de escape intracelular no qual leveduras fagocitadas (como Cryptococcus neoformans e Candida albicans) são expelidas vivas do macrófago sem causar a lise da célula hospedeira.",
+  "k": [
+   "vomocytosis",
+   "non-lytic exocytosis"
+  ]
+ },
+ {
+  "t": "Mecanismo de Cavalo de Troia",
+  "c": "Virulência",
+  "d": "Estratégia de disseminação na qual o fungo sobrevive no interior de fagócitos circulantes (monócitos/macrófagos) e os utiliza como veículo para atravessar barreiras teciduais, como a barreira hematoencefálica.",
+  "k": [
+   "trojan horse"
+  ]
+ },
+ {
+  "t": "Quorum sensing fúngico",
+  "c": "Biologia celular",
+  "d": "Sistema de comunicação célula-célula dependente da densidade populacional mediado por moléculas sinalizadoras (como farnesol e tirosol em Candida), regulando o dimorfismo e a formação de biofilme.",
+  "k": [
+   "quorum sensing",
+   "farnesol",
+   "tyrosol"
+  ]
+ },
+ {
+  "t": "Espalhamento dinâmico de luz (DLS)",
+  "c": "Técnicas",
+  "d": "Técnica biofísica que analisa as flutuações temporais da luz espalhada por partículas em movimento browniano para determinar a distribuição de tamanho hidrodinâmico de polissacarídeos e vesículas extracelulares.",
+  "k": [
+   "dynamic light scattering",
+   "dls",
+   "hydrodynamic diameter"
+  ]
+ },
+ {
+  "t": "Módulo de Young (módulo elástico)",
+  "c": "Técnicas",
+  "d": "Parâmetro biomecânico (medido em Pascais) que quantifica a rigidez de um material sólido ou viscoelástico; na micologia biofísica, é determinado via pinça óptica ou AFM para avaliar a cápsula e a parede celular.",
+  "k": [
+   "young's modulus",
+   "elastic modulus",
+   "stiffness"
+  ]
+ },
+ {
+  "t": "Crioultramicrotomia e Criofixação",
+  "c": "Técnicas",
+  "d": "Técnicas avançadas de preparação para microscopia eletrônica baseadas no congelamento ultrarrápido da amostra, preservando estruturas altamente hidratadas como a cápsula fúngica e vesículas em estado nativo.",
+  "k": [
+   "cryoultramicrotomy",
+   "high-pressure freezing",
+   "cryo-em"
+  ]
+ },
+ {
+  "t": "Paracoccidioides spp.",
+  "c": "Patógenos",
+  "d": "Gênero de fungos termicamente dimórficos (incluindo P. brasiliensis e P. lutzii) endêmicos na América Latina; na fase parasitária a 37 °C, formam leveduras com múltiplos brotamentos em “roda de leme”.",
+  "k": [
+   "paracoccidioides"
+  ]
+ },
+ {
+  "t": "Pneumocystis jirovecii",
+  "c": "Patógenos",
+  "d": "Fungo atípico e oportunista causador de pneumonia grave em imunossuprimidos; não cresce em meios micológicos convencionais e possui colesterol (e não ergosterol) na membrana celular.",
+  "k": [
+   "pneumocystis"
+  ]
+ },
+ {
+  "t": "Talaromyces marneffei",
+  "c": "Patógenos",
+  "d": "Fungo termicamente dimórfico endêmico no Sudeste Asiático que causa infecção disseminada em pacientes com HIV/AIDS; no tecido hospedeiro, divide-se por fissão binária formando células com septo transversal.",
+  "k": [
+   "talaromyces",
+   "penicillium marneffei"
+  ]
+ },
+ {
+  "t": "Paracoccidioidomicose (PCM)",
+  "c": "Doenças",
+  "d": "Principal micose sistêmica endêmica da América Latina, adquirida pela inalação de propágulos do solo em áreas rurais, acometendo pulmões, mucosas, pele e sistema reticuloendotelial.",
+  "k": [
+   "paracoccidioidomycosis"
+  ]
+ },
+ {
+  "t": "Cromoblastomicose",
+  "c": "Doenças",
+  "d": "Micose subcutânea crônica de implantação causada por fungos dematiáceos (como Fonsecaea pedrosoi), caracterizada clinicamente por lesões verrucosas e histopatologicamente por células muriformes (corpos escleróticos).",
+  "k": [
+   "chromoblastomycosis",
+   "sclerotic bodies",
+   "muriform"
+  ]
+ },
+ {
+  "t": "Eumicetoma",
+  "c": "Doenças",
+  "d": "Infecção granulomatosa subcutânea crônica causada por fungos verdadeiros (como Madurella mycetomatis), definida pela tríade clássica de tumefação indolor, fístulas cutâneas e eliminação de grãos fúngicos.",
+  "k": [
+   "eumycetoma",
+   "mycetoma"
+  ]
+ },
+ {
+  "t": "Flucitosina (5-fluorocitosina)",
+  "c": "Tratamento",
+  "d": "Antifúngico análogo de pirimidina que é convertido no interior da célula fúngica em 5-fluorouracil, inibindo a síntese de DNA e RNA; usado em combinação com anfotericina B na meningite criptocócica.",
+  "k": [
+   "flucytosine",
+   "5-fc",
+   "5-fluorocytosine"
+  ]
+ },
+ {
+  "t": "Fosmanogepix (Manogepix)",
+  "c": "Tratamento",
+  "d": "Antifúngico de nova geração que bloqueia a enzima fúngica Gwt1, impedindo a maturação de proteínas ancoradas por GPI na parede celular e exibindo amplo espectro contra Candida, Cryptococcus e fungos filamentosos.",
+  "k": [
+   "fosmanogepix",
+   "manogepix",
+   "gwt1"
+  ]
+ },
+ {
+  "t": "Ibrexafungerp",
+  "c": "Tratamento",
+  "d": "Primeiro antifúngico da classe dos triterpenoides (fungerps); inibe a β-1,3-glucana sintase fúngica de forma semelhante às equinocandinas, mas apresenta biodisponibilidade oral e atividade contra cepas resistentes.",
+  "k": [
+   "ibrexafungerp",
+   "triterpenoid"
+  ]
+ },
+ {
+  "t": "Dectina-1",
+  "c": "Imunologia",
+  "d": "Principal receptor de reconhecimento de padrões (PRR) da família das lectinas tipo C expresso em fagócitos; reconhece especificamente a β-1,3-glucana exposta na parede celular fúngica e ativa a via Syk-CARD9.",
+  "k": [
+   "dectin-1",
+   "clec7a"
+  ]
+ },
+ {
+  "t": "CARD9",
+  "c": "Imunologia",
+  "d": "Proteína adaptadora intracelular crítica na cascata de sinalização de receptores de lectina tipo C (Dectina-1, Dectina-2, Mincle); mutações humanas em CARD9 predispõem a micoses invasivas graves do sistema nervoso central e subcutâneas.",
+  "k": [
+   "card9"
+  ]
+ },
+ {
+  "t": "Micotoxina",
+  "c": "Fundamentos",
+  "d": "Metabólito secundário tóxico de baixa massa molecular produzido por fungos filamentosos (como aflatoxinas de Aspergillus e ocratoxinas/tricotecenos de Penicillium e Fusarium) que contamina alimentos e causa micotoxicoses.",
+  "k": [
+   "mycotoxin",
+   "aflatoxin",
+   "ochratoxin"
+  ]
+ },
+ {
+  "t": "Micose superficial",
+  "c": "Doenças",
+  "d": "Infeção fúngica restrita às camadas mais externas e desvitalizadas do estrato córneo ou da haste pilosa (como pitiríase versicolor, tinea nigra e piedras), geralmente sem desencadear resposta inflamatória no hospedeiro.",
+  "k": [
+   "superficial mycos",
+   "pityriasis versicolor",
+   "tinea nigra",
+   "piedra"
+  ]
+ },
+ {
+  "t": "Micose cutânea (Dermatofitose)",
+  "c": "Doenças",
+  "d": "Infeção que acomete tecidos queratinizados da epiderme, pelos e unhas causada principalmente por dermatófitos (Trichophyton, Microsporum e Epidermophyton), despertando resposta inflamatória mediada pelo hospedeiro.",
+  "k": [
+   "cutaneous mycos",
+   "dermatophytos",
+   "tinea",
+   "ringworm"
+  ]
+ },
+ {
+  "t": "Micose subcutânea (de implantação)",
+  "c": "Doenças",
+  "d": "Grupo de infeções fúngicas crónicas adquiridas pela inoculação traumática transcutânea de propágulos ambientais na derme e no tecido subcutâneo, incluindo esporotricose, cromoblastomicose, eumicetoma e lobomicose.",
+  "k": [
+   "subcutaneous mycos",
+   "implantation mycos"
+  ]
+ },
+ {
+  "t": "Coccidioidomicose (Febre do Vale)",
+  "c": "Doenças",
+  "d": "Micose sistémica endémica de regiões áridas e semiáridas das Américas (incluindo o semiárido do Nordeste brasileiro), causada por Coccidioides immitis e C. posadasii através da inalação de artroconídios do solo.",
+  "k": [
+   "coccidioidomycosis",
+   "valley fever",
+   "spherule"
+  ]
+ },
+ {
+  "t": "Blastomicose",
+  "c": "Doenças",
+  "d": "Micose sistémica e piogranulomatosa causada pelo fungo dimórfico Blastomyces dermatitidis, adquirida por via inalatória com frequente disseminação hematogénica para a pele, ossos e trato geniturinário.",
+  "k": [
+   "blastomycosis",
+   "blastomyces"
+  ]
+ },
+ {
+  "t": "Lobomicose (Doença de Jorge Lobo)",
+  "c": "Doenças",
+  "d": "Micose subcutânea crónica endémica na bacia amazónica que acomete humanos e golfinhos, causada por Paracoccidioides lobogeorgii (Lacazia loboi) e caracterizada por lesões queloidianas repletas de leveduras em cadeia.",
+  "k": [
+   "lobomycosis",
+   "lacazia",
+   "lobogeorgii"
+  ]
+ },
+ {
+  "t": "Feo-hifomicose",
+  "c": "Doenças",
+  "d": "Conjunto de infeções superficiais, subcutâneas ou sistémicas (incluindo abscessos cerebrais) causadas por fungos dematiáceos que apresentam hifas septadas ou leveduras pigmentadas por DHN-melanina nos tecidos.",
+  "k": [
+   "phaeohyphomycosis",
+   "dematiaceous",
+   "black fungi"
+  ]
+ },
+ {
+  "t": "Hialo-hifomicose",
+  "c": "Doenças",
+  "d": "Termo histopatológico e clínico que reúne micoses oportunistas causadas por fungos filamentosos hialinos (não pigmentados) septados nos tecidos, como espécies de Fusarium, Scedosporium, Acremonium e Paecilomyces.",
+  "k": [
+   "hyalohyphomycosis",
+   "hyaline molds"
+  ]
+ },
+ {
+  "t": "Pneumocistose (PCP)",
+  "c": "Doenças",
+  "d": "Pneumonia intersticial oportunista grave causada por Pneumocystis jirovecii em pacientes com imunodeficiência celular acentuada (como SIDA e transplantados), caracterizada por exsudato alveolar espumoso e hipoxemia.",
+  "k": [
+   "pneumocystis pneumonia",
+   "pcp",
+   "jirovecii"
+  ]
+ },
+ {
+  "t": "Entomoftoromicose",
+  "c": "Doenças",
+  "d": "Micose subcutânea ou mucocutânea crónica que ocorre em áreas tropicais, causada por Basidiobolus ranarum ou Conidiobolus coronatus em indivíduos imunocompetentes, exibindo intenso fenómeno de Splendore-Hoeppli.",
+  "k": [
+   "entomophthoromycosis",
+   "conidiobolomycosis",
+   "basidiobolomycosis"
+  ]
+ },
+ {
+  "t": "Célula muriforme (corpo esclerótico)",
+  "c": "Morfologia",
+  "d": "Forma adaptativa tecidual patognomónica da cromoblastomicose; consiste em células globosas a poligonais de parede espessa, castanho-douradas (melanizadas), que se dividem por septação transversal e longitudinal.",
+  "k": [
+   "muriform cell",
+   "sclerotic body",
+   "medlar body"
+  ]
+ },
+ {
+  "t": "Esférula",
+  "c": "Morfologia",
+  "d": "Estrutura reprodutiva parasitária característica do género Coccidioides nos tecidos de mamíferos; consiste numa estrutura esférica grande de parede dupla que matura e se rompe liberando centenas de endósporos.",
+  "k": [
+   "spherule",
+   "endospore",
+   "coccidioides"
+  ]
+ },
+ {
+  "t": "Artroconídio (Artrósporo)",
+  "c": "Morfologia",
+  "d": "Esporo assexuado formado pela fragmentação e desarticulação direta de hifas septadas preexistentes; atua como propágulo infectante em Coccidioides e dermatófitos e como elemento diagnóstico no género Trichosporon.",
+  "k": [
+   "arthroconidia",
+   "arthrospore"
+  ]
+ },
+ {
+  "t": "Clamidoconídio (Clamidósporo)",
+  "c": "Morfologia",
+  "d": "Conídio de resistência de parede espessa, arredondado e rico em reservas nutritivas, formado na extremidade (terminal) ou ao longo (intercalar) de hifas ou pseudo-hifas sob condições ambientais adversas.",
+  "k": [
+   "chlamydoconidia",
+   "chlamydospore"
+  ]
+ },
+ {
+  "t": "Malassezia spp.",
+  "c": "Patógenos",
+  "d": "Género de leveduras basidiomicéticas lipodependentes comensais da pele humana e animal; causa pitiríase versicolor, foliculite, agrava a dermatite seborreica e pode provocar fungemia em neonatos sob nutrição parenteral lipídica.",
+  "k": [
+   "malassezia",
+   "lipophilic yeast"
+  ]
+ },
+ {
+  "t": "Fusarium spp.",
+  "c": "Patógenos",
+  "d": "Género de fungos filamentosos hialinos fitopatogénicos e oportunistas humanos; produz macroconídios falciformes (em forma de canoa), causa ceratite, onicomicose e fusariose disseminada com hemoculturas frequentemente positivas.",
+  "k": [
+   "fusarium",
+   "fusariosis"
+  ]
+ },
+ {
+  "t": "Fonsecaea pedrosoi",
+  "c": "Patógenos",
+  "d": "Fungo filamentoso dematiáceo (melanizado) encontrado no solo e em restos vegetais de regiões tropicais e subtropicais; é o principal agente etiológico da cromoblastomicose no Brasil e no mundo.",
+  "k": [
+   "fonsecaea",
+   "chromoblastomycosis"
+  ]
+ },
+ {
+  "t": "Fenómeno de Splendore-Hoeppli",
+  "c": "Imunologia",
+  "d": "Reação tecidual caracterizada pela deposição de material intensamente eosinofílico e radiado (composto por imunocomplexos e proteínas granulares de eosinófilos) ao redor de agentes fúngicos na esporotricose, entomoftoromicose e micetomas.",
+  "k": [
+   "splendore-hoeppli",
+   "asteroid body"
+  ]
+ },
+ {
+  "t": "Exame micológico direto (KOH)",
+  "c": "Técnicas",
+  "d": "Método diagnóstico rápido de primeira linha que utiliza hidróxido de potássio (10–20%) para clarificar a queratina de amostras clínicas (pele, unhas, pelos, secreções), permitindo observar diretamente a morfologia parasitária do fungo.",
+  "k": [
+   "direct examination",
+   "koh",
+   "calcofluor"
+  ]
+ },
+ {
+  "t": "Coloração de Grocott-Gomori (GMS)",
+  "c": "Técnicas",
+  "d": "Coloração histopatológica especial baseada na oxidação pelo ácido crómico e redução do complexo metenamina-prata pelos aldeídos da parede celular fúngica, corando hifas e leveduras de preto sobre fundo verde-claro.",
+  "k": [
+   "grocott",
+   "gomori",
+   "methenamine silver",
+   "gms"
+  ]
+ },
+ {
+  "t": "MALDI-TOF MS na Micologia",
+  "c": "Técnicas",
+  "d": "Técnica de espectrometria de massa por tempo de voo que identifica rapidamente leveduras e fungos filamentosos a partir do perfil proteico ribossomal, diferenciando com exatidão espécies crípticas e multirresistentes.",
+  "k": [
+   "maldi-tof",
+   "mass spectrometry",
+   "proteomic identification"
+  ]
+ },
+ {
+  "t": "Galactomanana",
+  "c": "Estrutura celular",
+  "d": "Polissacarídeo termoestável constituinte da parede celular de espécies de Aspergillus (e outros fungos correlatos) que é liberado na circulação e nos fluidos biológicos durante o crescimento invasivo das hifas, servindo como biomarcador diagnóstico.",
+  "k": [
+   "galactomannan",
+   "aspergillus antigen"
+  ]
+ },
+ {
+  "t": "Alilaminas (Terbinafina)",
+  "c": "Tratamento",
+  "d": "Classe de antifúngicos sintéticos fungicidas contra dermatófitos e diversos fungos subcutâneos que atua inibindo a enzima esqualeno epoxidase (Erg1), causando deficiência de ergosterol e acumulação intracelular tóxica de esqualeno.",
+  "k": [
+   "allylamine",
+   "terbinafine",
+   "squalene epoxidase"
+  ]
+ },
+ {
+  "t": "Griseofulvina",
+  "c": "Tratamento",
+  "d": "Antifúngico fungistático oral produzido por Penicillium griseofulvum, historicamente empregado no tratamento de dermatofitoses do couro cabeludo (tinea capitis); atua ligando-se à tubulina e interrompendo o fuso mitótico fúngico.",
+  "k": [
+   "griseofulvin",
+   "microtubule"
+  ]
+ },
+ {
+  "t": "Angioinvasão fúngica",
+  "c": "Virulência",
+  "d": "Capacidade de hifas de fungos filamentosos (notavelmente Mucorales, Aspergillus e Fusarium) de penetrar na parede de vasos sanguíneos, provocando trombose vascular, infarto isquémico, necrose tecidual e disseminação hematogénica.",
+  "k": [
+   "angioinvasion",
+   "vascular invasion",
+   "thrombosis"
+  ]
  }
 ]

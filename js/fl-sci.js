@@ -30,7 +30,7 @@
         'bisporus', 'edodes', 'muscaria', 'ostreatus', 'guianensis', 'agglomerans', 'aerogenes', 'pneumoniae',
         'wieringae', 'amylolentus', 'wingfieldii', 'baumannii', 'amazonensis', 'cruzi', 'unicinctus', 'mellonella',
         'molitor', 'elegans', 'coli', 'aureus', 'aeruginosa', 'tuberculosis', 'castellanii', 'discoideum',
-        'musculus', 'norvegicus', 'livia', 'dendrobatidis', 'destructans', 'crassa', 'loboi', 'laurentii'];
+        'pedrosoi', 'mycetomatis', 'lobogeorgii', 'griseofulvum', 'musculus', 'norvegicus', 'livia', 'dendrobatidis', 'destructans', 'crassa', 'loboi', 'laurentii'];
     // Epítetos que aparecem sozinhos ("variedades neoformans e grubii") sem risco de confundir com palavras comuns
     const LONE = ['neoformans', 'deneoformans', 'gattii', 'grubii', 'albicans', 'auris', 'brasiliensis', 'schenckii', 'capsulatum'];
     const G = GENERA.join('|'), E = EPITHETS.join('|');
