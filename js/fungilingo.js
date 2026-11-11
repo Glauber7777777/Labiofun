@@ -36,7 +36,7 @@
     const $ = (s, r = document) => r.querySelector(s);
     const $$ = (s, r = document) => [...r.querySelectorAll(s)];
     const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-    const fmt = s => esc(s).replace(/\*([^*]+)\*/g, '<em>$1</em>');
+    const fmt = s => { const h = esc(s).replace(/\*([^*]+)\*/g, '<em>$1</em>'); return window.FL_SCI ? window.FL_SCI.sci(h) : h; };
     const plain = s => String(s).replace(/\*/g, '');
 
     // ---------- Progresso local ----------

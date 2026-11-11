@@ -380,3 +380,9 @@ section:not(.hero):not(.page-hero):not(.impact-counter):not(.zoom-parallax-hero)
     section:not(.hero):not(.page-hero):not(.impact-counter):not(.zoom-parallax-hero):not(.fl-hero):not(.lf-hero):not(.fl-stats-wrap) { padding-top: 24px; padding-bottom: 24px; }
     .hero { padding-top: 44px !important; padding-bottom: 28px !important; }
 }
+
+/* ---------- Cards de pesquisa/técnicas: sem corte no celular ---------- */
+/* Em contêiner flex em coluna, o flex-basis 300px virava altura fixa */
+@media (max-width: 768px) {
+    .cards-container .card { flex: 0 0 auto; height: auto; max-width: 100%; }
+}

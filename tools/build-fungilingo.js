@@ -15,22 +15,8 @@ const pubs = JSON.parse(pubSrc.slice(pubSrc.indexOf('['), pubSrc.lastIndexOf(']'
 
 const esc = s => String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const strip = s => String(s).replace(/<[^>]+>/g, '');
-// Nomes científicos em itálico (aplicado DEPOIS do escape de HTML)
-const GENERA = ['Cryptococcus', 'Candidozyma', 'Candida', 'Nakaseomyces', 'Aspergillus', 'Histoplasma',
-  'Sporothrix', 'Trichosporon', 'Rhodotorula', 'Scedosporium', 'Lomentospora', 'Pseudallescheria',
-  'Microsporum', 'Nannizzia', 'Trichophyton', 'Epidermophyton', 'Emergomyces', 'Penicillium',
-  'Paracoccidioides', 'Pneumocystis', 'Fusarium', 'Malassezia', 'Coccidioides', 'Blastomyces',
-  'Talaromyces', 'Saccharomyces', 'Panus', 'Carapa', 'Pantoea', 'Klebsiella', 'Streptomyces'];
-const EPITHETS = ['neoformans', 'gattii', 'liquefaciens', 'albicans', 'auris', 'glabrata', 'haemulonii',
-  'tropicalis', 'kudriavzevii', 'fumigatus', 'lentulus', 'capsulatum', 'brasiliensis', 'schenckii',
-  'globosa', 'asahii', 'mucilaginosa', 'glutinis', 'prolificans', 'gypsea', 'canis', 'rubrum',
-  'audouinii', 'floccosum', 'concentricum', 'africanus', 'jirovecii', 'immitis', 'dermatitidis',
-  'marneffei', 'cerevisiae', 'boulardii', 'furfur', 'pachydermatis', 'lecomtei', 'bisporus', 'edodes',
-  'muscaria', 'guianensis', 'agglomerans', 'aerogenes', 'wieringae', 'amylolentus', 'wingfieldii'];
-const SCI = new RegExp(
-  '\\b(?:' + GENERA.join('|') + ')\\b(?:\\s+(?:spp\\.|' + EPITHETS.join('|') + '))?'
-  + '|\\b[A-Z]\\.\\s(?:' + EPITHETS.join('|') + ')\\b', 'g');
-const sci = s => s.replace(SCI, m => `<em>${m}</em>`);
+// Nomes científicos em itálico (lista compartilhada com o quiz: js/fl-sci.js)
+const { sci } = require(path.join(ROOT, 'js/fl-sci.js'));
 
 const slug = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
