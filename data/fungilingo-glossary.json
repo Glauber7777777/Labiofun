@@ -368,9 +368,9 @@
   ]
  },
  {
-  "t": "Candidozyma (Candida) auris",
+  "t": "Candidozyma auris",
   "c": "Patógenos",
-  "d": "Levedura emergente e multirresistente, de difícil identificação, que causa surtos hospitalares em várias partes do mundo.",
+  "d": "Basônimo: Candida auris. Levedura emergente e multirresistente, de difícil identificação, que causa surtos hospitalares em várias partes do mundo.",
   "k": [
    "auris"
   ]
@@ -378,7 +378,7 @@
  {
   "t": "Complexo Candida haemulonii",
   "c": "Patógenos",
-  "d": "Grupo de espécies de leveduras emergentes, relacionadas a C. auris, frequentemente resistentes à anfotericina B.",
+  "d": "Grupo de espécies de leveduras emergentes, relacionadas a Candidozyma auris (basônimo Candida auris), frequentemente resistentes à anfotericina B.",
   "k": [
    "haemulonii"
   ]
@@ -580,7 +580,7 @@
  {
   "t": "Infecção nosocomial",
   "c": "Doenças",
-  "d": "Infecção adquirida no ambiente hospitalar. Leveduras como Candida auris e Trichosporon são agentes importantes.",
+  "d": "Infecção adquirida no ambiente hospitalar. Leveduras como Candidozyma auris (basônimo Candida auris) e Trichosporon são agentes importantes.",
   "k": [
    "nosocomial"
   ]
