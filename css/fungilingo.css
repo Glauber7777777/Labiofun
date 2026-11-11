@@ -145,3 +145,10 @@
 #fl-start-form { margin-bottom: var(--space-sm); }
 .fl-submit input[aria-invalid="true"] { border-color: #e74c3c; }
 .fl-content-note { margin-top: 10px; font-size: .9rem; opacity: .85; }
+
+/* ---------- Logomarca do Fungilingo ---------- */
+.fl-logo-mark { width: 1.5em; height: 1.5em; border-radius: 50%; flex: 0 0 auto; vertical-align: -.3em; }
+.fl-brand { display: block; width: min(260px, 70%); height: auto; margin: 0 auto var(--space-md); }
+@media (max-width: 480px) { .fl-brand { width: min(210px, 80%); } }
+/* no modo escuro a tipografia da marca é verde-escura: usa uma placa clara */
+[data-theme="dark"] .fl-brand { background: #fbfbf4; border-radius: var(--radius-md, 12px); padding: 10px 16px; }
