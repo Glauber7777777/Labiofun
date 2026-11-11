@@ -1142,7 +1142,7 @@
  {
   "t": "Micose superficial",
   "c": "Doenças",
-  "d": "Infeção fúngica restrita às camadas mais externas e desvitalizadas do estrato córneo ou da haste pilosa (como pitiríase versicolor, tinea nigra e piedras), geralmente sem desencadear resposta inflamatória no hospedeiro.",
+  "d": "Infecção fúngica restrita às camadas mais externas e desvitalizadas do estrato córneo ou da haste pilosa (como pitiríase versicolor, tinea nigra e piedras), geralmente sem desencadear resposta inflamatória no hospedeiro.",
   "k": [
    "superficial mycos",
    "pityriasis versicolor",
@@ -1153,7 +1153,7 @@
  {
   "t": "Micose cutânea (Dermatofitose)",
   "c": "Doenças",
-  "d": "Infeção que acomete tecidos queratinizados da epiderme, pelos e unhas causada principalmente por dermatófitos (Trichophyton, Microsporum e Epidermophyton), despertando resposta inflamatória mediada pelo hospedeiro.",
+  "d": "Infecção que acomete tecidos queratinizados da epiderme, pelos e unhas causada principalmente por dermatófitos (Trichophyton, Microsporum e Epidermophyton), despertando resposta inflamatória mediada pelo hospedeiro.",
   "k": [
    "cutaneous mycos",
    "dermatophytos",
@@ -1164,7 +1164,7 @@
  {
   "t": "Micose subcutânea (de implantação)",
   "c": "Doenças",
-  "d": "Grupo de infeções fúngicas crónicas adquiridas pela inoculação traumática transcutânea de propágulos ambientais na derme e no tecido subcutâneo, incluindo esporotricose, cromoblastomicose, eumicetoma e lobomicose.",
+  "d": "Grupo de infecções fúngicas crônicas adquiridas pela inoculação traumática transcutânea de propágulos ambientais na derme e no tecido subcutâneo, incluindo esporotricose, cromoblastomicose, eumicetoma e lobomicose.",
   "k": [
    "subcutaneous mycos",
    "implantation mycos"
@@ -1183,7 +1183,7 @@
  {
   "t": "Blastomicose",
   "c": "Doenças",
-  "d": "Micose sistémica e piogranulomatosa causada pelo fungo dimórfico Blastomyces dermatitidis, adquirida por via inalatória com frequente disseminação hematogénica para a pele, ossos e trato geniturinário.",
+  "d": "Micose sistémica e piogranulomatosa causada pelo fungo dimórfico Blastomyces dermatitidis, adquirida por via inalatória com frequente disseminação hematogênica para a pele, ossos e trato geniturinário.",
   "k": [
    "blastomycosis",
    "blastomyces"
@@ -1192,7 +1192,7 @@
  {
   "t": "Lobomicose (Doença de Jorge Lobo)",
   "c": "Doenças",
-  "d": "Micose subcutânea crónica endémica na bacia amazónica que acomete humanos e golfinhos, causada por Paracoccidioides lobogeorgii (Lacazia loboi) e caracterizada por lesões queloidianas repletas de leveduras em cadeia.",
+  "d": "Micose subcutânea crônica endémica na bacia amazónica que acomete humanos e golfinhos, causada por Paracoccidioides lobogeorgii (Lacazia loboi) e caracterizada por lesões queloidianas repletas de leveduras em cadeia.",
   "k": [
    "lobomycosis",
    "lacazia",
@@ -1202,7 +1202,7 @@
  {
   "t": "Feo-hifomicose",
   "c": "Doenças",
-  "d": "Conjunto de infeções superficiais, subcutâneas ou sistémicas (incluindo abscessos cerebrais) causadas por fungos dematiáceos que apresentam hifas septadas ou leveduras pigmentadas por DHN-melanina nos tecidos.",
+  "d": "Conjunto de infecções superficiais, subcutâneas ou sistémicas (incluindo abscessos cerebrais) causadas por fungos dematiáceos que apresentam hifas septadas ou leveduras pigmentadas por DHN-melanina nos tecidos.",
   "k": [
    "phaeohyphomycosis",
    "dematiaceous",
@@ -1221,7 +1221,7 @@
  {
   "t": "Pneumocistose (PCP)",
   "c": "Doenças",
-  "d": "Pneumonia intersticial oportunista grave causada por Pneumocystis jirovecii em pacientes com imunodeficiência celular acentuada (como SIDA e transplantados), caracterizada por exsudato alveolar espumoso e hipoxemia.",
+  "d": "Pneumonia intersticial oportunista grave causada por Pneumocystis jirovecii em pacientes com imunodeficiência celular acentuada (como AIDS e transplantados), caracterizada por exsudato alveolar espumoso e hipoxemia.",
   "k": [
    "pneumocystis pneumonia",
    "pcp",
@@ -1231,7 +1231,7 @@
  {
   "t": "Entomoftoromicose",
   "c": "Doenças",
-  "d": "Micose subcutânea ou mucocutânea crónica que ocorre em áreas tropicais, causada por Basidiobolus ranarum ou Conidiobolus coronatus em indivíduos imunocompetentes, exibindo intenso fenómeno de Splendore-Hoeppli.",
+  "d": "Micose subcutânea ou mucocutânea crônica que ocorre em áreas tropicais, causada por Basidiobolus ranarum ou Conidiobolus coronatus em indivíduos imunocompetentes, exibindo intenso fenômeno de Splendore-Hoeppli.",
   "k": [
    "entomophthoromycosis",
    "conidiobolomycosis",
@@ -1251,7 +1251,7 @@
  {
   "t": "Esférula",
   "c": "Morfologia",
-  "d": "Estrutura reprodutiva parasitária característica do género Coccidioides nos tecidos de mamíferos; consiste numa estrutura esférica grande de parede dupla que matura e se rompe liberando centenas de endósporos.",
+  "d": "Estrutura reprodutiva parasitária característica do gênero Coccidioides nos tecidos de mamíferos; consiste numa estrutura esférica grande de parede dupla que matura e se rompe liberando centenas de endósporos.",
   "k": [
    "spherule",
    "endospore",
@@ -1261,7 +1261,7 @@
  {
   "t": "Artroconídio (Artrósporo)",
   "c": "Morfologia",
-  "d": "Esporo assexuado formado pela fragmentação e desarticulação direta de hifas septadas preexistentes; atua como propágulo infectante em Coccidioides e dermatófitos e como elemento diagnóstico no género Trichosporon.",
+  "d": "Esporo assexuado formado pela fragmentação e desarticulação direta de hifas septadas preexistentes; atua como propágulo infectante em Coccidioides e dermatófitos e como elemento diagnóstico no gênero Trichosporon.",
   "k": [
    "arthroconidia",
    "arthrospore"
@@ -1279,7 +1279,7 @@
  {
   "t": "Malassezia spp.",
   "c": "Patógenos",
-  "d": "Género de leveduras basidiomicéticas lipodependentes comensais da pele humana e animal; causa pitiríase versicolor, foliculite, agrava a dermatite seborreica e pode provocar fungemia em neonatos sob nutrição parenteral lipídica.",
+  "d": "Gênero de leveduras basidiomicéticas lipodependentes comensais da pele humana e animal; causa pitiríase versicolor, foliculite, agrava a dermatite seborreica e pode provocar fungemia em neonatos sob nutrição parenteral lipídica.",
   "k": [
    "malassezia",
    "lipophilic yeast"
@@ -1288,7 +1288,7 @@
  {
   "t": "Fusarium spp.",
   "c": "Patógenos",
-  "d": "Género de fungos filamentosos hialinos fitopatogénicos e oportunistas humanos; produz macroconídios falciformes (em forma de canoa), causa ceratite, onicomicose e fusariose disseminada com hemoculturas frequentemente positivas.",
+  "d": "Gênero de fungos filamentosos hialinos fitopatogénicos e oportunistas humanos; produz macroconídios falciformes (em forma de canoa), causa ceratite, onicomicose e fusariose disseminada com hemoculturas frequentemente positivas.",
   "k": [
    "fusarium",
    "fusariosis"
@@ -1304,7 +1304,7 @@
   ]
  },
  {
-  "t": "Fenómeno de Splendore-Hoeppli",
+  "t": "Fenômeno de Splendore-Hoeppli",
   "c": "Imunologia",
   "d": "Reação tecidual caracterizada pela deposição de material intensamente eosinofílico e radiado (composto por imunocomplexos e proteínas granulares de eosinófilos) ao redor de agentes fúngicos na esporotricose, entomoftoromicose e micetomas.",
   "k": [
@@ -1374,7 +1374,7 @@
  {
   "t": "Angioinvasão fúngica",
   "c": "Virulência",
-  "d": "Capacidade de hifas de fungos filamentosos (notavelmente Mucorales, Aspergillus e Fusarium) de penetrar na parede de vasos sanguíneos, provocando trombose vascular, infarto isquémico, necrose tecidual e disseminação hematogénica.",
+  "d": "Capacidade de hifas de fungos filamentosos (notavelmente Mucorales, Aspergillus e Fusarium) de penetrar na parede de vasos sanguíneos, provocando trombose vascular, infarto isquémico, necrose tecidual e disseminação hematogênica.",
   "k": [
    "angioinvasion",
    "vascular invasion",
